@@ -4,6 +4,19 @@
 :root {
   --background: #0A0A0F;
   --foreground: #FFFFFF;
+  
+  /* Critical gaming colors - garantir que sempre carreguem */
+  --color-deep-space: #0A0A0F;
+  --color-console-dark: #1E1E2E;
+  --color-hud-overlay: #2A2A3A;
+  --color-led-white: #FFFFFF;
+  --color-neon-cyan: #00FFFF;
+  --color-magenta-power: #FF00FF;
+  --color-laser-green: #39FF14;
+  
+  /* Garantir background crítico */
+  --color-dark-bg: var(--color-deep-space);
+  --color-dark-text: var(--color-led-white);
 }
 
 @theme inline {
@@ -13,7 +26,12 @@
   --font-mono: var(--font-jetbrains);
 }
 
-/* Body styles are defined in gaming-tokens.css */
+/* Fallback body styles para garantir que sempre tenha background */
+html, body {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  min-height: 100vh;
+}
 
 * {
   box-sizing: border-box;
