@@ -50,7 +50,10 @@
       "WebFetch(domain:nextjs-boilerplate-six-sooty-20.vercel.app)",
       "Bash(npm start)",
       "WebFetch(domain:playcodeagency.vercel.app)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)"
     ],
     "deny": []
   }
