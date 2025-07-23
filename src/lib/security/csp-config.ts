@@ -24,7 +24,7 @@ export const CSP_POLICIES: CSPConfig = {
   production: [
     "default-src 'self'",
     // Three.js and Framer Motion require unsafe-eval for WebGL shaders and animations
-    "script-src 'self' 'unsafe-eval' https://api.openai.com https://vercel.live",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://api.openai.com https://vercel.live",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
     "img-src 'self' data: https: blob:",

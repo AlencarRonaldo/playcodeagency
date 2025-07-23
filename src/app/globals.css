@@ -1,39 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: #0A0A0F;
-    --foreground: #FFFFFF;
-    
-    /* Gaming colors essenciais */
-    --color-deep-space: #0A0A0F;
-    --color-console-dark: #1E1E2E;
-    --color-led-white: #FFFFFF;
-    --color-neon-cyan: #00FFFF;
-    --color-magenta-power: #FF00FF;
-    --color-laser-green: #39FF14;
-    --color-plasma-yellow: #FFEA00;
-  }
-  
-  html, body {
-    background-color: var(--color-deep-space);
-    color: var(--color-led-white);
-    min-height: 100vh;
-  }
-  
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-  }
+/* CSS puro para garantir funcionamento */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@layer utilities {
-  .bg-deep-space { background-color: var(--color-deep-space); }
-  .bg-console-dark { background-color: var(--color-console-dark); }
-  .text-led-white { color: var(--color-led-white); }
-  .text-neon-cyan { color: var(--color-neon-cyan); }
-  .text-magenta-power { color: var(--color-magenta-power); }
-  .text-laser-green { color: var(--color-laser-green); }
-  .text-plasma-yellow { color: var(--color-plasma-yellow); }
+html {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  min-height: 100vh;
 }
+
+body {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+main {
+  background-color: #0A0A0F !important;
+  min-height: 100vh;
+}
+
+/* Classes gaming essenciais */
+.bg-deep-space { background-color: #0A0A0F !important; }
+.bg-console-dark { background-color: #1E1E2E !important; }
+.text-led-white { color: #FFFFFF !important; }
+.text-neon-cyan { color: #00FFFF !important; }
+.text-magenta-power { color: #FF00FF !important; }
+.text-laser-green { color: #39FF14 !important; }
+.text-plasma-yellow { color: #FFEA00 !important; }
+
+/* Classes básicas */
+.pt-16 { padding-top: 4rem; }
+.min-h-screen { min-height: 100vh; }
+.text-white { color: #FFFFFF !important; }
+.bg-black { background-color: #000000 !important; }
