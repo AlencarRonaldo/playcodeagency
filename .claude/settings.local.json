@@ -49,7 +49,8 @@
       "Bash(./build-hostinger.bat)",
       "WebFetch(domain:nextjs-boilerplate-six-sooty-20.vercel.app)",
       "Bash(npm start)",
-      "WebFetch(domain:playcodeagency.vercel.app)"
+      "WebFetch(domain:playcodeagency.vercel.app)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

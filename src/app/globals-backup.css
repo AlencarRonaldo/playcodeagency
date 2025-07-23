@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0A0F;
+  --foreground: #FFFFFF;
+  
+  /* Critical gaming colors - garantir que sempre carreguem */
+  --color-deep-space: #0A0A0F;
+  --color-console-dark: #1E1E2E;
+  --color-hud-overlay: #2A2A3A;
+  --color-led-white: #FFFFFF;
+  --color-neon-cyan: #00FFFF;
+  --color-magenta-power: #FF00FF;
+  --color-laser-green: #39FF14;
+  
+  /* Garantir background crítico */
+  --color-dark-bg: var(--color-deep-space);
+  --color-dark-text: var(--color-led-white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-exo);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* Fallback body styles para garantir que sempre tenha background */
+html, body {
+  background-color: #0A0A0F !important;
+  color: #FFFFFF !important;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Glitch animation for error pages */
+@keyframes glitch-1 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+  20% {
+    transform: translate(2px, -2px);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translate(2px, 2px);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translate(-2px, 2px);
+    opacity: 0.8;
+  }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s ease-in-out infinite;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s ease-in-out infinite reverse;
+}
