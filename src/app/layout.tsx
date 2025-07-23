@@ -110,6 +110,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" itemScope itemType="https://schema.org/Organization">
+      <head>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* CSS crítico inline para evitar FOUC */
+            html, body {
+              background-color: #0A0A0F !important;
+              color: #FFFFFF !important;
+              font-family: system-ui, -apple-system, sans-serif;
+              margin: 0;
+              padding: 0;
+              min-height: 100vh;
+            }
+            /* Garantir que o main tenha fundo também */
+            main {
+              background-color: #0A0A0F;
+              min-height: 100vh;
+            }
+          `
+        }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Garantir que CSS seja aplicado e prevenir FOUC
+            document.addEventListener('DOMContentLoaded', function() {
+              document.documentElement.style.visibility = 'visible';
+              document.body.style.visibility = 'visible';
+            });
+          `
+        }} />
+      </head>
       <body
         className={`${orbitron.variable} ${exo.variable} ${jetbrainsMono.variable} ${rajdhani.variable} antialiased`}
       >
