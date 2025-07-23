@@ -53,7 +53,10 @@
       "Bash(npm uninstall:*)",
       "Bash(npx lighthouse:*)",
       "Bash(git pull:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(timeout 15 npm run dev)",
+      "Bash(timeout 10 npm run build)",
+      "Bash(timeout:*)"
     ],
     "deny": []
   }
