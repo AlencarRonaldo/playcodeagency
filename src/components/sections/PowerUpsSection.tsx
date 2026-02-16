@@ -3,115 +3,136 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Bot, MenuSquare, Users, Brain, Search } from 'lucide-react'
+import { Bot, MenuSquare, Globe, ShoppingCart, Workflow, Search } from 'lucide-react'
 import PowerUpCard from '@/components/gaming/PowerUpCard'
 import { trackingHelpers } from '@/lib/hooks/useAchievements'
 import { audioHelpers } from '@/lib/hooks/useAudio'
 
 const powerUps = [
   {
-    id: 'ai_chatbot',
-    name: 'Chatbot com Inteligência Artificial',
-    description: 'Atendimento automatizado 24h com IA ChatGPT para aumentar vendas e conversões',
-    icon: Bot,
-    rarity: 'legendary' as const, // Dourado - IA premium
-    level: 15,
-    stats: { power: 95, efficiency: 88, innovation: 92 },
-    price: 'Sob consulta',
-    fullDescription: 'Sistema de chatbot inteligente com IA ChatGPT integrada para atendimento automatizado 24/7. Capaz de responder perguntas complexas, qualificar leads e fazer atendimento personalizado via WhatsApp Business, aumentando vendas e conversões.',
+    id: 'sites_landing',
+    name: 'Sites e Landing Pages',
+    description: 'Sites profissionais e landing pages de alta conversão que transformam visitantes em clientes',
+    icon: Globe,
+    rarity: 'epic' as const,
+    level: 14,
+    stats: { power: 90, efficiency: 95, innovation: 88 },
+    price: 'A partir de R$ 997',
+    fullDescription: 'Criamos sites institucionais e landing pages otimizadas com IA, entregues em até 7 dias. Design responsivo, SEO integrado e foco total em conversão. Ideal para empresas, profissionais liberais e prestadores de serviço que precisam de presença digital profissional.',
     features: [
-      'Integração IA ChatGPT avançada',
-      'Atendimento automatizado 24/7',
-      'WhatsApp Business API integrado',
-      'Sistema de tickets inteligente',
-      'Qualificação automática de leads',
-      'Dashboard analytics completo',
-      'Histórico conversas detalhado',
-      'Respostas personalizadas inteligentes'
+      'Entrega em 7 dias (landing) ou 2-4 semanas (site completo)',
+      'Design responsivo mobile-first',
+      'SEO otimizado para Google',
+      'Formulários de contato e WhatsApp',
+      'Hospedagem e domínio inclusos no 1° ano',
+      'Painel para editar textos e imagens',
+      'Certificado SSL (HTTPS) grátis',
+      'Integração Google Analytics'
+    ]
+  },
+  {
+    id: 'ai_chatbot',
+    name: 'Chatbot WhatsApp com IA',
+    description: 'Atendimento automático 24h no WhatsApp que responde, qualifica leads e vende por você',
+    icon: Bot,
+    rarity: 'legendary' as const,
+    level: 16,
+    stats: { power: 96, efficiency: 92, innovation: 98 },
+    price: 'R$ 1.497 + R$ 297/mês',
+    fullDescription: 'Chatbot inteligente com IA (GPT) integrado ao WhatsApp da sua empresa. Atende clientes 24h, responde dúvidas, qualifica leads e agenda reuniões automaticamente. O serviço mais procurado de 2026 — sua empresa vendendo enquanto você dorme.',
+    features: [
+      'IA treinada com dados do seu negócio',
+      'Integração WhatsApp Business',
+      'Atendimento automático 24/7',
+      'Qualificação inteligente de leads',
+      'Agendamento automático de reuniões',
+      'Dashboard com métricas de atendimento',
+      'Transferência para humano quando necessário',
+      'Respostas personalizadas por contexto'
+    ]
+  },
+  {
+    id: 'ecommerce',
+    name: 'Loja Virtual / E-commerce',
+    description: 'Sua loja online completa com catálogo, carrinho, Pix e cartão — pronta para vender',
+    icon: ShoppingCart,
+    rarity: 'epic' as const,
+    level: 15,
+    stats: { power: 92, efficiency: 88, innovation: 90 },
+    price: 'A partir de R$ 3.997',
+    fullDescription: 'E-commerce completo e personalizado para sua empresa vender online. Catálogo de produtos, carrinho de compras, pagamento via Pix e cartão, controle de estoque e painel administrativo. Tudo integrado e pronto para receber pedidos.',
+    features: [
+      'Catálogo de produtos ilimitado',
+      'Pagamento Pix, cartão e boleto',
+      'Controle de estoque automático',
+      'Painel administrativo completo',
+      'Cálculo de frete integrado',
+      'Design responsivo e rápido',
+      'SEO para produtos no Google',
+      'Integração com marketplaces'
     ]
   },
   {
     id: 'digital_menu',
     name: 'Cardápio Digital QR Code',
-    description: 'Cardápio digital responsivo com QR Code para restaurantes e catálogo empresarial',
+    description: 'Cardápio ou catálogo online acessível pelo celular do cliente com QR Code — atualização em tempo real',
     icon: MenuSquare,
-    rarity: 'rare' as const, // Azul elétrico - gastronomia
+    rarity: 'rare' as const,
     level: 12,
-    stats: { power: 85, efficiency: 90, innovation: 80 },
-    price: 'Sob consulta',
-    fullDescription: 'Solução completa de cardápio digital responsivo para restaurantes e catálogo digital empresarial. Inclui QR Code personalizado, gestão produtos, galeria fotos profissionais e sistema pedidos integrado WhatsApp.',
+    stats: { power: 85, efficiency: 92, innovation: 80 },
+    price: 'R$ 697 + R$ 97/mês',
+    fullDescription: 'Cardápio digital responsivo para restaurantes, bares, cafeterias e delivery. Seu cliente escaneia o QR Code e vê o menu completo no celular. Você atualiza preços e pratos em tempo real pelo painel, sem precisar reimprimir nada.',
     features: [
-      'QR Code cardápio personalizado',
-      'Design responsivo mobile-first',
-      'Gestão produtos/pratos online',
-      'Galeria fotos profissionais HD',
-      'Categorização inteligente produtos',
-      'Sistema pedidos WhatsApp integrado',
-      'Analytics visualizações detalhado',
-      'SEO otimizado cardápio digital'
+      'QR Code personalizado com sua marca',
+      'Atualização de preços em tempo real',
+      'Fotos dos pratos em alta qualidade',
+      'Categorias e filtros inteligentes',
+      'Pedidos direto pelo WhatsApp',
+      'Destaque para promoções do dia',
+      'Funciona em qualquer celular',
+      'Painel fácil de gerenciar'
     ]
   },
   {
-    id: 'specialized_landing',
-    name: 'Landing Pages Profissionais',
-    description: 'Landing pages otimizadas para advogados, psicólogos, coaches e personal trainers',
-    icon: Users,
-    rarity: 'epic' as const, // Roxo - especialização profissional
-    level: 16,
-    stats: { power: 88, efficiency: 92, innovation: 85 },
-    price: 'Sob consulta',
-    fullDescription: 'Landing pages especializadas para profissionais liberais com alta conversão. Templates personalizados por área profissional, formulários otimizados, integração agendamento online e SEO especializado.',
+    id: 'ai_automation',
+    name: 'Automação e Agentes de IA',
+    description: 'Automatize tarefas repetitivas e tenha agentes de IA trabalhando pelo seu negócio 24h',
+    icon: Workflow,
+    rarity: 'mythic' as const,
+    level: 18,
+    stats: { power: 98, efficiency: 96, innovation: 99 },
+    price: 'R$ 1.997 + R$ 397/mês',
+    fullDescription: 'A grande tendência de 2026: agentes de IA autônomos que executam tarefas pela sua empresa. Automatize follow-up de leads, geração de propostas, postagens em redes sociais, relatórios e muito mais. Conectamos suas ferramentas com IA inteligente usando n8n, Make e APIs.',
     features: [
-      'Templates profissionais por área',
-      'Formulários agendamento otimizados',
-      'Integração calendário Google',
-      'Seção depoimentos clientes',
-      'Área certificações credenciais',
-      'Blog profissional SEO integrado',
-      'WhatsApp Business integração',
-      'SEO especializado profissionais liberais'
+      'Agentes de IA autônomos personalizados',
+      'Automação de follow-up e vendas',
+      'Geração automática de propostas',
+      'Integração com suas ferramentas atuais',
+      'Postagens automáticas em redes sociais',
+      'Relatórios gerados por IA',
+      'Workflows personalizados (n8n/Make)',
+      'Redução de até 80% em tarefas manuais'
     ]
   },
   {
-    id: 'management_system',
-    name: 'Sistema ERP/CRM Empresarial',
-    description: 'Sistema de gestão empresarial completo: CRM, financeiro, agenda e relatórios',
-    icon: Brain,
-    rarity: 'mythic' as const, // Verde - poder mítico
-    level: 16,
-    stats: { power: 92, efficiency: 95, innovation: 88 },
-    price: 'Sob consulta',
-    fullDescription: 'Sistema ERP/CRM empresarial personalizado para organização total da empresa. Gestão completa clientes, controle financeiro, agenda online, relatórios gerenciais e integração WhatsApp em plataforma única.',
-    features: [
-      'Sistema CRM gestão clientes',
-      'Controle financeiro empresarial completo',
-      'Agenda online integrada',
-      'Relatórios gerenciais automatizados',
-      'Integração WhatsApp Business',
-      'Backup automático dados',
-      'Dashboard executivo personalizado',
-      'Módulos empresariais personalizáveis'
-    ]
-  },
-  {
-    id: 'seo_optimizer',
-    name: 'SEO Otimização Google',
-    description: 'Otimização SEO completa com IA para primeira página Google e aumento tráfego',
+    id: 'seo_google',
+    name: 'SEO e Presença no Google',
+    description: 'Apareça na primeira página do Google e nas buscas por IA — atraia clientes que procuram seus serviços',
     icon: Search,
-    rarity: 'common' as const, // Branco - base essencial
+    rarity: 'rare' as const,
     level: 13,
-    stats: { power: 82, efficiency: 90, innovation: 78 },
-    price: 'Sob consulta',
-    fullDescription: 'Estratégia SEO completa para primeira página Google. Auditoria técnica detalhada, pesquisa palavras-chave lucrativas, otimização on-page, criação conteúdo SEO e monitoramento rankings Google.',
+    stats: { power: 85, efficiency: 90, innovation: 82 },
+    price: 'A partir de R$ 997/mês',
+    fullDescription: 'Estratégia completa de SEO + GEO (otimização para buscas por IA como ChatGPT e Google AI). Sua empresa aparece quando potenciais clientes pesquisam por serviços como os seus. Inclui otimização técnica, conteúdo estratégico e relatórios mensais de resultado.',
     features: [
       'Auditoria SEO técnica completa',
-      'Pesquisa palavras-chave lucrativas',
-      'Otimização on-page avançada',
-      'Criação conteúdo SEO otimizado',
-      'Link building estratégico qualificado',
-      'Monitoramento rankings Google',
-      'Relatórios SEO mensais detalhados',
-      'Google Analytics configuração avançada'
+      'Otimização para Google e buscas por IA (GEO)',
+      'Pesquisa de palavras-chave lucrativas',
+      'Criação de conteúdo otimizado com IA',
+      'Google Meu Negócio otimizado',
+      'Relatórios mensais de posicionamento',
+      'Link building estratégico',
+      'Monitoramento de concorrentes'
     ]
   }
 ]
@@ -147,20 +168,20 @@ export default function PowerUpsSection() {
             className="mb-12"
           >
             <div className="gaming-mono text-lg font-bold text-plasma-yellow">
-              🚀 SUA IDEIA É NOSSO CHEAT CODE PARA O SUCESSO! 🎯💡
+              SOLUÇÕES DIGITAIS QUE AUMENTAM SUAS VENDAS
             </div>
           </motion.div>
 
           <h2 className="gaming-title text-4xl lg:text-6xl font-bold mb-6">
-            <span className="text-neon-cyan">DESENVOLVIMENTO WEB</span>
+            <span className="text-neon-cyan">SERVIÇOS DE</span>
             <br />
-            <span className="text-magenta-power">ESPECIALIZADO</span>
+            <span className="text-magenta-power">DESENVOLVIMENTO WEB</span>
           </h2>
-          
+
           <p className="gaming-subtitle text-xl text-led-white/80 max-w-3xl mx-auto mb-8">
-            Soluções completas em <strong>desenvolvimento web</strong>, <strong>criação de sites</strong>, 
-            <strong>chatbot com IA</strong>, <strong>sistema ERP/CRM</strong> e <strong>SEO para Google</strong>. 
-            Tecnologia avançada para aumentar vendas e conversões do seu negócio online.
+            <strong>Sites profissionais</strong>, <strong>chatbots WhatsApp com IA</strong>, <strong>lojas virtuais</strong>,
+            <strong> automação inteligente</strong> e <strong>SEO</strong>. Tudo criado com inteligência artificial
+            para entregar mais rápido, com mais qualidade e preços acessíveis.
           </p>
 
           {/* Collection Stats */}
@@ -204,7 +225,7 @@ export default function PowerUpsSection() {
         >
           <div className="gaming-card p-4">
             <div className="flex flex-wrap justify-center gap-3">
-              {['all', 'legendary', 'epic', 'rare', 'common'].map((filter) => (
+              {['all', 'mythic', 'legendary', 'epic', 'rare'].map((filter) => (
                 <button
                   key={filter}
                   className={`
@@ -224,7 +245,7 @@ export default function PowerUpsSection() {
         </motion.div>
 
         {/* Power-ups Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {powerUps.map((powerUp, index) => (
             <motion.div
               key={powerUp.id}
@@ -260,13 +281,13 @@ export default function PowerUpsSection() {
         >
           <div className="gaming-card p-8 max-w-2xl mx-auto">
             <h3 className="gaming-title text-2xl font-bold mb-4 text-gaming-purple">
-              SOLUÇÕES WEB PERSONALIZADAS
+              NÃO SABE POR ONDE COMEÇAR?
             </h3>
-            
+
             <p className="gaming-subtitle text-led-white/80 mb-6">
-              Combine nossos <strong>serviços de desenvolvimento web</strong> para criar 
-              a solução digital perfeita. Nossa equipe especializada ajuda você a escolher 
-              as melhores tecnologias para aumentar vendas e resultados online.
+              Fale com nossa equipe e receba uma <strong>consultoria gratuita</strong> para
+              entender qual solução de <strong>desenvolvimento web</strong> é ideal para o seu negócio.
+              Sem compromisso, sem termos técnicos complicados.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -291,19 +312,18 @@ export default function PowerUpsSection() {
                 onMouseEnter={audioHelpers.playHover}
                 className="gaming-card px-8 py-4 text-lg font-semibold text-electric-blue border-electric-blue hover:text-controller-black hover:bg-electric-blue transition-all duration-300 text-center"
               >
-                VER PACOTES DESENVOLVIMENTO WEB
+                VER PLANOS E PREÇOS
               </Link>
             </div>
           </div>
         </motion.div>
 
-        {/* Achievement System Preview */}
+        {/* Achievement System Preview - appears and auto-hides */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="fixed bottom-20 right-4 z-30"
+          animate={{ opacity: [0, 1, 1, 0], x: [50, 0, 0, 50] }}
+          transition={{ duration: 5, times: [0, 0.15, 0.7, 1], delay: 1 }}
+          className="fixed bottom-20 right-4 z-30 pointer-events-none"
         >
           <div className="gaming-card p-4 max-w-xs border-laser-green bg-laser-green/10">
             <div className="flex items-center space-x-3">

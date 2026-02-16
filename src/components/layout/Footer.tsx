@@ -54,9 +54,9 @@ const FOOTER_SECTIONS: FooterSection[] = [
   {
     title: 'Serviços',
     links: [
-      { name: 'Desenvolvimento Web', href: '/servicos#web' },
-      { name: 'Desenvolvimento Mobile', href: '/servicos#mobile' },
-      { name: 'Integração de IA', href: '/servicos#ai' }
+      { name: 'Criação de Sites Profissionais', href: '/servicos#web' },
+      { name: 'Desenvolvimento de Aplicações Web', href: '/servicos#mobile' },
+      { name: 'Chatbot e Automação com IA', href: '/servicos#ai' }
     ]
   },
   {
@@ -64,21 +64,14 @@ const FOOTER_SECTIONS: FooterSection[] = [
     links: [
       { name: 'Nossa História', href: '/sobre#historia' },
       { name: 'Equipe', href: '/sobre#equipe' },
-      { name: 'Valores', href: '/sobre#valores' },
-      { name: 'Careers', href: '#', external: true },
-      { name: 'Blog', href: '#', external: true },
-      { name: 'Imprensa', href: '#', external: true }
+      { name: 'Valores', href: '/sobre#valores' }
     ]
   },
   {
     title: 'Suporte',
     links: [
-      { name: 'Central de Ajuda', href: '#', external: true },
-      { name: 'Documentação', href: '#', external: true },
-      { name: 'Status do Sistema', href: '#', external: true },
-      { name: 'Política de Privacidade', href: '#' },
-      { name: 'Termos de Uso', href: '#' },
-      { name: 'SLA', href: '#' }
+      { name: 'Fale Conosco', href: '/contato' },
+      { name: 'WhatsApp', href: 'https://wa.me/5511956534963', external: true }
     ]
   }
 ]
@@ -104,34 +97,12 @@ const CONTACT_INFO = [
   }
 ]
 
-const SOCIAL_LINKS = [
-  { 
-    name: 'GitHub', 
-    icon: Github, 
-    href: '#', 
-    color: 'text-led-white hover:text-neon-cyan',
-    description: 'Nossos projetos open source'
-  },
-  { 
-    name: 'LinkedIn', 
-    icon: Linkedin, 
-    href: '#', 
-    color: 'text-electric-blue hover:text-neon-cyan',
-    description: 'Conecte-se conosco'
-  },
-  { 
-    name: 'Twitter', 
-    icon: Twitter, 
-    href: '#', 
-    color: 'text-neon-cyan hover:text-electric-blue',
-    description: 'Novidades e updates'
-  }
-]
+const SOCIAL_LINKS: { name: string; icon: typeof Github; href: string; color: string; description: string }[] = []
 
 const STATS = [
-  { label: 'Projetos Entregues', value: '40', icon: Award },
-  { label: 'Clientes Satisfeitos', value: '40', icon: Users },
-  { label: 'Anos de Experiência', value: '10', icon: Clock },
+  { label: 'Projetos Entregues', value: '40+', icon: Award },
+  { label: 'Clientes Satisfeitos', value: '40+', icon: Users },
+  { label: 'Anos de Experiência', value: '10+', icon: Clock },
   { label: 'Uptime Garantido', value: '99.9%', icon: Shield }
 ]
 
@@ -251,14 +222,15 @@ export default function Footer() {
                 </Link>
 
                 <p className="gaming-subtitle text-sm text-led-white/80 mb-4 leading-relaxed">
-                  Transformando ideias em realidades digitais através de tecnologia de ponta, 
-                  IA avançada e design inovador. Sua jornada épica começa aqui.
+                  Empresa de desenvolvimento web no Brasil. Criamos sites profissionais,
+                  sistemas personalizados e aplicações web que ajudam pequenas empresas
+                  a atrair mais clientes e vender mais pela internet. 10+ anos de experiência.
                 </p>
 
                 {/* Slogan */}
                 <div className="gaming-card p-3 border border-plasma-yellow/30 bg-plasma-yellow/5 rounded-md mb-6 max-w-sm">
                   <div className="gaming-mono text-sm font-bold text-plasma-yellow text-center">
-                    🎯 SUA IDEIA É NOSSO CHEAT CODE PARA O SUCESSO! 💡
+                    Sites profissionais que geram resultados reais
                   </div>
                 </div>
 
@@ -380,7 +352,7 @@ export default function Footer() {
               {/* Copyright */}
               <div className="flex items-center gap-2 text-sm text-led-white/60">
                 <span className="gaming-mono">
-                  © 2024 PlayCode Agency. Feito com
+                  © 2026 PlayCode Agency. Feito com
                 </span>
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}

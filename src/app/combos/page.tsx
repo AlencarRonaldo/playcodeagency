@@ -55,130 +55,131 @@ interface Combo {
 
 const COMBOS: Combo[] = [
   {
-    id: 'startup-accelerator',
-    name: 'Startup Accelerator',
-    subtitle: 'OFERTA LIMITADA - 22% OFF',
-    description: 'Business One + Search Master + Suporte Prioritário - Combo perfeito para empresas que querem resultado rápido no digital',
+    id: 'presenca-digital',
+    name: 'Presença Digital',
+    subtitle: 'MAIS ACESSÍVEL - 35% OFF',
+    description: 'Landing page profissional + SEO local + Google Meu Negócio. Tudo que você precisa para aparecer na internet e atrair seus primeiros clientes online',
     icon: Rocket,
     rarity: 'rare',
-    targetAudience: 'Startups e PMEs',
-    setupCost: 'R$ 3.997 (único)',
-    monthlyCost: 'R$ 397/ano (renovação)',
-    developmentCost: 'De R$ 5.097 por R$ 3.997 (-22%)',
-    timeline: '7 dias + SEO setup',
-    sla: '99.2% uptime',
-    roi: '3-6 meses',
-    scalability: '1 site profissional',
+    targetAudience: 'Profissionais liberais e micro empresas',
+    setupCost: 'R$ 1.497 (único)',
+    monthlyCost: 'R$ 97/mês (manutenção)',
+    developmentCost: 'De R$ 2.300 por R$ 1.497 (-35%)',
+    timeline: '5-7 dias',
+    sla: '99.5% uptime',
+    roi: '1-3 meses',
+    scalability: '1 landing page + Google',
     technologies: [
-      { name: 'Website Profissional', category: 'frontend', description: 'One-page responsiva e otimizada' },
-      { name: 'Hospedagem Premium', category: 'hosting', description: '1 ano de hospedagem incluído' },
-      { name: 'SEO Avançado', category: 'frontend', description: 'Auditoria SEO + palavras-chave + link building' },
-      { name: 'Google My Business', category: 'marketing', description: 'Presença local otimizada' },
-      { name: 'Suporte Prioritário', category: 'backend', description: 'Resposta em 1 hora + backup diário' },
-      { name: 'Analytics Pro', category: 'monitoring', description: 'Relatórios mensais de performance' }
+      { name: 'Landing Page Profissional', category: 'frontend', description: 'Página responsiva otimizada para conversão' },
+      { name: 'SEO Local', category: 'marketing', description: 'Otimização para aparecer em buscas locais' },
+      { name: 'Google Meu Negócio', category: 'marketing', description: 'Perfil completo configurado e otimizado' },
+      { name: 'WhatsApp Business', category: 'backend', description: 'Botão flutuante + link direto' },
+      { name: 'Hospedagem + SSL', category: 'hosting', description: '1 ano de hospedagem e certificado HTTPS' },
+      { name: 'Google Analytics', category: 'monitoring', description: 'Monitoramento de visitas e conversões' }
     ],
     benefits: [
-      'Site profissional entregue em 7 dias',
-      'SEO otimizado para rankeamento rápido',
-      'Suporte prioritário com resposta rápida',
-      'Economia de R$ 1.100 (22%) no pacote',
-      'Google My Business configurado',
-      '5 emails profissionais incluídos',
-      'Garantia de 6 meses de suporte grátis'
+      'Entrega em 5-7 dias úteis',
+      'Apareça no Google quando clientes pesquisarem',
+      'Google Meu Negócio otimizado (mapa + avaliações)',
+      'Economia de R$ 803 (35%) vs. serviços separados',
+      'Hospedagem e domínio inclusos por 1 ano',
+      '5 emails profissionais (@suaempresa.com)',
+      'WhatsApp integrado para receber contatos',
+      'Suporte por 6 meses após entrega'
     ],
     useCases: [
-      'Consultores e profissionais liberais',
-      'Pequenas empresas locais',
-      'Startups validando produto/mercado',
-      'Negócios que precisam de presença digital urgente',
-      'Empresas migrando do offline para online'
+      'Dentistas, advogados, psicólogos, nutricionistas',
+      'Personal trainers e coaches',
+      'Eletricistas, encanadores, pintores',
+      'Pequenos comércios locais',
+      'Quem ainda não tem site e quer começar rápido'
     ],
-    addOns: ['5 Emails profissionais', 'Integração WhatsApp Business', 'Formulário inteligente', 'Backup semanal']
+    addOns: ['5 Emails profissionais', 'Cardápio digital (restaurantes)', 'Formulário inteligente', 'QR Code personalizado']
   },
   {
-    id: 'business-growth',
-    name: 'Business Growth',
-    subtitle: 'MAIS VENDIDO - 20% OFF',
-    description: 'Pro Guild + AI Companion + Mind Reader - Combo ideal para empresas em fase de crescimento acelerado',
+    id: 'atendimento-inteligente',
+    name: 'Atendimento Inteligente',
+    subtitle: 'MAIS VENDIDO - 30% OFF',
+    description: 'Site completo + Chatbot WhatsApp com IA + Agendamento automático. Sua empresa atende, qualifica e agenda clientes 24h sem você precisar estar online',
     icon: Target,
     rarity: 'epic',
-    targetAudience: 'Empresas em Crescimento',
-    setupCost: 'R$ 4.497 (setup)',
-    monthlyCost: 'R$ 497/mês (recorrente)',
-    developmentCost: 'De R$ 5.647 por R$ 4.497 (-20%)',
-    timeline: '7 dias + IA setup',
+    targetAudience: 'Clínicas, consultórios e prestadores de serviço',
+    setupCost: 'R$ 2.997 (setup)',
+    monthlyCost: 'R$ 297/mês (IA + manutenção)',
+    developmentCost: 'De R$ 4.291 por R$ 2.997 (-30%)',
+    timeline: '10-14 dias',
     sla: '99.5% uptime',
-    roi: '6-9 meses',
-    scalability: '2 sites profissionais',
+    roi: '2-4 meses',
+    scalability: 'Site + Chatbot IA 24h',
     technologies: [
-      { name: 'Website Completo', category: 'frontend', description: 'Até 5 páginas profissionais' },
-      { name: 'APIs Customizadas', category: 'backend', description: 'Até 5 APIs para integrações' },
-      { name: 'IA ChatGPT', category: 'backend', description: 'Chatbot inteligente 24/7' },
-      { name: 'Analytics BI', category: 'monitoring', description: 'Dashboards interativos + ROI' },
-      { name: 'Segurança Avançada', category: 'security', description: 'Monitoramento 24/7' },
-      { name: 'Suporte Técnico', category: 'backend', description: 'Suporte técnico especializado' }
+      { name: 'Site Institucional', category: 'frontend', description: 'Até 5 páginas profissionais responsivas' },
+      { name: 'Chatbot WhatsApp IA', category: 'backend', description: 'GPT treinado com dados do seu negócio' },
+      { name: 'Agendamento Automático', category: 'backend', description: 'IA agenda reuniões sem intervenção humana' },
+      { name: 'Google Meu Negócio', category: 'marketing', description: 'Presença local otimizada' },
+      { name: 'SEO Otimizado', category: 'marketing', description: 'Apareça nas buscas do Google' },
+      { name: 'Dashboard de Métricas', category: 'monitoring', description: 'Acompanhe atendimentos e conversões' }
     ],
     benefits: [
-      'Website completo com até 5 páginas',
-      'Atendimento automatizado com IA 24/7',
-      'Business Intelligence para decisões',
-      'Economia de R$ 1.150 (20%) no pacote',
-      'Pode gerenciar 2 sites simultaneamente',
-      'Suporte técnico especializado incluído',
-      'Integração WhatsApp Business API',
-      'Monitoramento 24/7 com alertas'
+      'Chatbot IA responde seus clientes 24/7 no WhatsApp',
+      'Agendamento automático de consultas e reuniões',
+      'IA treinada com perguntas frequentes do SEU negócio',
+      'Economia de R$ 1.294 (30%) vs. serviços separados',
+      'Site profissional com até 5 páginas',
+      'Transferência para humano quando necessário',
+      'Qualificação automática de leads',
+      'Relatórios mensais de atendimento e conversão'
     ],
     useCases: [
-      'Site institucional + landing pages',
-      'Site principal + blog corporativo',
-      'Matriz + filial (2 sites)',
-      'Múltiplas marcas da mesma empresa',
-      'Site + área do cliente + portfólio'
+      'Clínicas médicas e odontológicas',
+      'Escritórios de advocacia e contabilidade',
+      'Imobiliárias e corretores',
+      'Consultórios de psicologia e nutrição',
+      'Empresas de serviço com alto volume de WhatsApp'
     ],
-    addOns: ['WhatsApp Business API', 'Facebook Pixel avançado', 'Integrações premium', 'Backup diário']
+    addOns: ['CRM integrado', 'Remarketing automático', 'Follow-up por email', 'Integração com agenda Google']
   },
   {
-    id: 'enterprise-domination',
-    name: 'Enterprise Domination',
-    subtitle: 'PREMIUM - 13% OFF + BÔNUS',
-    description: 'Elite Force + Mobile App + Mind Reader - Solução enterprise para domínio total do mercado digital',
+    id: 'maquina-de-vendas',
+    name: 'Máquina de Vendas',
+    subtitle: 'PREMIUM - 40% OFF + BÔNUS',
+    description: 'Site completo + Chatbot IA + Automação de vendas + SEO + Redes sociais. Sua operação digital completa rodando no piloto automático com IA',
     icon: Crown,
     rarity: 'legendary',
-    targetAudience: 'Grandes Empresas',
-    setupCost: 'Consultar (setup)',
-    monthlyCost: 'R$ 7.997/mês (recorrente)',
-    developmentCost: 'De R$ 9.150 por R$ 7.997/mês (-13%)',
-    timeline: '8-16 semanas',
+    targetAudience: 'Empresas que querem escalar vendas',
+    setupCost: 'R$ 4.997 (setup)',
+    monthlyCost: 'R$ 997/mês (tudo incluso)',
+    developmentCost: 'De R$ 8.385 por R$ 4.997 (-40%)',
+    timeline: '2-4 semanas',
     sla: '99.9% uptime',
-    roi: '12-18 meses',
-    scalability: '5+ sites + App Mobile',
+    roi: '3-6 meses',
+    scalability: 'Operação digital completa',
     technologies: [
-      { name: 'Plataforma Customizada', category: 'frontend', description: 'Sistema completo sob medida' },
-      { name: 'App Mobile Nativo', category: 'frontend', description: 'iOS + Android com performance otimizada' },
-      { name: 'Integração IA', category: 'backend', description: 'Machine Learning personalizado' },
-      { name: 'Business Intelligence', category: 'monitoring', description: 'Analytics avançado + insights' },
-      { name: 'DevOps Completo', category: 'backend', description: 'CI/CD + monitoramento 24/7' },
-      { name: 'Microserviços', category: 'backend', description: 'Arquitetura escalável' }
+      { name: 'Site Completo', category: 'frontend', description: 'Até 10 páginas + blog + landing pages' },
+      { name: 'Chatbot IA Avançado', category: 'backend', description: 'WhatsApp + site com qualificação de leads' },
+      { name: 'Automação de Vendas', category: 'backend', description: 'Follow-up, propostas e nurturing automáticos' },
+      { name: 'SEO + GEO', category: 'marketing', description: 'Google + otimização para buscas por IA' },
+      { name: 'Redes Sociais IA', category: 'marketing', description: '16 posts/mês gerados por IA' },
+      { name: 'Analytics Completo', category: 'monitoring', description: 'Dashboard com todas as métricas de vendas' }
     ],
     benefits: [
-      'Plataforma enterprise customizada',
-      'App mobile nativo para iOS e Android',
-      'Business Intelligence avançado',
-      'Economia de R$ 1.153/mês (13%) no pacote',
-      'Arquitetura preparada para alta escala',
-      'Equipe dedicada com project manager',
-      'DevOps completo com CI/CD',
-      'Security audit mensal incluído',
-      'SLA garantido de 99.9% uptime'
+      'Operação digital 100% automatizada com IA',
+      'Chatbot IA + automação de follow-up de vendas',
+      '16 posts/mês para redes sociais (gerados por IA)',
+      'Economia de R$ 3.388 (40%) vs. serviços separados',
+      'SEO + GEO (apareça no Google E em buscas por IA)',
+      'Geração automática de propostas comerciais',
+      'Recuperação de leads inativos por WhatsApp',
+      'Relatórios semanais com IA de recomendações',
+      'Equipe dedicada com gerente de projeto'
     ],
     useCases: [
-      'Múltiplas filiais ou franquias',
-      'Ecossistema completo (5+ sites + app)',
-      'Marketplace + painel admin + mobile',
-      'Holding com várias empresas',
-      'Plataforma SaaS multi-tenant'
+      'E-commerces que querem escalar vendas',
+      'Empresas com equipe comercial que precisa de mais leads',
+      'Negócios com múltiplos canais de venda',
+      'Franquias e redes com várias unidades',
+      'Empresas investindo em marketing digital'
     ],
-    addOns: ['Load Balancing', 'Security Audit', 'Innovation Lab', 'Global CDN']
+    addOns: ['Google Ads management', 'E-commerce integrado', 'App mobile PWA', 'CRM avançado com IA']
   }
 ]
 
@@ -209,13 +210,14 @@ const rarityConfig = {
   }
 }
 
-const categoryIcons = {
+const categoryIcons: Record<string, React.ElementType> = {
   frontend: Code,
   backend: Database,
   database: Layers,
   hosting: Globe,
   security: Lock,
-  monitoring: Gauge
+  monitoring: Gauge,
+  marketing: TrendingUp
 }
 
 export default function CombosPage() {
@@ -273,23 +275,6 @@ export default function CombosPage() {
 
   return (
     <div className="min-h-screen bg-gradient-console">
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-20"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${12 + Math.random() * 6}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
-
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
@@ -304,14 +289,14 @@ export default function CombosPage() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <Star className="w-8 h-8 text-plasma-yellow" />
             <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
-              COMBOS RECOMENDADOS
+              PACOTES COMPLETOS DE DESENVOLVIMENTO WEB
             </h1>
             <Star className="w-8 h-8 text-plasma-yellow" />
           </div>
           
           <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
-            Stacks tecnológicos otimizados para cada tipo de negócio. 
-            Escolha o combo perfeito para dominar seu mercado.
+            Pacotes completos com <strong>site + IA + automação</strong> em um só lugar.
+            Economize até <strong>40%</strong> escolhendo o combo ideal para o seu negócio.
           </p>
 
           {/* ROI Comparison */}
@@ -322,9 +307,9 @@ export default function CombosPage() {
             className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
           >
             {[
-              { label: 'Time to Market', startup: '2-4 sem', corporate: '6-12 sem', enterprise: '3-6 meses' },
-              { label: 'Escalabilidade', startup: '1K-10K', corporate: '10K-100K', enterprise: '100K+' },
-              { label: 'ROI Break-even', startup: '3-6 meses', corporate: '6-12 meses', enterprise: '12-24 meses' }
+              { label: 'Entrega', presenca: '5-7 dias', atendimento: '10-14 dias', maquina: '2-4 semanas' },
+              { label: 'Investimento', presenca: 'R$ 1.497', atendimento: 'R$ 2.997', maquina: 'R$ 4.997' },
+              { label: 'Retorno estimado', presenca: '1-3 meses', atendimento: '2-4 meses', maquina: '3-6 meses' }
             ].map((metric, index) => (
               <div key={index} className="gaming-card p-4">
                 <div className="gaming-mono text-xs font-bold text-neon-cyan mb-3 uppercase">
@@ -332,16 +317,16 @@ export default function CombosPage() {
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-electric-blue">Startup:</span>
-                    <span className="text-led-white">{metric.startup}</span>
+                    <span className="text-electric-blue">Presença:</span>
+                    <span className="text-led-white">{metric.presenca}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gaming-purple">Corporate:</span>
-                    <span className="text-led-white">{metric.corporate}</span>
+                    <span className="text-gaming-purple">Atendimento:</span>
+                    <span className="text-led-white">{metric.atendimento}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-plasma-yellow">Enterprise:</span>
-                    <span className="text-led-white">{metric.enterprise}</span>
+                    <span className="text-plasma-yellow">Vendas:</span>
+                    <span className="text-led-white">{metric.maquina}</span>
                   </div>
                 </div>
               </div>
@@ -720,11 +705,11 @@ export default function CombosPage() {
           className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50 mt-16"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
-            NÃO ENCONTROU O COMBO IDEAL?
+            PRECISA DE ALGO DIFERENTE?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">
-            Criamos combos personalizados para necessidades específicas. 
-            Fale conosco e monte a stack perfeita para seu projeto!
+            Montamos um pacote personalizado para a sua empresa.
+            Conte o que você precisa e criamos a solução ideal para o seu negócio.
           </p>
           
           <motion.button

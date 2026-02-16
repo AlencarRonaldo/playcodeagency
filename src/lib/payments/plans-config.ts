@@ -7,8 +7,8 @@ export const GAME_PLANS: GamePlan[] = [
   {
     id: 'starter-pack',
     name: 'Starter Pack',
-    subtitle: 'ACELERE SUA ENTRADA',
-    description: 'Perfeito para startups e pequenos negócios que querem resultados rápidos',
+    subtitle: 'PARA COMEÇAR',
+    description: 'Ideal para pequenos negócios e profissionais que querem presença digital',
     rarity: 'rare',
     popular: false,
     enterprise: false,
@@ -42,8 +42,8 @@ export const GAME_PLANS: GamePlan[] = [
   {
     id: 'business-one',
     name: 'Business One',
-    subtitle: 'EVOLUÇÃO INTELIGENTE',
-    description: 'Para pequenas empresas que buscam crescimento sustentável com recursos premium',
+    subtitle: 'PARA PEQUENAS EMPRESAS',
+    description: 'Para empresas que buscam crescimento sustentável com recursos profissionais',
     rarity: 'rare',
     popular: false,
     enterprise: false,
@@ -79,8 +79,8 @@ export const GAME_PLANS: GamePlan[] = [
   {
     id: 'pro-guild',
     name: 'Pro Guild',
-    subtitle: 'MÁXIMA PERFORMANCE',
-    description: 'Para empresas que exigem soluções robustas e performance superior',
+    subtitle: 'PARA EMPRESAS EM CRESCIMENTO',
+    description: 'Para empresas que precisam de soluções robustas e alta performance',
     rarity: 'epic',
     popular: true,
     enterprise: false,
@@ -122,8 +122,8 @@ export const GAME_PLANS: GamePlan[] = [
   {
     id: 'enterprise-legend',
     name: 'Enterprise Legend',
-    subtitle: 'SOLUÇÃO COMPLETA',
-    description: 'Poder máximo para grandes corporações e projetos ambiciosos',
+    subtitle: 'PARA GRANDES EMPRESAS',
+    description: 'Solução completa para corporações e projetos de grande porte',
     rarity: 'legendary',
     popular: false,
     enterprise: true,

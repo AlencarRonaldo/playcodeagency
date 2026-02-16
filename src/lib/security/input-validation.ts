@@ -282,29 +282,27 @@ export class IPSecurity {
 // Security monitoring and alerting
 export class SecurityMonitor {
   private static suspiciousPatterns = [
-    /script/i,
-    /javascript/i,
-    /vbscript/i,
-    /onload/i,
-    /onerror/i,
-    /onclick/i,
-    /<iframe/i,
-    /<object/i,
-    /<embed/i,
-    /eval\(/i,
-    /document\./i,
-    /window\./i,
+    /<script[\s>]/i,
+    /javascript\s*:/i,
+    /vbscript\s*:/i,
+    /\bon\w+\s*=\s*["']/i,
+    /<iframe[\s>]/i,
+    /<object[\s>]/i,
+    /<embed[\s>]/i,
+    /eval\s*\(/i,
+    /<svg[\s>].*?on\w+\s*=/i,
+    /expression\s*\(/i,
   ]
 
   static detectSuspiciousContent(content: string): string[] {
     const threats = []
-    
+
     for (const pattern of this.suspiciousPatterns) {
       if (pattern.test(content)) {
         threats.push(pattern.source)
       }
     }
-    
+
     return threats
   }
 

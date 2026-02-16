@@ -334,22 +334,6 @@ export default function ContatoPage() {
       {/* Circuit Pattern Background */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
       
-      {/* Matrix Rain Effect */}
-      <div className="matrix-rain opacity-20">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green"
-            style={{
-              left: `${i * 7}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${10 + Math.random() * 4}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
 
       <div className="relative z-10 container mx-auto px-6 py-20">
         {/* Header */}

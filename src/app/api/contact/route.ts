@@ -55,8 +55,9 @@ export async function POST(request: NextRequest) {
     // Parse and validate request body with enhanced security
     const body = await request.json()
     
-    // Check for suspicious content
-    const suspicious = SecurityMonitor.detectSuspiciousContent(JSON.stringify(body))
+    // Check for suspicious content in user-provided text fields only
+    const textToCheck = [body.name, body.message, body.company].filter(Boolean).join(' ')
+    const suspicious = SecurityMonitor.detectSuspiciousContent(textToCheck)
     if (suspicious.length > 0) {
       SecurityMonitor.logSecurityEvent({
         type: 'suspicious_input',

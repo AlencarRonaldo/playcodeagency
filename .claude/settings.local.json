@@ -56,7 +56,19 @@
       "Bash(git rebase:*)",
       "Bash(timeout 15 npm run dev)",
       "Bash(timeout 10 npm run build)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(npx next build:*)",
+      "WebFetch(domain:sistemacadastro-fawn.vercel.app)",
+      "WebFetch(domain:dashboard-analytics-vert.vercel.app)",
+      "WebFetch(domain:controle-financeiro-kappa-ten.vercel.app)",
+      "WebFetch(domain:condotrack-nine.vercel.app)",
+      "WebFetch(domain:mobiguincho.vercel.app)",
+      "WebSearch",
+      "WebFetch(domain:www.ohub.com.br)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -File -:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)"
     ],
     "deny": []
   }

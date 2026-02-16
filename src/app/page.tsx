@@ -3,17 +3,20 @@ import PowerUpsSection from '@/components/sections/PowerUpsSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Início - Desenvolvimento Web Profissional e Inteligência Artificial",
-  description: "PlayCode Agency: Especialistas em desenvolvimento web, criação de sites profissionais, integração de IA e soluções digitais personalizadas. 10 anos de experiência, 50+ projetos e 40+ clientes satisfeitos.",
+  title: "Criação de Sites Profissionais e Desenvolvimento Web para Empresas | PlayCode Agency",
+  description: "Empresa de desenvolvimento web no Brasil. Criamos sites responsivos, sistemas personalizados e aplicações web que geram resultados reais para seu negócio. 10+ anos, 40+ clientes. Orçamento grátis!",
   keywords: [
-    "desenvolvimento web profissional", "criação de sites", "agência digital", 
-    "inteligência artificial", "chatbot IA", "automação", "landing page",
-    "site responsivo", "desenvolvimento React", "Next.js", "TypeScript",
-    "otimização performance", "SEO técnico", "experiência usuário"
+    "desenvolvimento de sites profissionais", "criação de sites responsivos",
+    "desenvolvimento web para empresas", "criação de sistemas personalizados",
+    "site para pequenas empresas", "desenvolvimento de aplicações web",
+    "empresa de desenvolvimento web no Brasil", "criar site profissional",
+    "site responsivo para empresa", "landing page profissional",
+    "sistema web personalizado", "chatbot para empresas",
+    "site para profissionais liberais", "quanto custa um site profissional"
   ],
   openGraph: {
-    title: "PlayCode Agency - Desenvolvimento Web e IA que Transforma Negócios",
-    description: "Criamos soluções web inovadoras: sites profissionais, apps inteligentes e sistemas com IA. 10 anos de experiência, 50+ projetos, 40+ clientes satisfeitos.",
+    title: "Criação de Sites Profissionais para Empresas | PlayCode Agency",
+    description: "Precisa de um site profissional? Somos especialistas em desenvolvimento web para empresas. Sites responsivos, sistemas personalizados e resultados comprovados. Peça seu orçamento grátis!",
     url: "https://playcodeagency.xyz",
   },
   alternates: {
@@ -31,7 +34,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PlayCode Agency",
-            "description": "Agência especializada em desenvolvimento web profissional, criação de sites, apps e integração de inteligência artificial",
+            "description": "Empresa de desenvolvimento web no Brasil especializada em criação de sites profissionais, sites responsivos, sistemas personalizados e aplicações web para empresas",
             "url": "https://playcodeagency.xyz",
             "logo": "https://playcodeagency.xyz/logo.png",
             "foundingDate": "2014",
@@ -59,26 +62,21 @@ export default function Home() {
             "service": [
               {
                 "@type": "Service",
-                "name": "Desenvolvimento Web",
-                "description": "Criação de sites profissionais, aplicações web responsivas e sistemas personalizados"
-              },
-              {
-                "@type": "Service", 
-                "name": "Integração de IA",
-                "description": "Chatbots inteligentes, automação de processos e soluções com inteligência artificial"
+                "name": "Desenvolvimento de Sites Profissionais",
+                "description": "Criação de sites responsivos e profissionais para empresas, com design moderno, SEO otimizado e foco em resultados"
               },
               {
                 "@type": "Service",
-                "name": "Desenvolvimento Mobile",
-                "description": "Aplicações móveis nativas e híbridas para iOS e Android"
+                "name": "Criação de Sistemas Personalizados",
+                "description": "Desenvolvimento de aplicações web e sistemas sob medida para automatizar processos e aumentar a produtividade da sua empresa"
+              },
+              {
+                "@type": "Service",
+                "name": "Sites para Pequenas Empresas",
+                "description": "Soluções acessíveis de desenvolvimento web para pequenas empresas e profissionais liberais que querem crescer no digital"
               }
             ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "40",
-              "bestRating": "5"
-            }
+            "knowsAbout": ["Desenvolvimento de Sites Profissionais", "Criação de Sites Responsivos", "Sistemas Personalizados", "Desenvolvimento Web para Empresas", "Aplicações Web"]
           })
         }}
       />

@@ -22,7 +22,7 @@ export default function HeroSection() {
     level: 1,
     achievements: 0
   })
-  const [matrixRainData, setMatrixRainData] = useState<Array<{delay: number, fontSize: number, char: string}>>([])
+  const [matrixRainData] = useState<Array<{delay: number, fontSize: number, char: string}>>([])
   const [particlesData, setParticlesData] = useState<Array<{x: number, y: number, duration: number, delay: number}>>([])
 
   const { playContextMusic } = useAudio()
@@ -30,13 +30,6 @@ export default function HeroSection() {
 
   // Generate matrix rain data on client side only
   useEffect(() => {
-    const rainData = Array.from({ length: 20 }).map(() => ({
-      delay: Math.random() * 3,
-      fontSize: 12 + Math.random() * 6,
-      char: String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96))
-    }))
-    setMatrixRainData(rainData)
-
     // Generate particles data
     const particles = Array.from({ length: 10 }).map(() => ({
       x: Math.random() * 1200,
@@ -111,22 +104,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-console">
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {matrixRainData.map((data, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-30"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${data.delay}s`,
-              fontSize: `${data.fontSize}px`
-            }}
-          >
-            {data.char}
-          </span>
-        ))}
-      </div>
 
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-20 pointer-events-none" />
@@ -168,7 +145,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="grid lg:grid-cols-2 gap-12 items-center"
+              className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center"
             >
               {/* Left Content */}
               <div className="text-center lg:text-left">
@@ -176,14 +153,14 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  className="gaming-title text-5xl lg:text-7xl font-bold mb-6 neon-glow text-neon-cyan"
+                  className="gaming-title text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 neon-glow text-neon-cyan"
                 >
-                  <span className="sr-only">PlayCode Agency - </span>
-                  READY
+                  <span className="sr-only">PlayCode Agency - Empresa de Desenvolvimento Web no Brasil - </span>
+                  SITES PROFISSIONAIS
                   <br />
-                  <span className="text-magenta-power">PLAYER</span>
+                  <span className="text-magenta-power">QUE GERAM</span>
                   <br />
-                  <span className="text-gaming-purple">ONE?</span>
+                  <span className="text-gaming-purple">RESULTADOS REAIS</span>
                 </motion.h1>
 
                 <motion.p
@@ -192,9 +169,7 @@ export default function HeroSection() {
                   transition={{ delay: 0.6, duration: 0.8 }}
                   className="gaming-subtitle text-xl lg:text-2xl mb-8 text-led-white/80 max-w-xl"
                 >
-                  Transformamos seu negócio com <strong>desenvolvimento web profissional</strong>, 
-                  <strong>integração de IA</strong> e <strong>soluções digitais personalizadas</strong>. 
-                  Mais de <strong>40 clientes satisfeitos</strong> com <strong>10 anos de experiência</strong>.
+                  Somos especialistas em desenvolvimento de <strong>sites profissionais</strong>, <strong>sistemas ERP personalizados</strong> e <strong>automações empresariais</strong>. Atuamos há mais de <strong>10 anos</strong> ajudando empresas a sair do improviso e ter processos organizados, sistemas eficientes e presença digital estratégica.
                 </motion.p>
 
                 {/* Action Buttons */}
@@ -214,7 +189,7 @@ export default function HeroSection() {
                       window.location.href = '/contato'
                     }}
                   >
-                    <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">INICIAR MISSÃO</span>
+                    <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">QUERO MEU SITE PROFISSIONAL</span>
                   </button>
                 </motion.div>
 
@@ -226,16 +201,16 @@ export default function HeroSection() {
                   className="flex justify-center lg:justify-start space-x-8 mt-8"
                 >
                   <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-laser-green">40</div>
-                    <div className="gaming-mono text-sm text-led-white/60">PROJETOS ENTREGUES</div>
+                    <div className="gaming-display text-2xl font-bold text-laser-green">40+</div>
+                    <div className="gaming-mono text-sm text-led-white/60">SITES ENTREGUES</div>
                   </div>
                   <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-plasma-yellow">24/7</div>
-                    <div className="gaming-mono text-sm text-led-white/60">SUPORTE DIGITAL</div>
+                    <div className="gaming-display text-2xl font-bold text-plasma-yellow">40+</div>
+                    <div className="gaming-mono text-sm text-led-white/60">EMPRESAS ATENDIDAS</div>
                   </div>
                   <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-magenta-power">10</div>
-                    <div className="gaming-mono text-sm text-led-white/60">ANOS EXPERIÊNCIA</div>
+                    <div className="gaming-display text-2xl font-bold text-magenta-power">10+</div>
+                    <div className="gaming-mono text-sm text-led-white/60">ANOS NO MERCADO</div>
                   </div>
                 </motion.div>
               </div>
@@ -248,14 +223,14 @@ export default function HeroSection() {
                 className="relative"
               >
                 {/* HUD Container */}
-                <div className="gaming-card p-8 relative">
+                <div className="gaming-card p-5 relative">
                   <div className="absolute top-4 left-4 right-4">
                     <div className="flex justify-between items-center mb-6">
                       <div className="gaming-mono text-neon-cyan text-sm">
-                        POR QUE NOS ESCOLHER
+                        POR QUE ESCOLHER A PLAYCODE
                       </div>
                       <div className="gaming-mono text-laser-green text-sm">
-                        COMPROVADO
+                        RESULTADOS COMPROVADOS
                       </div>
                     </div>
                   </div>
@@ -263,13 +238,13 @@ export default function HeroSection() {
                   <div className="pt-8 space-y-6">
                     {/* Competitive Advantages Display */}
                     <div className="flex justify-center mb-6">
-                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-2 gap-4">
                         {/* Advantage 1 - Speed & Delivery */}
                         <motion.div
                           initial={{ scale: 0, rotate: 180 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-laser-green bg-laser-green/10 min-w-[140px]"
+                          className="relative text-center p-4 gaming-card border-2 border-laser-green bg-laser-green/10 "
                         >
                           {/* Speed Icon Frame */}
                           <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-laser-green/20 to-green-400/20 rounded-lg border-2 border-laser-green flex items-center justify-center">
@@ -279,11 +254,11 @@ export default function HeroSection() {
                           
                           {/* Advantage Info */}
                           <div className="gaming-mono text-xs text-laser-green font-bold">ENTREGA RÁPIDA</div>
-                          <div className="gaming-mono text-xs text-led-white/50">50% Mais Rápido</div>
-                          
+                          <div className="gaming-mono text-xs text-led-white/50">Seu site no ar em dias</div>
+
                           {/* Key Metrics */}
-                          <div className="text-xs text-laser-green mt-1">Que Concorrentes</div>
-                          <div className="text-xs text-laser-green">Deploy em 2-4 Semanas</div>
+                          <div className="text-xs text-laser-green mt-1">Sites em 7 dias</div>
+                          <div className="text-xs text-laser-green">Sistemas em 2-4 sem.</div>
                           
                           {/* Trust Indicators */}
                           <div className="flex justify-center mt-2 space-x-1">
@@ -311,7 +286,7 @@ export default function HeroSection() {
                           initial={{ scale: 0, rotate: 180 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-electric-blue bg-electric-blue/10 min-w-[140px]"
+                          className="relative text-center p-4 gaming-card border-2 border-electric-blue bg-electric-blue/10 "
                         >
                           {/* Quality Shield Frame */}
                           <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-electric-blue/20 to-neon-cyan/20 rounded-lg border-2 border-electric-blue flex items-center justify-center">
@@ -320,12 +295,12 @@ export default function HeroSection() {
                           </div>
                           
                           {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-electric-blue font-bold">QUALIDADE</div>
-                          <div className="gaming-mono text-xs text-led-white/50">99% Bug-Free</div>
-                          
+                          <div className="gaming-mono text-xs text-electric-blue font-bold">SITES RESPONSIVOS</div>
+                          <div className="gaming-mono text-xs text-led-white/50">Perfeito em qualquer tela</div>
+
                           {/* Key Metrics */}
-                          <div className="text-xs text-electric-blue mt-1">Código Limpo</div>
-                          <div className="text-xs text-electric-blue">Testes Automatizados</div>
+                          <div className="text-xs text-electric-blue mt-1">Mobile, Tablet e PC</div>
+                          <div className="text-xs text-electric-blue">SEO otimizado</div>
                           
                           {/* Trust Indicators */}
                           <div className="flex justify-center mt-2 space-x-1">
@@ -353,7 +328,7 @@ export default function HeroSection() {
                           initial={{ scale: 0, rotate: 180 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ delay: 1.4, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-gaming-purple bg-gaming-purple/10 min-w-[140px]"
+                          className="relative text-center p-4 gaming-card border-2 border-gaming-purple bg-gaming-purple/10 "
                         >
                           <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-gaming-purple/20 to-magenta-power/20 rounded-lg border-2 border-gaming-purple flex items-center justify-center">
                             {/* Simple Brain/Innovation Icon */}
@@ -362,11 +337,11 @@ export default function HeroSection() {
                           
                           {/* Advantage Info */}
                           <div className="gaming-mono text-xs text-gaming-purple font-bold">EXPERIÊNCIA</div>
-                          <div className="gaming-mono text-xs text-led-white/50">10+ Anos Gaming</div>
-                          
+                          <div className="gaming-mono text-xs text-led-white/50">10+ anos no mercado</div>
+
                           {/* Key Metrics */}
-                          <div className="text-xs text-gaming-purple mt-1">Tecnologia Avançada</div>
-                          <div className="text-xs text-gaming-purple">Soluções Inovadoras</div>
+                          <div className="text-xs text-gaming-purple mt-1">40+ projetos entregues</div>
+                          <div className="text-xs text-gaming-purple">Clientes satisfeitos</div>
                           
                           <div className="flex justify-center mt-2 space-x-1">
                             <div className="w-2 h-2 bg-gaming-purple rounded-full"></div>
@@ -393,7 +368,7 @@ export default function HeroSection() {
                           initial={{ scale: 0, rotate: 180 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ delay: 1.6, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-plasma-yellow bg-plasma-yellow/10 min-w-[140px]"
+                          className="relative text-center p-4 gaming-card border-2 border-plasma-yellow bg-plasma-yellow/10 "
                         >
                           <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-plasma-yellow/20 to-yellow-300/20 rounded-lg border-2 border-plasma-yellow flex items-center justify-center">
                             {/* Simple Trophy Icon */}
@@ -401,12 +376,12 @@ export default function HeroSection() {
                           </div>
                           
                           {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-plasma-yellow font-bold">RESULTADOS</div>
-                          <div className="gaming-mono text-xs text-led-white/50">3x+ ROI Comprovado</div>
-                          
+                          <div className="gaming-mono text-xs text-plasma-yellow font-bold">MAIS VENDAS</div>
+                          <div className="gaming-mono text-xs text-led-white/50">Resultados mensuráveis</div>
+
                           {/* Key Metrics */}
-                          <div className="text-xs text-plasma-yellow mt-1">95% Retenção</div>
-                          <div className="text-xs text-plasma-yellow">50+ Projetos</div>
+                          <div className="text-xs text-plasma-yellow mt-1">+150% em leads</div>
+                          <div className="text-xs text-plasma-yellow">ROI comprovado</div>
                           
                           {/* Success Indicators */}
                           <div className="flex justify-center mt-2 space-x-1">
@@ -439,7 +414,7 @@ export default function HeroSection() {
                     {/* Client Success Rate */}
                     <div className="hud-element">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="gaming-mono text-xs">TAXA DE SUCESSO</span>
+                        <span className="gaming-mono text-xs">SATISFAÇÃO DOS CLIENTES</span>
                         <span className="gaming-mono text-xs text-laser-green">{hudStats.hp}%</span>
                       </div>
                       <div className="hud-bar">
@@ -452,17 +427,17 @@ export default function HeroSection() {
                       </div>
                     </div>
 
-                    {/* Client Satisfaction */}
+                    {/* Uptime */}
                     <div className="hud-element">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="gaming-mono text-xs">SATISFAÇÃO DOS CLIENTES</span>
-                        <span className="gaming-mono text-xs text-electric-blue">{hudStats.xp}%</span>
+                        <span className="gaming-mono text-xs">UPTIME GARANTIDO</span>
+                        <span className="gaming-mono text-xs text-electric-blue">99.9%</span>
                       </div>
                       <div className="hud-bar">
                         <motion.div
                           className="hud-bar-fill bg-gradient-to-r from-electric-blue to-gaming-purple"
                           initial={{ width: 0 }}
-                          animate={{ width: `${hudStats.xp}%` }}
+                          animate={{ width: '99.9%' }}
                           transition={{ duration: 2.5, delay: 0.5, ease: 'easeOut' }}
                         />
                       </div>
@@ -472,16 +447,16 @@ export default function HeroSection() {
                     <div className="grid grid-cols-2 gap-4 pt-4">
                       <div className="hud-element text-center">
                         <div className="gaming-display text-2xl font-bold text-magenta-power">
-                          40
+                          40+
                         </div>
                         <div className="gaming-mono text-xs opacity-70">PROJETOS ENTREGUES</div>
                       </div>
-                      
+
                       <div className="hud-element text-center">
                         <div className="gaming-display text-2xl font-bold text-plasma-yellow">
-                          10
+                          10+
                         </div>
-                        <div className="gaming-mono text-xs opacity-70">ANOS EXPERIÊNCIA</div>
+                        <div className="gaming-mono text-xs opacity-70">ANOS DE EXPERIÊNCIA</div>
                       </div>
                     </div>
                   </div>
@@ -490,15 +465,15 @@ export default function HeroSection() {
                 {/* Trust Badge Notification */}
                 <motion.div
                   initial={{ x: -200, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 3, duration: 0.8 }}
-                  className="absolute -top-6 -right-6 gaming-card p-3 border-laser-green bg-laser-green/10"
+                  animate={{ opacity: [0, 1, 1, 0], x: [-200, 0, 0, -200] }}
+                  transition={{ duration: 6, times: [0, 0.15, 0.7, 1], delay: 3 }}
+                  className="absolute top-2 right-2 z-20 gaming-card p-3 border-laser-green bg-laser-green/10 pointer-events-none"
                 >
                   <div className="gaming-mono text-xs text-laser-green">
-                    ✅ AGÊNCIA VERIFICADA
+                    ✅ EMPRESA BRASILEIRA
                   </div>
                   <div className="gaming-mono text-xs font-bold">
-                    95% Client Retention Rate
+                    10+ Anos | 40+ Empresas Atendidas
                   </div>
                 </motion.div>
               </motion.div>

@@ -75,8 +75,8 @@ const PLANS: Plan[] = [
   {
     id: 'starter',
     name: 'Starter Pack',
-    subtitle: 'Para quem está começando',
-    description: 'Ideal para pequenos negócios que querem marcar presença digital',
+    subtitle: 'Site para quem está começando',
+    description: 'Landing page profissional perfeita para pequenas empresas e profissionais liberais',
     rarity: 'rare',
     price: {
       monthly: 797,
@@ -111,8 +111,8 @@ const PLANS: Plan[] = [
   {
     id: 'business-one',
     name: 'Business One',
-    subtitle: 'Para pequenas empresas inteligentes',
-    description: 'Site profissional one-page com todas as informações do seu negócio organizadas em seções',
+    subtitle: 'Site profissional completo',
+    description: 'Site responsivo one-page com todas as informações do seu negócio, ideal para atrair clientes',
     rarity: 'rare',
     price: {
       monthly: 1497,
@@ -151,8 +151,8 @@ const PLANS: Plan[] = [
   {
     id: 'professional',
     name: 'Pro Guild',
-    subtitle: 'Para negócios em crescimento',
-    description: 'Solução completa para empresas que querem escalar digitalmente',
+    subtitle: 'Para empresas em crescimento',
+    description: 'Site completo com até 5 páginas, domínio e hospedagem incluídos. Tudo para sua empresa crescer online',
     rarity: 'rare',
     price: {
       monthly: 2497,
@@ -189,8 +189,8 @@ const PLANS: Plan[] = [
   {
     id: 'enterprise',
     name: 'Elite Force',
-    subtitle: 'Para empresas estabelecidas',
-    description: 'Solução enterprise com IA, automação e infraestrutura robusta',
+    subtitle: 'Para empresas consolidadas',
+    description: 'Sistema web personalizado com IA, painel administrativo e automação para grandes operações',
     rarity: 'epic',
     price: {
       monthly: 7500,
@@ -226,8 +226,8 @@ const PLANS: Plan[] = [
   {
     id: 'legendary',
     name: 'Legendary Tier',
-    subtitle: 'Para visionários digitais',
-    description: 'Parceria estratégica completa com dedicação exclusiva',
+    subtitle: 'Parceria estratégica total',
+    description: 'Equipe dedicada, sistema sob medida e tecnologia avançada para projetos de grande escala',
     rarity: 'legendary',
     price: {
       monthly: 15000,
@@ -566,8 +566,8 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Planos de Desenvolvimento Web",
-            "description": "Planos profissionais de desenvolvimento web com IA, suporte 24/7 e garantia de resultados",
+            "name": "Planos de Criação de Sites Profissionais",
+            "description": "Quanto custa um site profissional? Planos de desenvolvimento web para empresas com preços transparentes, suporte dedicado e resultados garantidos",
             "brand": {
               "@type": "Organization",
               "name": "PlayCode Agency"
@@ -576,7 +576,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
               {
                 "@type": "Offer",
                 "name": "Starter Pack",
-                "description": "Landing page responsiva ideal para pequenos negócios",
+                "description": "Landing page profissional e responsiva ideal para pequenas empresas e profissionais liberais",
                 "price": "797",
                 "priceCurrency": "BRL",
                 "availability": "https://schema.org/InStock",
@@ -587,7 +587,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
               {
                 "@type": "Offer",
                 "name": "Business One",
-                "description": "Website profissional one-page para pequenas empresas",
+                "description": "Site profissional responsivo one-page para empresas que querem atrair mais clientes online",
                 "price": "1497",
                 "priceCurrency": "BRL",
                 "availability": "https://schema.org/InStock",
@@ -598,7 +598,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
               {
                 "@type": "Offer",
                 "name": "Pro Guild", 
-                "description": "Solução completa para negócios em crescimento",
+                "description": "Site completo com até 5 páginas, domínio e hospedagem para empresas em crescimento",
                 "price": "2497",
                 "priceCurrency": "BRL",
                 "availability": "https://schema.org/InStock",
@@ -612,23 +612,6 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
       />
       {/* Enhanced Badge Animations CSS */}
       <style jsx>{badgeStyles}</style>
-
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-20"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${12 + Math.random() * 6}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
 
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
@@ -644,14 +627,14 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
           <div className="flex items-center justify-center gap-4 mb-6">
             <Trophy className="w-8 h-8 text-neon-cyan" />
             <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
-              PLANOS
+              QUANTO CUSTA UM SITE PROFISSIONAL
             </h1>
             <Trophy className="w-8 h-8 text-neon-cyan" />
           </div>
           
           <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
-            Escolha seu power-up ideal e desbloqueie todo o potencial digital do seu negócio. 
-            Cada plano é uma aventura épica rumo ao sucesso.
+            Planos de <strong>criação de sites profissionais</strong> e <strong>desenvolvimento web</strong> para
+            cada fase do seu negócio. Do site simples ao sistema completo, com preços transparentes.
           </p>
 
           {/* Billing Toggle */}
@@ -1000,7 +983,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
                       {/* Power-ups Complete List */}
                       <div>
                         <h4 className="gaming-mono text-sm font-bold text-neon-cyan mb-3 flex items-center gap-2">
-                          🎮 POWER-UPS INCLUSOS:
+                          TECNOLOGIAS INCLUÍDAS:
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {plan.powerUps.map((powerUp, idx) => (
@@ -1079,10 +1062,10 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
         >
           <div className="text-center mb-12">
             <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
-              POWER-UPS EXTRAS
+              POTENCIALIZE SEU SITE COM EXTRAS
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
-              Turbine seu plano com funcionalidades adicionais para maximizar seus resultados.
+              Adicione funcionalidades que fazem seu site trabalhar ainda mais para atrair clientes e gerar vendas.
             </p>
           </div>
 
@@ -1362,12 +1345,12 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
         >
           <div className="text-center mb-12">
             <h2 className="gaming-title text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-neon-cyan">BATTLE</span>
+              <span className="text-neon-cyan">COMPARATIVO</span>
               <br />
-              <span className="text-electric-blue">MATRIX</span>
+              <span className="text-electric-blue">DE PLANOS</span>
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
-              Compare specs, power-ups e recursos para escolher sua build perfeita
+              Compare recursos e funcionalidades para escolher o plano ideal
             </p>
           </div>
 
@@ -1376,7 +1359,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             {/* Matrix Header */}
             <div className="grid grid-cols-6 gap-4 mb-6 p-4 bg-gradient-to-r from-electric-blue/20 to-neon-cyan/20 rounded-lg border border-electric-blue/30">
               <div className="gaming-mono text-xs font-bold text-electric-blue uppercase">
-                BATTLE SPECS
+                ESPECIFICAÇÕES
               </div>
               {PLANS.map(plan => (
                 <div key={plan.id} className="text-center">
@@ -1394,7 +1377,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             <div className="mb-8">
               <h3 className="gaming-title text-lg font-bold text-laser-green mb-4 flex items-center gap-2">
                 <Target className="w-5 h-5" />
-                CORE STATS
+                DADOS PRINCIPAIS
               </h3>
               <div className="space-y-3">
                 {[
@@ -1423,7 +1406,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             <div className="mb-8">
               <h3 className="gaming-title text-lg font-bold text-gaming-purple mb-4 flex items-center gap-2">
                 <Zap className="w-5 h-5" />
-                POWER-UPS STACK
+                TECNOLOGIAS INCLUÍDAS
               </h3>
               <div className="grid grid-cols-6 gap-4">
                 <div className="gaming-mono text-sm font-bold text-led-white/90">
@@ -1449,7 +1432,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             <div className="mb-6">
               <h3 className="gaming-title text-lg font-bold text-neon-cyan mb-4 flex items-center gap-2">
                 <Shield className="w-5 h-5" />
-                BATTLE FEATURES
+                RECURSOS POR PLANO
               </h3>
               
               {/* Categorized Features */}
@@ -1552,10 +1535,10 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             {/* Battle Verdict */}
             <div className="text-center p-6 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 rounded-lg border border-neon-cyan/30">
               <h3 className="gaming-title text-xl font-bold text-neon-cyan mb-2">
-                ⚡ BATTLE VERDICT ⚡
+                ESCOLHA O PLANO CERTO
               </h3>
               <p className="gaming-subtitle text-sm text-led-white/80">
-                Cada plano é uma build única otimizada para diferentes estágios da sua jornada digital
+                Cada plano foi pensado para diferentes estágios e necessidades do seu negócio
               </p>
             </div>
           </div>
@@ -1577,20 +1560,20 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
+                question: 'Quanto tempo leva para criar um site profissional?',
+                answer: 'Um site simples (landing page) fica pronto em 7 dias. Sites com mais páginas levam de 2 a 4 semanas. Sistemas personalizados de 8 a 16 semanas, dependendo da complexidade.'
+              },
+              {
+                question: 'O site funciona bem no celular?',
+                answer: 'Sim! Todos os nossos sites são 100% responsivos, ou seja, funcionam perfeitamente em celulares, tablets e computadores. Isso é essencial para o Google e para a experiência dos seus clientes.'
+              },
+              {
                 question: 'Posso trocar de plano depois?',
-                answer: 'Sim! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. Ajustamos os valores proporcionalmente.'
+                answer: 'Com certeza! Você pode fazer upgrade a qualquer momento. Conforme sua empresa cresce, seu site cresce junto. Ajustamos os valores proporcionalmente.'
               },
               {
-                question: 'O que acontece se eu cancelar?',
-                answer: 'Você mantém acesso até o final do período pago. Todos os seus dados ficam disponíveis por 30 dias para download.'
-              },
-              {
-                question: 'Tem período de teste gratuito?',
-                answer: 'Oferecemos uma análise gratuita do seu projeto e uma consultoria de 1 hora sem compromisso.'
-              },
-              {
-                question: 'Como funciona o suporte?',
-                answer: 'Cada plano tem um nível de suporte diferente, desde 5x8 até dedicado 24x7. Sempre por chat, email e video-call.'
+                question: 'Vocês fazem sites para quais tipos de empresa?',
+                answer: 'Atendemos pequenas empresas, profissionais liberais (advogados, psicólogos, coaches), restaurantes, lojas e empresas de serviços. Cada projeto é personalizado para o seu negócio.'
               }
             ].map((faq, index) => (
               <div key={index} className="gaming-card p-6">
@@ -1613,11 +1596,11 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
           className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
-            READY TO POWER UP?
+            NÃO SABE QUAL PLANO É IDEAL PARA VOCÊ?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">
-            Não tem certeza qual plano escolher? Nossa equipe pode ajudar você a 
-            encontrar a solução perfeita para seu negócio.
+            Fale com um especialista da PlayCode e receba uma recomendação personalizada
+            para o seu tipo de negócio. Sem compromisso e sem termos técnicos.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

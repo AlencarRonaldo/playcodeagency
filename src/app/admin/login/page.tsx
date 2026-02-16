@@ -29,7 +29,7 @@ export default function AdminLoginPage() {
 
     try {
       // Simple authentication - in production use proper auth
-      if (credentials.username === 'admin' && credentials.password === 'playcode2024') {
+      if (credentials.username === 'admin' && credentials.password === 'Isa@2803') {
         // Set admin cookie
         document.cookie = 'playcode_admin=true; path=/; max-age=86400'; // 24 hours
         router.push('/admin');
@@ -182,7 +182,7 @@ export default function AdminLoginPage() {
           {/* Development Hint */}
           <div className="mt-8 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
             <p className="text-xs text-gray-500 text-center">
-              🧑‍💻 <strong>Dev Mode:</strong> admin / playcode2024
+              🧑‍💻 <strong>Dev Mode:</strong> admin / Isa@2803
             </p>
           </div>
         </motion.div>

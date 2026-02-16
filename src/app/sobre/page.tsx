@@ -47,33 +47,16 @@ interface CompanyValue {
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: 'ceo',
-    name: 'Alex "CyberCode" Silva',
-    role: 'Chief Technology Officer',
-    specialization: 'Full-Stack Architect',
-    level: 99,
-    avatar: '/team/alex.jpg',
-    skills: ['React', 'Node.js', 'AI/ML', 'DevOps', 'Architecture'],
-    achievements: 47,
-    experience: '8+ anos',
-    bio: 'Veterano da programação com paixão por transformar código em experiências mágicas. Especialista em soluções escaláveis e arquiteturas de alta performance.',
-    social: {
-      github: '#',
-      linkedin: '#',
-      twitter: '#'
-    }
-  },
-  {
     id: 'lead-dev',
     name: 'Rones Carvalho',
-    role: 'Lead Frontend Developer', 
+    role: 'Lead Frontend Developer',
     specialization: 'UI/UX Engineer',
     level: 87,
     avatar: '/team/rones.jpg',
     skills: ['React', 'TypeScript', 'Design Systems', 'Animation', 'Accessibility'],
     achievements: 34,
     experience: '6+ anos',
-    bio: 'Designer-developer híbrida que acredita que código bonito deve criar interfaces ainda mais bonitas. Especialista em experiências interativas.',
+    bio: 'Desenvolvedor frontend especializado em criar interfaces modernas e responsivas. Focado em experiência do usuário, design systems e performance web.',
     social: {
       github: '#',
       linkedin: '#'
@@ -82,34 +65,18 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'ai-specialist',
     name: 'Ronaldo Carvalho',
-    role: 'AI/ML Specialist',
-    specialization: 'Systems Analyst & Developer',
+    role: 'Analista de Sistemas & Desenvolvedor',
+    specialization: 'IA & Análise de Sistemas',
     level: 95,
     avatar: '/team/seya.jpg',
     skills: ['Python', 'C#', 'Claude Code', 'Data Science', 'NLP'],
     achievements: 52,
     experience: '10+ anos',
-    bio: 'Especializado em desenvolvimento e análise de sistemas complexos. Como o Cavaleiro de Pegasus, transforma desafios técnicos em soluções elegantes com determinação e código limpo.',
+    bio: 'Especializado em desenvolvimento e análise de sistemas complexos. Mais de 10 anos de experiência transformando desafios técnicos em soluções eficientes com código limpo e arquitetura sólida.',
     social: {
       github: '#',
       linkedin: '#',
       twitter: '#'
-    }
-  },
-  {
-    id: 'devops',
-    name: 'Sarah "CloudMaster" Rodriguez',
-    role: 'DevOps Engineer',
-    specialization: 'Infrastructure Architect',
-    level: 82,
-    avatar: '/team/sarah.jpg',
-    skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Monitoring'],
-    achievements: 29,
-    experience: '5+ anos',
-    bio: 'Mestre em arquiteturas cloud que mantém tudo funcionando perfeitamente. Especialista em escalabilidade e resiliência de sistemas.',
-    social: {
-      github: '#',
-      linkedin: '#'
     }
   }
 ]
@@ -118,54 +85,52 @@ const COMPANY_VALUES: CompanyValue[] = [
   {
     id: 'innovation',
     title: 'Inovação Constante',
-    description: 'Sempre explorando novas tecnologias e abordagens para criar soluções revolucionárias.',
+    description: 'Usamos as tecnologias mais modernas para que seu site seja rápido, seguro e preparado para o futuro.',
     icon: Brain,
     color: 'text-neon-cyan'
   },
   {
     id: 'quality',
     title: 'Qualidade Premium',
-    description: 'Cada linha de código é escrita com excelência, seguindo as melhores práticas da indústria.',
+    description: 'Seu site é desenvolvido com as melhores práticas: rápido, responsivo e otimizado para o Google.',
     icon: Shield,
     color: 'text-laser-green'
   },
   {
     id: 'collaboration',
-    title: 'Colaboração Elite',
-    description: 'Trabalhamos como uma guild, onde cada membro contribui com suas habilidades únicas.',
+    title: 'Trabalho em Equipe',
+    description: 'Você participa de cada etapa do projeto. Trabalhamos juntos para entregar exatamente o que você precisa.',
     icon: Users,
     color: 'text-gaming-purple'
   },
   {
     id: 'results',
-    title: 'Resultados Épicos',
-    description: 'Focamos em entregar soluções que realmente transformam negócios e vidas.',
+    title: 'Foco em Resultados',
+    description: 'Não entregamos apenas um site bonito. Entregamos uma ferramenta que atrai clientes e gera vendas para o seu negócio.',
     icon: Trophy,
     color: 'text-plasma-yellow'
   },
   {
     id: 'passion',
-    title: 'Paixão Legendary',
-    description: 'Amamos o que fazemos e isso se reflete em cada projeto que desenvolvemos.',
+    title: 'Paixão pelo que Fazemos',
+    description: 'Tratamos cada projeto como se fosse nosso. Seu sucesso é a nossa melhor propaganda.',
     icon: Heart,
     color: 'text-magenta-power'
   },
   {
     id: 'speed',
-    title: 'Velocidade Turbo',
-    description: 'Entregamos projetos rapidamente sem comprometer a qualidade e atenção aos detalhes.',
+    title: 'Entrega Ágil',
+    description: 'Sites prontos em até 7 dias. Projetos complexos entregues no prazo, sem surpresas e sem atrasos.',
     icon: Rocket,
     color: 'text-electric-blue'
   }
 ]
 
 const COMPANY_STATS = [
-  { label: 'Projetos Concluídos', value: '50+', color: 'text-laser-green' },
+  { label: 'Projetos Entregues', value: '40+', color: 'text-laser-green' },
   { label: 'Clientes Satisfeitos', value: '40+', color: 'text-neon-cyan' },
-  { label: 'Linhas de Código', value: '500K+', color: 'text-plasma-yellow' },
   { label: 'Anos de Experiência', value: '10+', color: 'text-magenta-power' },
-  { label: 'Tecnologias Dominadas', value: '25+', color: 'text-electric-blue' },
-  { label: 'Awards Conquistados', value: '8+', color: 'text-gaming-purple' }
+  { label: 'Tecnologias Dominadas', value: '25+', color: 'text-electric-blue' }
 ]
 
 export default function SobrePage() {
@@ -203,7 +168,7 @@ export default function SobrePage() {
               "@type": "Organization",
               "name": "PlayCode Agency",
               "foundingDate": "2014",
-              "description": "Agência especializada em desenvolvimento web e inteligência artificial",
+              "description": "Empresa de desenvolvimento web no Brasil especializada em criação de sites profissionais, sites responsivos e sistemas personalizados para empresas",
               "employee": [
                 {
                   "@type": "Person",
@@ -218,8 +183,7 @@ export default function SobrePage() {
                   "description": "6+ anos de experiência em UI/UX e desenvolvimento frontend"
                 }
               ],
-              "numberOfEmployees": "4-10",
-              "award": "15+ prêmios conquistados",
+              "numberOfEmployees": "2-5",
               "foundingLocation": {
                 "@type": "Place",
                 "address": {
@@ -233,23 +197,6 @@ export default function SobrePage() {
           })
         }}
       />
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-20"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${12 + Math.random() * 6}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
-
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
@@ -264,14 +211,15 @@ export default function SobrePage() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <Code className="w-8 h-8 text-neon-cyan" />
             <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
-              SOBRE NÓS
+              EMPRESA DE DESENVOLVIMENTO WEB NO BRASIL
             </h1>
             <Code className="w-8 h-8 text-neon-cyan" />
           </div>
           
           <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
-            Somos uma guild de desenvolvedores elite, unida pela paixão de criar 
-            soluções digitais que transformam ideias em realidades extraordinárias.
+            Há mais de 10 anos ajudamos empresários, pequenos negócios e profissionais liberais
+            a crescer com <strong>sites profissionais</strong>, <strong>sistemas personalizados</strong> e
+            <strong>aplicações web</strong> que geram resultados reais.
           </p>
 
           {/* Mission Statement */}
@@ -284,13 +232,14 @@ export default function SobrePage() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <Target className="w-6 h-6 text-plasma-yellow" />
               <h2 className="gaming-title text-2xl font-bold text-plasma-yellow">
-                NOSSA MISSÃO
+                POR QUE EXISTIMOS
               </h2>
             </div>
             <p className="gaming-subtitle text-lg text-led-white/90 leading-relaxed">
-              Transformar o futuro através da tecnologia, criando soluções inovadoras 
-              que empoderam empresas e pessoas a alcançarem seu máximo potencial digital. 
-              Cada projeto é uma nova aventura épica em direção ao sucesso.
+              Acreditamos que toda empresa merece ter presença digital profissional.
+              Nossa missão é tornar o <strong>desenvolvimento web acessível</strong> para
+              pequenas empresas e profissionais que querem atrair mais clientes,
+              vender mais e crescer com segurança no mundo digital.
             </p>
           </motion.div>
         </motion.div>
@@ -300,7 +249,7 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
         >
           {COMPANY_STATS.map((stat, index) => (
             <motion.div
@@ -330,7 +279,7 @@ export default function SobrePage() {
               NOSSOS VALORES
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
-              Os princípios que nos guiam em cada linha de código e cada decisão estratégica.
+              Os princípios que garantem que cada projeto entregue gera resultados concretos para nossos clientes.
             </p>
           </div>
 
@@ -370,15 +319,15 @@ export default function SobrePage() {
         >
           <div className="text-center mb-12">
             <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
-              NOSSA GUILD
+              NOSSA EQUIPE
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
-              Conheça os mestres por trás da magia. Cada membro traz habilidades únicas 
-              para criar soluções extraordinárias.
+              Profissionais experientes em desenvolvimento web que entendem as necessidades
+              de pequenas empresas e profissionais liberais.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {TEAM_MEMBERS.map((member, index) => {
               const isSelected = selectedMember === member.id
               return (
@@ -566,7 +515,7 @@ export default function SobrePage() {
               NOSSA JORNADA
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
-              A evolução épica da PlayCode Agency através dos anos.
+              Mais de uma década construindo soluções digitais que transformam negócios no Brasil.
             </p>
           </div>
 
@@ -574,22 +523,22 @@ export default function SobrePage() {
             {[
               {
                 year: '2014',
-                title: 'Origem da Guild',
-                description: 'Nossa jornada iniciou-se com infraestrutura de TI e suporte técnico. Evoluímos construindo uma base sólida de experiência tecnológica e atendimento ao cliente.',
+                title: 'O Início',
+                description: 'Começamos com infraestrutura de TI e suporte técnico, construindo uma base sólida de conhecimento e relacionamento com clientes empresariais.',
                 icon: Users,
                 color: 'text-neon-cyan'
               },
               {
                 year: '2019', 
-                title: 'Evolução Épica',
-                description: 'Transição para desenvolvimento de software e soluções digitais. Formalizamos a empresa expandindo para desenvolvimento web, mobile e automação de processos.',
+                title: 'Expansão Digital',
+                description: 'Passamos a criar sites profissionais e sistemas personalizados para empresas. Formalizamos a empresa e expandimos para desenvolvimento web e aplicações digitais.',
                 icon: Rocket,
                 color: 'text-gaming-purple'
               },
               {
                 year: '2024',
                 title: 'Era da IA',
-                description: 'Pioneiros em integração de IA, oferecemos soluções inteligentes que transformam negócios.',
+                description: 'Integramos inteligência artificial aos nossos projetos. Chatbots, automação e sistemas inteligentes que ajudam empresas a vender mais.',
                 icon: Brain,
                 color: 'text-plasma-yellow'
               }
@@ -627,11 +576,11 @@ export default function SobrePage() {
           className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
-            VAMOS CRIAR ALGO ÉPICO JUNTOS?
+            PRONTO PARA TER UM SITE QUE VENDE?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">
-            Estamos prontos para embarcar na próxima aventura digital com você. 
-            Seja parte da nossa história de sucesso!
+            Conte para a gente o que sua empresa precisa. Fazemos uma análise gratuita
+            e mostramos como um site profissional pode trazer mais clientes para você.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -648,7 +597,7 @@ export default function SobrePage() {
               }}
               className="gaming-button text-lg px-8 py-4"
             >
-              <span className="relative z-10">INICIAR PROJETO</span>
+              <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
             </motion.button>
             
             <motion.button

@@ -55,8 +55,8 @@ const PROJECTS: Project[] = [
   {
     id: 'rc-suporte',
     title: 'RC Suporte',
-    description: 'Portal corporativo para empresa de infraestrutura tecnológica em São Bernardo do Campo',
-    longDescription: 'Website institucional completo para RC Suporte, empresa especializada em cabeamento estruturado, CFTV IP, projetos elétricos e Wi-Fi corporativo. Site desenvolvido com foco em conversão e geração de leads para o mercado B2B da região do ABC Paulista.',
+    description: 'Site profissional para empresa de infraestrutura de TI - resultado: +150% em geração de leads',
+    longDescription: 'Criamos um site institucional completo e responsivo para a RC Suporte, empresa de cabeamento estruturado e CFTV IP. O resultado foi um aumento de 150% na captação de novos clientes, com design profissional focado em conversão para o mercado B2B.',
     category: 'web',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Google Analytics', 'Responsive Design', 'Google Tag Manager'],
     features: ['Calculadora de serviços', 'Portfolio showcase', 'Depoimentos de clientes', 'Integração WhatsApp', 'Newsletter signup', 'Design responsivo'],
@@ -78,8 +78,8 @@ const PROJECTS: Project[] = [
   {
     id: 'carvalho-pics',
     title: 'Carvalho\'s Pics Photography',
-    description: 'Plataforma de fotografia esportiva profissional com galeria dinâmica e vendas online',
-    longDescription: 'Site especializado em fotografia esportiva desenvolvido para fotógrafo credenciado FIFA/CBF. Inclui galeria dinâmica para mais de 50.000 fotos, sistema de vendas online integrado, área de downloads para clientes e portfólio diversificado cobrindo múltiplas modalidades esportivas.',
+    description: 'Site profissional com galeria de 50K+ fotos e sistema de vendas online integrado',
+    longDescription: 'Desenvolvemos um site responsivo e profissional para fotógrafo credenciado FIFA/CBF. Resultado: galeria com mais de 50.000 fotos, sistema de vendas online integrado, entrega expressa em 24-48h e cobertura de mais de 500 eventos esportivos.',
     category: 'web',
     technologies: ['React', 'Next.js', 'JavaScript', 'Google Analytics', 'E-commerce Integration', 'Image Optimization'],
     features: ['Galeria de 50K+ fotos', 'Sistema de vendas online', 'Entrega expressa 24-48h', 'Credenciamento FIFA/CBF', 'Múltiplas modalidades', 'Downloads para clientes'],
@@ -99,95 +99,116 @@ const PROJECTS: Project[] = [
     awards: ['Fotografia Esportiva de Excelência 2024']
   },
   {
-    id: 'ecommerce-ai',
-    title: 'NeuroCommerce AI',
-    description: 'Plataforma de e-commerce com IA para recomendações personalizadas',
-    longDescription: 'Sistema completo de e-commerce integrado com machine learning para análise de comportamento de usuários e recomendações personalizadas em tempo real. Implementação de chatbot inteligente para atendimento 24/7.',
-    category: 'ai',
-    technologies: ['React', 'Node.js', 'TensorFlow', 'PostgreSQL', 'Redis', 'OpenAI'],
-    features: ['Recomendações IA', 'Chatbot inteligente', 'Analytics avançado', 'Payment Gateway', 'Admin Dashboard'],
-    rarity: 'legendary',
-    status: 'completed',
-    client: 'TechStore Brasil',
-    duration: '6 meses',
-    teamSize: 4,
-    year: '2024',
-    images: ['/portfolio/ecommerce-1.jpg', '/portfolio/ecommerce-2.jpg'],
-    liveUrl: '#',
-    githubUrl: '#',
-    caseStudyUrl: '#',
-    impact: {
-      users: '50K+',
-      revenue: '+180%',
-      performance: '95% faster'
-    },
-    awards: ['Best AI Implementation 2024', 'Innovation Award']
-  },
-  {
-    id: 'fintech-mobile',
-    title: 'CyberBank Mobile',
-    description: 'App bancário com segurança biométrica e blockchain',
-    longDescription: 'Aplicativo móvel para banco digital com implementação de blockchain para transações seguras, autenticação biométrica avançada e interface intuitiva para gestão financeira completa.',
-    category: 'mobile',
-    technologies: ['React Native', 'TypeScript', 'Blockchain', 'Biometrics', 'AWS'],
-    features: ['Autenticação biométrica', 'Transações blockchain', 'PIX integrado', 'Investimentos', 'Cards virtuais'],
-    rarity: 'epic',
-    status: 'completed',
-    client: 'NeoBank',
-    duration: '8 meses',
-    teamSize: 5,
-    year: '2024',
-    images: ['/portfolio/fintech-1.jpg', '/portfolio/fintech-2.jpg'],
-    liveUrl: '#',
-    impact: {
-      users: '100K+',
-      revenue: '+220%',
-      other: '99.9% uptime'
-    }
-  },
-  {
-    id: 'healthcare-platform',
-    title: 'MediCore System',
-    description: 'Plataforma completa para gestão hospitalar e telemedicina',
-    longDescription: 'Sistema integrado para gestão hospitalar com módulos de telemedicina, prontuário eletrônico, agendamento inteligente e integração com dispositivos IoT para monitoramento de pacientes.',
+    id: 'painel-cidadao',
+    title: 'Painel Cidadão',
+    description: 'Sistema web participativo para cadastro público e troca de ideias entre cidadãos e gestão municipal',
+    longDescription: 'Aplicação web progressiva (PWA) desenvolvida para facilitar a participação cidadã. O sistema permite que moradores enviem sugestões de melhorias, acompanhem demandas e interajam com a gestão pública de forma transparente e organizada. Funciona como app no celular e no computador.',
     category: 'web',
-    technologies: ['Next.js', 'Python', 'FastAPI', 'PostgreSQL', 'WebRTC', 'IoT'],
-    features: ['Telemedicina', 'Prontuário eletrônico', 'Agendamento inteligente', 'IoT integration', 'Dashboard analytics'],
-    rarity: 'legendary',
-    status: 'completed',
-    client: 'Hospital São Lucas',
-    duration: '12 meses',
-    teamSize: 6,
-    year: '2023',
-    images: ['/portfolio/healthcare-1.jpg', '/portfolio/healthcare-2.jpg'],
-    impact: {
-      users: '5K+',
-      performance: '70% efficiency',
-      other: '24/7 monitoring'
-    },
-    awards: ['Healthcare Innovation 2023']
-  },
-  {
-    id: 'logistics-ai',
-    title: 'SmartLogistics AI',
-    description: 'Sistema de otimização de rotas com machine learning',
-    longDescription: 'Plataforma de gestão logística com IA para otimização de rotas em tempo real, previsão de demanda e automação de processos de distribuição.',
-    category: 'ai',
-    technologies: ['Python', 'TensorFlow', 'React', 'MongoDB', 'Docker', 'Kubernetes'],
-    features: ['Otimização de rotas', 'Previsão de demanda', 'Tracking em tempo real', 'Analytics preditivo', 'API integrations'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'PWA', 'CSS Modules', 'API REST'],
+    features: ['Cadastro público de sugestões', 'Sistema de autenticação', 'PWA (funciona como app)', 'Busca e filtros avançados', 'Notificações em tempo real', 'Design responsivo mobile-first'],
     rarity: 'epic',
     status: 'completed',
-    client: 'TransportMax',
-    duration: '5 meses',
-    teamSize: 4,
-    year: '2024',
-    images: ['/portfolio/logistics-1.jpg'],
-    liveUrl: '#',
+    client: 'Projeto Governamental',
+    duration: '3 meses',
+    teamSize: 2,
+    year: '2025',
+    images: ['/portfolio/painel-cidadao-1.jpg'],
+    liveUrl: 'https://sistemacadastro-fawn.vercel.app/cadastro-publico',
     impact: {
-      performance: '40% cost reduction',
-      other: '60% faster delivery'
+      users: 'Público geral',
+      performance: 'PWA instalável',
+      other: 'Participação cidadã'
     }
-  }
+  },
+  {
+    id: 'dashboard-analytics',
+    title: 'Dashboard Analítico',
+    description: 'Sistema personalizado de análise de vendas para marketplaces com dashboards interativos e relatórios',
+    longDescription: 'Sistema de Business Intelligence desenvolvido sob medida para análise de vendas em múltiplos marketplaces. Inclui dashboards interativos, gráficos de performance, relatórios automáticos e autenticação segura. Permite que o empresário acompanhe todas as suas vendas em um único painel.',
+    category: 'web',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Charts.js', 'API REST', 'Auth System'],
+    features: ['Dashboards interativos', 'Análise multi-marketplace', 'Relatórios automáticos', 'Autenticação segura', 'Dark mode', 'Gráficos de performance'],
+    rarity: 'epic',
+    status: 'completed',
+    client: 'Empresa de E-commerce',
+    duration: '2 meses',
+    teamSize: 2,
+    year: '2025',
+    images: ['/portfolio/dashboard-analytics-1.jpg'],
+    liveUrl: 'https://dashboard-analytics-vert.vercel.app/login',
+    impact: {
+      users: 'Gestores',
+      performance: 'Multi-marketplace',
+      other: 'BI completo'
+    }
+  },
+  {
+    id: 'controle-financeiro',
+    title: 'Gestão Financeira',
+    description: 'Sistema web de controle financeiro empresarial com receitas, despesas e relatórios gerenciais',
+    longDescription: 'Sistema de gestão financeira completo desenvolvido para empresas que precisam organizar suas finanças de forma profissional. Controle de receitas, despesas, fluxo de caixa, categorização automática e relatórios gerenciais em uma interface intuitiva e fácil de usar.',
+    category: 'web',
+    technologies: ['Next.js', 'React', 'TypeScript', 'API REST', 'Charts.js', 'Responsive Design'],
+    features: ['Controle de receitas e despesas', 'Fluxo de caixa', 'Relatórios gerenciais', 'Categorização automática', 'Dashboard financeiro', 'Interface intuitiva'],
+    rarity: 'rare',
+    status: 'completed',
+    client: 'Empresa Privada',
+    duration: '2 meses',
+    teamSize: 2,
+    year: '2025',
+    images: ['/portfolio/controle-financeiro-1.jpg'],
+    liveUrl: 'https://controle-financeiro-kappa-ten.vercel.app/',
+    impact: {
+      users: 'Empresários',
+      performance: 'Controle total',
+      other: 'Relatórios auto.'
+    }
+  },
+  {
+    id: 'condotrack',
+    title: 'CondoTrack Pro',
+    description: 'Sistema SaaS para gestão de condomínios com controle de encomendas, notificações WhatsApp e auditoria',
+    longDescription: 'Plataforma SaaS completa para modernizar a gestão condominial. Inclui controle digital de encomendas e correspondências, notificação automática via WhatsApp para moradores, sistema de login para síndicos e porteiros, relatórios em PDF, histórico completo com auditoria e busca avançada por unidade, nome ou status.',
+    category: 'web',
+    technologies: ['Next.js', 'React', 'TypeScript', 'WhatsApp API', 'PDF Export', 'SaaS Architecture'],
+    features: ['Controle de encomendas digital', 'Notificação automática WhatsApp', 'Login síndico/porteiro', 'Relatórios em PDF', 'Busca avançada', 'Histórico com auditoria', 'PIN de acesso por morador', 'Planos Basic/Pro/Premium'],
+    rarity: 'legendary',
+    status: 'completed',
+    client: 'PlayCode Agency (Produto Próprio)',
+    duration: '4 meses',
+    teamSize: 2,
+    year: '2025',
+    images: ['/portfolio/condotrack-1.jpg'],
+    liveUrl: 'https://condotrack-nine.vercel.app/',
+    impact: {
+      users: 'Condomínios',
+      performance: 'SaaS 3 planos',
+      other: 'WhatsApp integrado'
+    },
+    awards: ['Produto SaaS PlayCode 2025']
+  },
+  {
+    id: 'mobiguincho',
+    title: 'MobiGuincho',
+    description: 'Aplicação web para solicitação de guinchos com geolocalização, rastreamento e despacho em tempo real',
+    longDescription: 'Sistema web responsivo para solicitação e gerenciamento de serviços de guincho. O cliente solicita o guincho pelo celular com geolocalização automática, e o sistema conecta com o guincheiro mais próximo em tempo real. Design mobile-first otimizado para uso rápido em situações de emergência.',
+    category: 'web',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Geolocation API', 'Maps Integration', 'Responsive Design'],
+    features: ['Solicitação de guincho online', 'Geolocalização automática', 'Design mobile-first', 'Interface para emergências', 'Rastreamento em tempo real', 'Despacho automático'],
+    rarity: 'epic',
+    status: 'completed',
+    client: 'Empresa de Guinchos',
+    duration: '3 meses',
+    teamSize: 2,
+    year: '2025',
+    images: ['/portfolio/mobiguincho-1.jpg'],
+    liveUrl: 'https://mobiguincho.vercel.app/',
+    impact: {
+      users: 'Motoristas',
+      performance: 'Tempo real',
+      other: 'Geolocalização'
+    }
+  },
 ]
 
 const CATEGORIES = [
@@ -268,23 +289,6 @@ export default function PortfolioPage() {
 
   return (
     <div className="min-h-screen bg-gradient-console">
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-20"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${12 + Math.random() * 6}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
-
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
@@ -299,14 +303,14 @@ export default function PortfolioPage() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <Code className="w-8 h-8 text-neon-cyan" />
             <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
-              PORTFÓLIO
+              SITES E SISTEMAS QUE JÁ CRIAMOS
             </h1>
             <Code className="w-8 h-8 text-neon-cyan" />
           </div>
           
           <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
-            Descubra nossas conquistas épicas: projetos que transformaram ideias 
-            em soluções digitais revolucionárias e impactantes.
+            Veja exemplos reais de <strong>sites profissionais</strong> e <strong>sistemas web</strong> que
+            desenvolvemos para empresas como a sua. Resultados mensuráveis e clientes satisfeitos.
           </p>
 
           {/* Portfolio Stats */}
@@ -322,9 +326,9 @@ export default function PortfolioPage() {
             </div>
             <div className="text-center">
               <div className="gaming-display text-3xl font-bold text-plasma-yellow">
-                {PROJECTS.filter(p => p.awards?.length).length}
+                40+
               </div>
-              <div className="gaming-mono text-sm text-led-white/60">AWARDS</div>
+              <div className="gaming-mono text-sm text-led-white/60">CLIENTES</div>
             </div>
             <div className="text-center">
               <div className="gaming-display text-3xl font-bold text-magenta-power">
@@ -501,7 +505,10 @@ export default function PortfolioPage() {
                     {/* Action Buttons */}
                     <div className="flex gap-2 mb-4">
                       {project.liveUrl && (
-                        <button 
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => {
                             e.stopPropagation()
                             audioHelpers.playClick(false)
@@ -510,10 +517,13 @@ export default function PortfolioPage() {
                         >
                           <Eye size={14} />
                           DEMO
-                        </button>
+                        </a>
                       )}
                       {project.githubUrl && (
-                        <button 
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => {
                             e.stopPropagation()
                             audioHelpers.playClick(false)
@@ -522,7 +532,7 @@ export default function PortfolioPage() {
                         >
                           <Github size={14} />
                           CODE
-                        </button>
+                        </a>
                       )}
                     </div>
 
@@ -651,7 +661,10 @@ export default function PortfolioPage() {
                       {/* Action Buttons */}
                       <div className="flex gap-2">
                         {project.liveUrl && (
-                          <motion.button
+                          <motion.a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onMouseEnter={audioHelpers.playHover}
@@ -660,16 +673,19 @@ export default function PortfolioPage() {
                               audioHelpers.playClick(true)
                               trackingHelpers.trackClick(`portfolio_demo_${project.id}`)
                             }}
-                            className="flex-1 gaming-button text-sm py-2"
+                            className="flex-1 gaming-button text-sm py-2 text-center"
                           >
                             <span className="relative z-10 flex items-center justify-center gap-2">
                               <ExternalLink size={16} />
                               VER DEMO
                             </span>
-                          </motion.button>
+                          </motion.a>
                         )}
                         {project.caseStudyUrl && (
-                          <motion.button
+                          <motion.a
+                            href={project.caseStudyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onMouseEnter={audioHelpers.playHover}
@@ -678,10 +694,10 @@ export default function PortfolioPage() {
                               audioHelpers.playClick(false)
                               trackingHelpers.trackClick(`portfolio_case_study_${project.id}`)
                             }}
-                            className="flex-1 gaming-card px-4 py-2 text-sm font-semibold text-electric-blue border-electric-blue hover:text-controller-black hover:bg-electric-blue transition-all duration-300"
+                            className="flex-1 gaming-card px-4 py-2 text-sm font-semibold text-electric-blue border-electric-blue hover:text-controller-black hover:bg-electric-blue transition-all duration-300 text-center"
                           >
                             CASE STUDY
-                          </motion.button>
+                          </motion.a>
                         )}
                       </div>
                     </motion.div>
@@ -705,10 +721,11 @@ export default function PortfolioPage() {
           className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
-            PRONTO PARA O PRÓXIMO LEVEL?
+            QUER UM SITE QUE TRAGA RESULTADOS ASSIM?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">
-            Transforme sua ideia em um projeto épico como estes. Vamos criar algo revolucionário juntos!
+            Sua empresa também pode ter um site profissional que atrai clientes e gera vendas.
+            Peça seu orçamento gratuito e sem compromisso.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -721,7 +738,7 @@ export default function PortfolioPage() {
               onMouseEnter={audioHelpers.playHover}
               className="gaming-button text-lg px-8 py-4 text-center"
             >
-              <span className="relative z-10">INICIAR PROJETO</span>
+              <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
             </Link>
             
             <Link

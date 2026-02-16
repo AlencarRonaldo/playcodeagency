@@ -2,18 +2,21 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Zap, 
-  Globe, 
-  Smartphone, 
-  Bot, 
+import {
+  Zap,
+  Globe,
+  ShoppingCart,
+  Bot,
   Rocket,
   Code,
   Users,
   Target,
   ArrowRight,
   CheckCircle,
-  Star
+  Star,
+  MenuSquare,
+  Workflow,
+  Search
 } from 'lucide-react'
 import { useAudio, audioHelpers } from '@/lib/hooks/useAudio'
 import { trackingHelpers } from '@/lib/hooks/useAchievements'
@@ -23,74 +26,139 @@ interface Service {
   name: string
   description: string
   icon: React.ElementType
-  rarity: 'common' | 'rare' | 'epic' | 'legendary'
+  rarity: 'common' | 'rare' | 'epic' | 'legendary' | 'mythic'
   features: string[]
   technologies: string[]
   deliverables: string[]
   timeline: string
   price: string
+  priceNote?: string
   highlighted?: boolean
 }
 
 const SERVICES: Service[] = [
   {
-    id: 'web-development',
-    name: 'Desenvolvimento Web',
-    description: 'Aplicações web modernas com tecnologias de ponta e design responsivo',
+    id: 'sites-landing',
+    name: 'Sites e Landing Pages',
+    description: 'Sites profissionais e landing pages de alta conversão que transformam visitantes em clientes reais',
     icon: Globe,
     rarity: 'epic',
     features: [
-      'React/Next.js com TypeScript',
-      'Design responsivo e mobile-first',
-      'Performance otimizada (Core Web Vitals)',
-      'SEO avançado e acessibilidade',
-      'Integração com APIs e databases',
-      'Deploy automatizado na Vercel/AWS'
+      'Design responsivo mobile-first',
+      'SEO otimizado para Google',
+      'Formulários de contato e WhatsApp',
+      'Hospedagem e domínio inclusos no 1° ano',
+      'Painel para editar textos e imagens',
+      'Certificado SSL (HTTPS) grátis'
     ],
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    deliverables: ['Código fonte completo', 'Documentação técnica', 'Testes automatizados', 'Deploy em produção'],
-    timeline: '4-12 semanas',
-    price: 'Consultar',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    deliverables: ['Site publicado e funcionando', 'Painel administrativo', 'QR Code e materiais digitais', 'Treinamento de uso'],
+    timeline: '7 dias (landing) / 2-4 semanas (site)',
+    price: 'A partir de R$ 997',
+    priceNote: 'Landing page R$ 997 | Site completo R$ 2.997+',
     highlighted: true
   },
   {
-    id: 'mobile-development',
-    name: 'Desenvolvimento Mobile',
-    description: 'Apps nativos e híbridos para iOS e Android com performance superior',
-    icon: Smartphone,
-    rarity: 'epic',
-    features: [
-      'React Native ou desenvolvimento nativo',
-      'Interface intuitiva e moderna',
-      'Integração com serviços nativos',
-      'Push notifications e analytics',
-      'Offline-first architecture',
-      'Publicação nas stores'
-    ],
-    technologies: ['React Native', 'Swift', 'Kotlin', 'Expo', 'Firebase'],
-    deliverables: ['Apps para iOS e Android', 'Backend personalizado', 'Analytics integrado', 'Suporte pós-launch'],
-    timeline: '8-16 semanas',
-    price: 'Consultar'
-  },
-  {
-    id: 'ai-integration',
-    name: 'Integração de IA',
-    description: 'Implementação de inteligência artificial para automatizar processos',
+    id: 'ai-chatbot',
+    name: 'Chatbot WhatsApp com IA',
+    description: 'Atendimento automático 24h no WhatsApp que responde, qualifica leads e vende por você',
     icon: Bot,
     rarity: 'legendary',
     features: [
-      'Chatbots inteligentes com OpenAI',
-      'Processamento de linguagem natural',
-      'Análise preditiva de dados',
-      'Automação de workflows',
-      'Machine Learning personalizado',
-      'Integração com APIs de IA'
+      'IA treinada com dados do seu negócio',
+      'Integração WhatsApp Business',
+      'Atendimento automático 24/7',
+      'Qualificação inteligente de leads',
+      'Agendamento automático de reuniões',
+      'Transferência para humano quando necessário'
     ],
-    technologies: ['OpenAI GPT', 'Python', 'TensorFlow', 'Hugging Face', 'LangChain'],
-    deliverables: ['Modelo de IA treinado', 'API de integração', 'Dashboard de monitoramento', 'Documentação completa'],
-    timeline: '6-20 semanas',
-    price: 'Consultar',
+    technologies: ['OpenAI GPT', 'WhatsApp API', 'LangChain', 'Node.js', 'Dashboard Analytics'],
+    deliverables: ['Chatbot configurado e treinado', 'Integração WhatsApp ativa', 'Dashboard de métricas', 'Treinamento da equipe'],
+    timeline: '1-2 semanas',
+    price: 'R$ 1.497 + R$ 297/mês',
+    priceNote: 'Setup único + mensalidade com suporte e atualizações',
     highlighted: true
+  },
+  {
+    id: 'ecommerce',
+    name: 'Loja Virtual / E-commerce',
+    description: 'Sua loja online completa com catálogo, carrinho, Pix e cartão — pronta para vender',
+    icon: ShoppingCart,
+    rarity: 'epic',
+    features: [
+      'Catálogo de produtos ilimitado',
+      'Pagamento Pix, cartão e boleto',
+      'Controle de estoque automático',
+      'Painel administrativo completo',
+      'Cálculo de frete integrado',
+      'SEO para produtos no Google'
+    ],
+    technologies: ['Next.js', 'Stripe/MercadoPago', 'React', 'TypeScript', 'API REST'],
+    deliverables: ['Loja online publicada', 'Painel de gestão', 'Integração de pagamentos', 'Treinamento completo'],
+    timeline: '3-6 semanas',
+    price: 'A partir de R$ 3.997',
+    priceNote: 'Inclui setup de pagamentos e primeiros 50 produtos'
+  },
+  {
+    id: 'digital-menu',
+    name: 'Cardápio Digital QR Code',
+    description: 'Cardápio ou catálogo online no celular do cliente — atualização em tempo real, sem reimprimir',
+    icon: MenuSquare,
+    rarity: 'rare',
+    features: [
+      'QR Code personalizado com sua marca',
+      'Atualização de preços em tempo real',
+      'Fotos dos pratos em alta qualidade',
+      'Categorias e filtros inteligentes',
+      'Pedidos direto pelo WhatsApp',
+      'Destaque para promoções do dia'
+    ],
+    technologies: ['Next.js', 'React', 'QR Code API', 'WhatsApp Integration', 'Cloud Storage'],
+    deliverables: ['Cardápio digital publicado', 'QR Codes impressos', 'Painel de gestão', 'Treinamento de uso'],
+    timeline: '5-7 dias',
+    price: 'R$ 697 + R$ 97/mês',
+    priceNote: 'Setup + mensalidade com hospedagem e atualizações ilimitadas'
+  },
+  {
+    id: 'ai-automation',
+    name: 'Automação e Agentes de IA',
+    description: 'Automatize tarefas repetitivas com agentes de IA que trabalham pelo seu negócio 24h',
+    icon: Workflow,
+    rarity: 'legendary',
+    features: [
+      'Agentes de IA autônomos personalizados',
+      'Automação de follow-up e vendas',
+      'Geração automática de propostas',
+      'Integração com suas ferramentas atuais',
+      'Postagens automáticas em redes sociais',
+      'Redução de até 80% em tarefas manuais'
+    ],
+    technologies: ['OpenAI GPT', 'n8n', 'Make/Zapier', 'WhatsApp API', 'APIs Personalizadas'],
+    deliverables: ['Workflows automatizados', 'Agentes de IA configurados', 'Integrações ativas', 'Documentação e treinamento'],
+    timeline: '1-3 semanas',
+    price: 'R$ 1.997 + R$ 397/mês',
+    priceNote: 'Setup + mensalidade com manutenção e novos workflows',
+    highlighted: true
+  },
+  {
+    id: 'seo-google',
+    name: 'SEO e Presença no Google',
+    description: 'Apareça na 1ª página do Google e nas buscas por IA — atraia clientes que procuram seus serviços',
+    icon: Search,
+    rarity: 'rare',
+    features: [
+      'Auditoria SEO técnica completa',
+      'Otimização para Google e buscas por IA (GEO)',
+      'Pesquisa de palavras-chave lucrativas',
+      'Criação de conteúdo otimizado com IA',
+      'Google Meu Negócio otimizado',
+      'Relatórios mensais de posicionamento'
+    ],
+    technologies: ['Google Analytics', 'Search Console', 'SEMrush', 'IA para Conteúdo', 'Schema.org'],
+    deliverables: ['Relatório de auditoria', 'Plano de ação SEO', 'Conteúdos otimizados', 'Relatórios mensais'],
+    timeline: 'Resultados em 2-4 meses',
+    price: 'A partir de R$ 997/mês',
+    priceNote: 'Plano mensal com relatórios e otimização contínua'
   }
 ]
 
@@ -122,6 +190,13 @@ const rarityConfig = {
     gradient: 'from-plasma-yellow/30 to-plasma-yellow/10',
     text: 'text-plasma-yellow',
     accent: 'text-plasma-yellow'
+  },
+  mythic: {
+    border: 'border-laser-green/90',
+    glow: 'shadow-[0_0_35px_rgba(34,197,94,0.9)]',
+    gradient: 'from-laser-green/30 to-laser-green/10',
+    text: 'text-laser-green',
+    accent: 'text-laser-green'
   }
 }
 
@@ -161,8 +236,8 @@ export default function ServicosPage() {
               "name": "PlayCode Agency",
               "url": "https://playcodeagency.xyz"
             },
-            "serviceType": "Desenvolvimento Web e Inteligência Artificial",
-            "description": "Serviços especializados em desenvolvimento web, criação de aplicativos e integração de IA",
+            "serviceType": "Desenvolvimento de Sites Profissionais e Aplicações Web",
+            "description": "Criação de sites responsivos, desenvolvimento web para empresas, sistemas personalizados e aplicações web sob medida",
             "areaServed": "BR",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
@@ -172,24 +247,32 @@ export default function ServicosPage() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Desenvolvimento Web",
-                    "description": "Aplicações web modernas com React, Next.js e tecnologias de ponta"
+                    "name": "Sites e Landing Pages Profissionais",
+                    "description": "Criação de sites responsivos e landing pages de alta conversão a partir de R$ 997"
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Desenvolvimento Mobile",
-                    "description": "Apps nativos e híbridos para iOS e Android"
+                    "name": "Chatbot WhatsApp com Inteligência Artificial",
+                    "description": "Atendimento automático 24h no WhatsApp com IA que qualifica leads e vende por você"
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Integração de IA",
-                    "description": "Implementação de inteligência artificial e chatbots"
+                    "name": "Loja Virtual e E-commerce",
+                    "description": "E-commerce completo com catálogo, carrinho, pagamento Pix e cartão a partir de R$ 3.997"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Automação e Agentes de IA",
+                    "description": "Agentes de IA autônomos que automatizam vendas, follow-up e tarefas repetitivas da sua empresa"
                   }
                 }
               ]
@@ -197,23 +280,6 @@ export default function ServicosPage() {
           })
         }}
       />
-      {/* Matrix Rain Background */}
-      <div className="matrix-rain">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="text-terminal-green opacity-20"
-            style={{
-              left: `${i * 5}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              fontSize: `${12 + Math.random() * 6}px`
-            }}
-          >
-            {String.fromCharCode(0x30A0 + Math.random() * 96)}
-          </span>
-        ))}
-      </div>
-
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
@@ -228,14 +294,15 @@ export default function ServicosPage() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <Zap className="w-8 h-8 text-neon-cyan" />
             <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
-              SERVIÇOS
+              DESENVOLVIMENTO DE SITES PROFISSIONAIS E SISTEMAS WEB
             </h1>
             <Zap className="w-8 h-8 text-neon-cyan" />
           </div>
           
           <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
-            Soluções tecnológicas de elite para dominar o mercado digital. 
-            Cada serviço é uma power-up para o sucesso do seu negócio.
+            <strong>Sites profissionais</strong>, <strong>chatbots com IA</strong>, <strong>e-commerce</strong>,
+            <strong> automação inteligente</strong> e <strong>SEO</strong> — tudo criado com inteligência artificial
+            para entregar mais rápido e com qualidade superior. Preços reais, sem surpresas.
           </p>
 
           {/* Stats */}
@@ -246,7 +313,7 @@ export default function ServicosPage() {
             className="flex justify-center space-x-8 mb-12"
           >
             <div className="text-center">
-              <div className="gaming-display text-3xl font-bold text-laser-green">50+</div>
+              <div className="gaming-display text-3xl font-bold text-laser-green">40+</div>
               <div className="gaming-mono text-sm text-led-white/60">PROJETOS</div>
             </div>
             <div className="text-center">
@@ -324,10 +391,15 @@ export default function ServicosPage() {
                       {service.description}
                     </p>
                     
+                    {/* Price */}
+                    <div className={`text-center mb-3 gaming-display text-lg font-bold ${config.text}`}>
+                      {service.price}
+                    </div>
+
                     {/* Timeline */}
                     <div className="text-center mb-4">
-                      <span className="gaming-mono text-sm text-neon-cyan font-bold">
-                        Timeline: {service.timeline}
+                      <span className="gaming-mono text-xs text-led-white/60">
+                        {service.timeline}
                       </span>
                     </div>
                   </div>
@@ -407,6 +479,18 @@ export default function ServicosPage() {
                       </div>
                     </div>
 
+                    {/* Price Details */}
+                    {service.priceNote && (
+                      <div className={`mb-6 p-3 rounded-lg border ${config.border} bg-gradient-to-r ${config.gradient}`}>
+                        <div className={`gaming-mono text-sm font-bold ${config.text} mb-1`}>
+                          💰 {service.price}
+                        </div>
+                        <div className="gaming-mono text-xs text-led-white/60">
+                          {service.priceNote}
+                        </div>
+                      </div>
+                    )}
+
                     {/* CTA Button */}
                     <motion.button
                       whileHover={{ scale: 1.02 }}
@@ -444,15 +528,15 @@ export default function ServicosPage() {
           className="text-center mb-16"
         >
           <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-8 neon-glow">
-            NOSSO PROCESSO
+            COMO FUNCIONA O DESENVOLVIMENTO DO SEU SITE
           </h2>
-          
+
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { icon: Target, title: 'ANÁLISE', desc: 'Entendemos suas necessidades e objetivos' },
-              { icon: Code, title: 'DESENVOLVIMENTO', desc: 'Criamos a solução com tecnologia de ponta' },
-              { icon: Rocket, title: 'DEPLOY', desc: 'Colocamos sua aplicação em produção' },
-              { icon: Users, title: 'SUPORTE', desc: 'Acompanhamos e evoluímos continuamente' }
+              { icon: Target, title: '1. ENTENDEMOS', desc: 'Ouvimos o que sua empresa precisa e definimos a melhor solução juntos' },
+              { icon: Code, title: '2. CRIAMOS', desc: 'Desenvolvemos seu site ou sistema com design moderno e responsivo' },
+              { icon: Rocket, title: '3. ENTREGAMOS', desc: 'Publicamos tudo funcionando e pronto para receber seus clientes' },
+              { icon: Users, title: '4. CUIDAMOS', desc: 'Oferecemos suporte contínuo para que tudo funcione perfeitamente' }
             ].map((step, index) => {
               const StepIcon = step.icon
               return (
@@ -484,10 +568,11 @@ export default function ServicosPage() {
           className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
-            READY TO LEVEL UP?
+            SUA EMPRESA MERECE UM SITE PROFISSIONAL
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">
-            Transforme sua ideia em realidade digital. Entre em contato e vamos discutir seu projeto!
+            Peça um orçamento sem compromisso e descubra como um site bem feito pode
+            trazer mais clientes e aumentar suas vendas.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -504,7 +589,7 @@ export default function ServicosPage() {
               }}
               className="gaming-button text-lg px-8 py-4"
             >
-              <span className="relative z-10">INICIAR PROJETOS</span>
+              <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
             </motion.button>
             
             <motion.button

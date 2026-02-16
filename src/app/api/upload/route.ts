@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import crypto from 'crypto';
+import os from 'os';
 
-const UPLOAD_DIR = path.join(process.cwd(), 'uploads');
+// Use /tmp on Vercel (serverless), local uploads/ in development
+const UPLOAD_DIR = process.env.NODE_ENV === 'production'
+  ? path.join(os.tmpdir(), 'uploads')
+  : path.join(process.cwd(), 'uploads');
+
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 const ALLOWED_TYPES = {
@@ -46,7 +51,7 @@ export async function POST(request: NextRequest) {
     // Generate unique filename
     const fileExtension = path.extname(file.name);
     const fileName = `${crypto.randomUUID()}${fileExtension}`;
-    
+
     // Create upload directory if it doesn't exist
     await mkdir(UPLOAD_DIR, { recursive: true });
 
@@ -54,7 +59,7 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
     const filePath = path.join(UPLOAD_DIR, fileName);
-    
+
     await writeFile(filePath, buffer);
 
     // Generate file URL
@@ -112,8 +117,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     const filePath = path.join(UPLOAD_DIR, fileName);
-    
-    // Delete file (you might want to implement soft delete in production)
+
     const fs = await import('fs/promises');
     await fs.unlink(filePath);
 

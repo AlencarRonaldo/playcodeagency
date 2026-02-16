@@ -38,7 +38,7 @@ const NAVIGATION: NavItem[] = [
     name: 'Início',
     href: '/',
     icon: Zap,
-    description: 'Portal principal da PlayCode Agency'
+    description: 'Página inicial'
   },
   {
     name: 'Sobre',
@@ -50,7 +50,7 @@ const NAVIGATION: NavItem[] = [
     name: 'Serviços',
     href: '/servicos',
     icon: Code,
-    description: 'Soluções e tecnologias'
+    description: 'Nossos serviços e soluções'
   },
   {
     name: 'Portfólio',
@@ -68,7 +68,7 @@ const NAVIGATION: NavItem[] = [
     name: 'Combos',
     href: '/combos',
     icon: Star,
-    description: 'Stacks tecnológicos recomendados'
+    description: 'Pacotes recomendados'
   },
   {
     name: 'Contato',
@@ -78,11 +78,7 @@ const NAVIGATION: NavItem[] = [
   }
 ]
 
-const SOCIAL_LINKS = [
-  { name: 'GitHub', icon: Github, href: '#', color: 'text-led-white' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'text-electric-blue' },
-  { name: 'Twitter', icon: Twitter, href: '#', color: 'text-neon-cyan' }
-]
+const SOCIAL_LINKS: { name: string; icon: typeof Github; href: string; color: string }[] = []
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -199,7 +195,7 @@ export default function Header() {
                   }}
                   className="gaming-button px-6 py-2 text-sm"
                 >
-                  <span className="relative z-10">INICIAR PROJETO</span>
+                  <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
                 </Link>
               </motion.div>
             </div>
@@ -316,7 +312,7 @@ export default function Header() {
                     }}
                     className="gaming-button w-full text-center py-4"
                   >
-                    <span className="relative z-10">INICIAR PROJETO</span>
+                    <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
                   </Link>
                 </motion.div>
               </nav>

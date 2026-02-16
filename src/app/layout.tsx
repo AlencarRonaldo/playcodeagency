@@ -35,17 +35,23 @@ const rajdhani = Rajdhani({
 
 export const metadata: Metadata = {
   title: {
-    default: "PlayCode Agency - Desenvolvimento Web e IA | Criação de Sites Profissionais",
-    template: "%s | PlayCode Agency"
+    default: "Desenvolvimento de Sites Profissionais | Empresa de Desenvolvimento Web no Brasil - PlayCode Agency",
+    template: "%s | PlayCode Agency - Desenvolvimento Web Profissional"
   },
-  description: "Sua ideia é nosso cheat code para o sucesso! Transforme seu negócio com desenvolvimento web profissional, integração de IA e soluções digitais personalizadas. 10 anos de experiência, 50+ projetos entregues e 40+ clientes satisfeitos.",
+  description: "Empresa de desenvolvimento web no Brasil especializada em criação de sites responsivos, sistemas personalizados e aplicações web para pequenas empresas. 10+ anos, 40+ projetos entregues. Orçamento grátis!",
   keywords: [
-    "desenvolvimento web", "criação de sites", "programação", "desenvolvimento de aplicativos",
-    "inteligência artificial", "IA", "chatbot", "automação", "web design responsivo",
-    "e-commerce", "sistema web", "landing page", "site profissional", "tecnologia",
-    "React", "Next.js", "TypeScript", "Node.js", "desenvolvimento frontend", "backend",
-    "São Paulo", "Brasil", "agência digital", "consultoria tecnológica",
-    "otimização SEO", "performance web", "experiência do usuário", "UX/UI"
+    "desenvolvimento de sites profissionais", "criação de sites responsivos",
+    "desenvolvimento web para empresas", "criação de sistemas personalizados",
+    "site para pequenas empresas", "desenvolvimento de aplicações web",
+    "empresa de desenvolvimento web no Brasil", "agência de desenvolvimento web",
+    "criar site profissional", "desenvolvimento web São Paulo",
+    "criação de site institucional", "site responsivo para empresa",
+    "sistema web sob medida", "landing page profissional",
+    "desenvolvimento web com inteligência artificial", "chatbot para empresas",
+    "site para profissionais liberais", "site para consultório",
+    "loja virtual profissional", "e-commerce personalizado",
+    "SEO para empresas", "otimização de sites para Google",
+    "orçamento criação de site", "quanto custa um site profissional"
   ],
   authors: [{ name: "PlayCode Agency", url: "https://playcodeagency.xyz" }],
   creator: "PlayCode Agency",
@@ -65,22 +71,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://playcodeagency.xyz",
-    title: "PlayCode Agency - Desenvolvimento Web Profissional e Inteligência Artificial",
-    description: "Sua ideia é nosso cheat code para o sucesso! Criamos soluções web inovadoras com IA, desenvolvimento profissional de sites, apps e sistemas que transformam negócios. 10 anos de experiência com resultados comprovados.",
+    title: "Criação de Sites Profissionais e Desenvolvimento Web para Empresas | PlayCode Agency",
+    description: "Sua empresa precisa de um site profissional? Somos especialistas em desenvolvimento de sites responsivos, sistemas personalizados e aplicações web. 10+ anos de experiência. Peça seu orçamento grátis.",
     siteName: "PlayCode Agency",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "PlayCode Agency - Desenvolvimento Web e IA Profissional",
+        alt: "PlayCode Agency - Desenvolvimento de Sites Profissionais e Sistemas Web",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PlayCode Agency - Desenvolvimento Web e IA",
-    description: "Sua ideia é nosso cheat code para o sucesso! Transformamos ideias em soluções digitais com desenvolvimento profissional, IA e tecnologias avançadas.",
+    title: "Criação de Sites Profissionais para Empresas | PlayCode Agency",
+    description: "Desenvolvimento de sites responsivos, sistemas personalizados e aplicações web para empresas. 10+ anos de experiência, 40+ clientes satisfeitos. Orçamento grátis!",
     images: ["/twitter-image.jpg"],
     creator: "@playcodeagency",
   },
@@ -94,7 +100,7 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
-  classification: "Desenvolvimento Web, Inteligência Artificial, Consultoria Tecnológica",
+  classification: "Desenvolvimento Web, Criação de Sites, Sistemas Personalizados, Aplicações Web",
 };
 
 export const viewport: Viewport = {
@@ -109,9 +115,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" itemScope itemType="https://schema.org/Organization">
+    <html lang="pt-BR" itemScope itemType="https://schema.org/Organization" suppressHydrationWarning>
       <body
         className={`${orbitron.variable} ${exo.variable} ${jetbrainsMono.variable} ${rajdhani.variable} antialiased`}
+        suppressHydrationWarning
       >
         <AchievementProvider>
           <Header />
