@@ -54,24 +54,9 @@ export async function POST(request: NextRequest) {
 
     // Parse and validate request body with enhanced security
     const body = await request.json()
-    
-    // Check for suspicious content in user-provided text fields only
-    const textToCheck = [body.name, body.message, body.company].filter(Boolean).join(' ')
-    const suspicious = SecurityMonitor.detectSuspiciousContent(textToCheck)
-    if (suspicious.length > 0) {
-      SecurityMonitor.logSecurityEvent({
-        type: 'suspicious_input',
-        ip,
-        userAgent,
-        details: { threats: suspicious, data: body }
-      })
-      
-      return NextResponse.json({
-        error: 'Invalid content',
-        message: 'Conteúdo suspeito detectado'
-      }, { status: 400 })
-    }
-    
+
+    console.log('📨 Contact form body received:', JSON.stringify(body, null, 2))
+
     // Bot detection - check honeypot fields
     if (body.website || body.confirm_email) {
       SecurityMonitor.logSecurityEvent({
@@ -80,15 +65,45 @@ export async function POST(request: NextRequest) {
         userAgent,
         details: { honeypot_triggered: true }
       })
-      
+
       // Silent fail - don't let bots know they're detected
       return NextResponse.json({
         success: true,
         message: '🚀 Mensagem enviada com sucesso!'
       })
     }
-    
-    const validatedData = secureContactSchema.parse(body)
+
+    // Check for suspicious content in user-provided text fields only
+    const textToCheck = [body.name, body.message, body.company].filter(Boolean).join(' ')
+    const suspicious = SecurityMonitor.detectSuspiciousContent(textToCheck)
+    if (suspicious.length > 0) {
+      console.warn('🚨 Suspicious content detected:', suspicious, 'in:', textToCheck)
+      SecurityMonitor.logSecurityEvent({
+        type: 'suspicious_input',
+        ip,
+        userAgent,
+        details: { threats: suspicious, data: body }
+      })
+
+      return NextResponse.json({
+        error: 'Invalid content',
+        message: 'Conteúdo suspeito detectado',
+        debug: { threats: suspicious }
+      }, { status: 400 })
+    }
+
+    // Validate with Zod - use safeParse for better error handling
+    const result = secureContactSchema.safeParse(body)
+    if (!result.success) {
+      console.error('❌ Zod validation failed:', JSON.stringify(result.error.errors, null, 2))
+      return NextResponse.json({
+        error: 'Validation failed',
+        message: 'Dados inválidos',
+        details: result.error.errors
+      }, { status: 400 })
+    }
+
+    const validatedData = result.data
 
     // Tentar enviar email usando o EmailService
     try {
@@ -181,21 +196,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('❌ Contact API Error:', error)
 
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { 
-          error: 'Validation failed', 
-          message: 'Dados inválidos',
-          details: error.errors 
-        },
-        { status: 400 }
-      )
-    }
-
     return NextResponse.json(
-      { 
-        error: 'Internal server error', 
-        message: 'Erro interno do servidor. Tente novamente.' 
+      {
+        error: 'Internal server error',
+        message: 'Erro interno do servidor. Tente novamente.'
       },
       { status: 500 }
     )

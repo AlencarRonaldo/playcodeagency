@@ -67,7 +67,6 @@ export const secureContactSchema = z.object({
   name: z.string()
     .min(2, 'Nome deve ter pelo menos 2 caracteres')
     .max(100, 'Nome muito longo')
-    .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, 'Nome contém caracteres inválidos')
     .transform(InputSanitizer.sanitizeText),
   
   email: z.string()
