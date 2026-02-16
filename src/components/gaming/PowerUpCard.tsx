@@ -32,44 +32,44 @@ interface PowerUpCardProps {
 
 const rarityConfig = {
   common: {
-    border: 'border-led-white/50',
-    glow: 'shadow-[0_0_15px_rgba(255,255,255,0.5)]',
-    gradient: 'from-led-white/20 to-led-white/10',
-    text: 'text-led-white',
-    accent: 'text-led-white',
-    badgeGlow: 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+    border: 'border-[#a0a0a0]/60',
+    glow: 'shadow-[0_0_20px_rgba(200,200,200,0.4)]',
+    gradient: 'from-[#a0a0a0]/15 to-[#606060]/10',
+    text: 'text-[#c0c0c0]',
+    accent: 'text-[#c0c0c0]',
+    badgeGlow: 'drop-shadow-[0_0_6px_rgba(200,200,200,0.6)]'
   },
   rare: {
-    border: 'border-electric-blue/70',
-    glow: 'shadow-[0_0_20px_rgba(0,212,255,0.6)]',
-    gradient: 'from-electric-blue/30 to-electric-blue/15',
-    text: 'text-electric-blue',
-    accent: 'text-electric-blue',
-    badgeGlow: 'drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]'
+    border: 'border-[#00BFFF]/80',
+    glow: 'shadow-[0_0_25px_rgba(0,191,255,0.5),0_0_50px_rgba(0,191,255,0.2)]',
+    gradient: 'from-[#00BFFF]/20 to-[#0066CC]/15',
+    text: 'text-[#00D4FF]',
+    accent: 'text-[#4DD9FF]',
+    badgeGlow: 'drop-shadow-[0_0_10px_rgba(0,212,255,0.9)]'
   },
   epic: {
-    border: 'border-gaming-purple/80',
-    glow: 'shadow-[0_0_25px_rgba(139,92,246,0.7)]',
-    gradient: 'from-gaming-purple/35 to-gaming-purple/15',
-    text: 'text-gaming-purple',
-    accent: 'text-gaming-purple',
-    badgeGlow: 'drop-shadow-[0_0_8px_rgba(139,92,246,0.8)]'
+    border: 'border-[#A855F7]/80',
+    glow: 'shadow-[0_0_25px_rgba(168,85,247,0.5),0_0_50px_rgba(168,85,247,0.2)]',
+    gradient: 'from-[#A855F7]/20 to-[#7C3AED]/15',
+    text: 'text-[#C084FC]',
+    accent: 'text-[#D8B4FE]',
+    badgeGlow: 'drop-shadow-[0_0_10px_rgba(192,132,252,0.9)]'
   },
   legendary: {
-    border: 'border-plasma-yellow/90',
-    glow: 'shadow-[0_0_30px_rgba(255,234,0,0.8)]',
-    gradient: 'from-plasma-yellow/40 to-plasma-yellow/20',
-    text: 'text-plasma-yellow',
-    accent: 'text-plasma-yellow',
-    badgeGlow: 'drop-shadow-[0_0_10px_rgba(255,234,0,1)]'
+    border: 'border-[#FFB800]/80',
+    glow: 'shadow-[0_0_30px_rgba(255,184,0,0.5),0_0_60px_rgba(255,140,0,0.2)]',
+    gradient: 'from-[#FFB800]/25 to-[#FF6B00]/15',
+    text: 'text-[#FFD000]',
+    accent: 'text-[#FFE566]',
+    badgeGlow: 'drop-shadow-[0_0_12px_rgba(255,208,0,1)]'
   },
   mythic: {
-    border: 'border-laser-green/90',
-    glow: 'shadow-[0_0_35px_rgba(34,197,94,0.9)]',
-    gradient: 'from-laser-green/40 to-laser-green/20',
-    text: 'text-laser-green',
-    accent: 'text-laser-green',
-    badgeGlow: 'drop-shadow-[0_0_10px_rgba(34,197,94,1)]'
+    border: 'border-[#FF2D78]/80',
+    glow: 'shadow-[0_0_30px_rgba(255,45,120,0.5),0_0_60px_rgba(255,0,255,0.2)]',
+    gradient: 'from-[#FF2D78]/20 to-[#FF00FF]/15',
+    text: 'text-[#FF5CA1]',
+    accent: 'text-[#FF8EC4]',
+    badgeGlow: 'drop-shadow-[0_0_12px_rgba(255,92,161,1)]'
   }
 }
 
@@ -138,7 +138,7 @@ export default function PowerUpCard({
         relative group cursor-pointer
         bg-gradient-to-br ${config.gradient}
         backdrop-blur-xl border-2 ${config.border}
-        rounded-xl p-6 transition-all duration-300
+        rounded-xl p-5 transition-all duration-300
         hover:${config.glow}
         ${!isUnlocked ? 'opacity-60 grayscale' : ''}
         ${className}
@@ -158,9 +158,9 @@ export default function PowerUpCard({
       }}
     >
       {/* Rarity Indicator */}
-      <div className="absolute top-3 right-3">
+      <div className="absolute top-2 right-2">
         <div className={`
-          px-3 py-1.5 rounded-lg text-xs font-bold gaming-mono uppercase
+          px-2 py-1 rounded-md text-[10px] font-bold gaming-mono uppercase
           ${config.text} ${config.border} border-2
           ${config.gradient} bg-gradient-to-r
           shadow-lg backdrop-blur-sm ${config.badgeGlow}
@@ -182,38 +182,38 @@ export default function PowerUpCard({
 
       {/* Power-up Icon */}
       <div className={`
-        w-16 h-16 mx-auto mb-4 rounded-xl
+        w-14 h-14 mx-auto mb-3 rounded-lg
         bg-gradient-to-br ${config.gradient}
         border ${config.border}
         flex items-center justify-center
         group-hover:animate-powerup
       `}>
-        <Icon size={32} className={config.text} />
+        <Icon size={28} className={config.text} />
       </div>
 
       {/* Power-up Info */}
-      <div className="text-center mb-4">
-        <h3 className={`gaming-title text-lg font-bold mb-2 ${config.text}`}>
+      <div className="text-center mb-3">
+        <h3 className={`gaming-title text-base font-bold mb-1 ${config.text}`}>
           {name}
         </h3>
-        <p className="gaming-subtitle text-sm text-led-white/70 mb-3">
+        <p className="gaming-subtitle text-sm text-led-white/70 mb-2">
           {description}
         </p>
-        
+
         {/* Level Indicator */}
-        <div className="flex items-center justify-center space-x-2 mb-3">
-          <span className="gaming-mono text-xs text-led-white/50">LVL</span>
-          <span className={`gaming-display text-lg font-bold ${config.text}`}>
+        <div className="flex items-center justify-center space-x-1 mb-2">
+          <span className="gaming-mono text-[10px] text-led-white/50">LVL</span>
+          <span className={`gaming-display text-base font-bold ${config.text}`}>
             {level}
           </span>
         </div>
       </div>
 
       {/* Stats Bars */}
-      <div className="space-y-2 mb-4">
+      <div className="space-y-1.5 mb-3">
         {Object.entries(stats).map(([statName, value]) => (
           <div key={statName} className="flex items-center justify-between">
-            <span className="gaming-mono text-xs text-led-white/60 uppercase w-20">
+            <span className="gaming-mono text-xs text-led-white/60 uppercase w-16">
               {statName}
             </span>
             <div className="flex-1 mx-2">
@@ -226,7 +226,7 @@ export default function PowerUpCard({
                 />
               </div>
             </div>
-            <span className={`gaming-mono text-xs ${config.text} w-8 text-right`}>
+            <span className={`gaming-mono text-xs ${config.text} w-7 text-right`}>
               {value}
             </span>
           </div>
@@ -234,18 +234,18 @@ export default function PowerUpCard({
       </div>
 
       {/* Action Buttons */}
-      <div className="border-t border-led-white/20 pt-4">
-        <div className="flex items-center justify-between mb-3">
+      <div className="border-t border-led-white/20 pt-3">
+        <div className="flex items-center justify-between mb-2">
           {price ? (
             <div className="gaming-mono text-sm font-bold text-laser-green">
               {price}
             </div>
           ) : (
-            <div className="gaming-mono text-xs text-led-white/50">
+            <div className="gaming-mono text-[10px] text-led-white/50">
               UNLOCKED
             </div>
           )}
-          
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
