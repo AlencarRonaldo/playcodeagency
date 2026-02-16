@@ -232,14 +232,12 @@ export default function ContatoPage() {
       } else {
         // Handle API error response
         try {
-          const errorData = await response.text()
-          console.error('API Error Response:', {
-            status: response.status,
-            statusText: response.statusText,
-            body: errorData
-          })
+          const errorData = await response.json()
+          console.error('API Error Response:', JSON.stringify(errorData, null, 2))
+          console.error('API Status:', response.status, response.statusText)
         } catch (readError) {
-          console.error('📝 Error reading error response:', readError)
+          const textData = await response.text().catch(() => 'unreadable')
+          console.error('API Error (text):', textData, 'Status:', response.status)
         }
         setSubmitStatus('error')
         audioHelpers.playError()
