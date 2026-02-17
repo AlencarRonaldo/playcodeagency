@@ -123,10 +123,12 @@ export default function ContatoPage() {
     const errors: Record<string, string> = {}
     
     if (!formData.name.trim()) errors.name = 'Nome é obrigatório'
+    else if (formData.name.trim().length < 2) errors.name = 'Nome deve ter pelo menos 2 caracteres'
     if (!formData.email.trim()) errors.email = 'Email é obrigatório'
     else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = 'Email inválido'
     if (!formData.project_type) errors.project_type = 'Selecione o tipo de projeto'
     if (!formData.message.trim()) errors.message = 'Descreva seu projeto'
+    else if (formData.message.trim().length < 10) errors.message = 'Mensagem deve ter pelo menos 10 caracteres'
     
     setFormErrors(errors)
     return Object.keys(errors).length === 0
