@@ -146,7 +146,7 @@ export default function PowerUpsSection() {
   }
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background Circuit Pattern */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
       
@@ -157,7 +157,7 @@ export default function PowerUpsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           {/* Slogan Simples */}
           <motion.div
@@ -172,20 +172,20 @@ export default function PowerUpsSection() {
             </div>
           </motion.div>
 
-          <h2 className="gaming-title text-4xl lg:text-6xl font-bold mb-6">
+          <h2 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span className="text-neon-cyan">SERVIÇOS DE</span>
             <br />
             <span className="text-magenta-power">DESENVOLVIMENTO WEB</span>
           </h2>
 
-          <p className="gaming-subtitle text-xl text-led-white/80 max-w-3xl mx-auto mb-8">
+          <p className="gaming-subtitle text-base sm:text-xl text-led-white/80 max-w-3xl mx-auto mb-6 sm:mb-8">
             <strong>Sites profissionais</strong>, <strong>chatbots WhatsApp com IA</strong>, <strong>lojas virtuais</strong>,
             <strong> automação inteligente</strong> e <strong>SEO</strong>. Tudo criado com inteligência artificial
             para entregar mais rápido, com mais qualidade e preços acessíveis.
           </p>
 
           {/* Collection Stats */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
             <div className="hud-element text-center px-6 py-3">
               <div className="gaming-display text-2xl font-bold text-laser-green">
                 {powerUps.length}
@@ -277,9 +277,9 @@ export default function PowerUpsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-8 sm:mt-16"
         >
-          <div className="gaming-card p-8 max-w-2xl mx-auto">
+          <div className="gaming-card p-4 sm:p-8 max-w-2xl mx-auto">
             <h3 className="gaming-title text-2xl font-bold mb-4 text-gaming-purple">
               NÃO SABE POR ONDE COMEÇAR?
             </h3>

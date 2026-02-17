@@ -163,6 +163,19 @@ export default function SobrePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Sobre Nós", "item": "https://playcodeagency.xyz/sobre" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "AboutPage",
             "mainEntity": {
               "@type": "Organization",
@@ -200,23 +213,23 @@ export default function SobrePage() {
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Code className="w-8 h-8 text-neon-cyan" />
-            <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <Code className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
+            <h1 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
               EMPRESA DE DESENVOLVIMENTO WEB NO BRASIL
             </h1>
-            <Code className="w-8 h-8 text-neon-cyan" />
+            <Code className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
           </div>
-          
-          <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
+
+          <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
             Há mais de 10 anos ajudamos empresários, pequenos negócios e profissionais liberais
             a crescer com <strong>sites profissionais</strong>, <strong>sistemas personalizados</strong> e
             <strong>aplicações web</strong> que geram resultados reais.
@@ -227,7 +240,7 @@ export default function SobrePage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="gaming-card p-8 max-w-4xl mx-auto bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
+            className="gaming-card p-4 sm:p-8 max-w-4xl mx-auto bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
               <Target className="w-6 h-6 text-plasma-yellow" />
@@ -249,13 +262,13 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-20"
         >
           {COMPANY_STATS.map((stat, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="gaming-card p-6 text-center border border-neon-cyan/30 hover:border-neon-cyan/60 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+              className="gaming-card p-4 sm:p-6 text-center border border-neon-cyan/30 hover:border-neon-cyan/60 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
             >
               <div className={`gaming-display text-3xl font-bold mb-2 ${stat.color}`}>
                 {stat.value}
@@ -272,10 +285,10 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-20"
+          className="mb-10 sm:mb-20"
         >
-          <div className="text-center mb-12">
-            <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="gaming-title text-2xl sm:text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
               NOSSOS VALORES
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
@@ -283,7 +296,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {COMPANY_VALUES.map((value, index) => {
               const ValueIcon = value.icon
               return (
@@ -293,7 +306,7 @@ export default function SobrePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
                   whileHover={{ scale: 1.02, y: -8 }}
-                  className="gaming-card p-6 text-center hover:shadow-[0_0_25px_rgba(0,255,255,0.2)]"
+                  className="gaming-card p-3 sm:p-6 text-center hover:shadow-[0_0_25px_rgba(0,255,255,0.2)]"
                 >
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-neon-cyan/20 to-gaming-purple/20 border border-neon-cyan/50 rounded-xl flex items-center justify-center">
                     <ValueIcon size={32} className={value.color} />
@@ -315,10 +328,10 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mb-20"
+          className="mb-10 sm:mb-20"
         >
-          <div className="text-center mb-12">
-            <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="gaming-title text-2xl sm:text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
               NOSSA EQUIPE
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
@@ -327,7 +340,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-8 max-w-3xl mx-auto">
             {TEAM_MEMBERS.map((member, index) => {
               const isSelected = selectedMember === member.id
               return (
@@ -508,10 +521,10 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mb-20"
+          className="mb-10 sm:mb-20"
         >
-          <div className="text-center mb-12">
-            <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="gaming-title text-2xl sm:text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
               NOSSA JORNADA
             </h2>
             <p className="gaming-subtitle text-lg text-led-white/80 max-w-3xl mx-auto">
@@ -519,7 +532,7 @@ export default function SobrePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-4 sm:gap-8">
             {[
               {
                 year: '2014',
@@ -573,7 +586,7 @@ export default function SobrePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
+          className="text-center gaming-card p-4 sm:p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
             PRONTO PARA TER UM SITE QUE VENDE?

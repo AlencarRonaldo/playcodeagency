@@ -3,8 +3,8 @@ import PowerUpsSection from '@/components/sections/PowerUpsSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Criação de Sites Profissionais e Desenvolvimento Web para Empresas | PlayCode Agency",
-  description: "Empresa de desenvolvimento web no Brasil. Criamos sites responsivos, sistemas personalizados e aplicações web que geram resultados reais para seu negócio. 10+ anos, 40+ clientes. Orçamento grátis!",
+  title: "Criação de Sites Profissionais para Empresas | Desde R$ 797 - PlayCode Agency",
+  description: "Criação de sites profissionais, chatbots WhatsApp com IA e lojas virtuais para empresas. Entrega em 7 dias, suporte 24/7, orçamento grátis. 10+ anos, 40+ clientes satisfeitos.",
   keywords: [
     "desenvolvimento de sites profissionais", "criação de sites responsivos",
     "desenvolvimento web para empresas", "criação de sistemas personalizados",
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "site para profissionais liberais", "quanto custa um site profissional"
   ],
   openGraph: {
-    title: "Criação de Sites Profissionais para Empresas | PlayCode Agency",
-    description: "Precisa de um site profissional? Somos especialistas em desenvolvimento web para empresas. Sites responsivos, sistemas personalizados e resultados comprovados. Peça seu orçamento grátis!",
+    title: "Criação de Sites Profissionais para Empresas | Desde R$ 797 - PlayCode Agency",
+    description: "Sites profissionais, chatbots WhatsApp com IA e lojas virtuais. Entrega em 7 dias, suporte 24/7. 10+ anos, 40+ clientes. Orçamento grátis!",
     url: "https://playcodeagency.xyz",
   },
   alternates: {

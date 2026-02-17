@@ -108,7 +108,7 @@ export default function HeroSection() {
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-20 pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Boot Sequence */}
         <AnimatePresence>
           {isBooting && (
@@ -123,7 +123,7 @@ export default function HeroSection() {
               </div>
               
               {/* Boot Progress Bar */}
-              <div className="hud-bar w-96 mx-auto mb-4">
+              <div className="hud-bar w-64 sm:w-96 mx-auto mb-4">
                 <motion.div
                   className="hud-bar-fill bg-gradient-power"
                   style={{ width: `${bootProgress}%` }}
@@ -145,7 +145,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center"
+              className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-6 lg:gap-8 items-center"
             >
               {/* Left Content */}
               <div className="text-center lg:text-left">
@@ -153,23 +153,23 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  className="gaming-title text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 neon-glow text-neon-cyan"
+                  className="gaming-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 neon-glow text-neon-cyan"
                 >
-                  <span className="sr-only">PlayCode Agency - Empresa de Desenvolvimento Web no Brasil - </span>
-                  SITES PROFISSIONAIS
+                  <span className="sr-only">PlayCode Agency - Empresa de Criação de Sites Profissionais no Brasil - </span>
+                  CRIAÇÃO DE SITES
                   <br />
-                  <span className="text-magenta-power">QUE GERAM</span>
+                  <span className="text-magenta-power">PROFISSIONAIS PARA</span>
                   <br />
-                  <span className="text-gaming-purple">RESULTADOS REAIS</span>
+                  <span className="text-gaming-purple">EMPRESAS QUE VENDEM</span>
                 </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="gaming-subtitle text-xl lg:text-2xl mb-8 text-led-white/80 max-w-xl"
+                  className="gaming-subtitle text-base sm:text-xl lg:text-2xl mb-8 text-led-white/80 max-w-xl mx-auto lg:mx-0"
                 >
-                  Somos especialistas em desenvolvimento de <strong>sites profissionais</strong>, <strong>sistemas ERP personalizados</strong> e <strong>automações empresariais</strong>. Atuamos há mais de <strong>10 anos</strong> ajudando empresas a sair do improviso e ter processos organizados, sistemas eficientes e presença digital estratégica.
+                  Desenvolvemos <strong>sites profissionais</strong>, <strong>chatbots WhatsApp com inteligência artificial</strong>, <strong>lojas virtuais</strong> e <strong>automações</strong> que transformam visitantes em clientes. Entrega em até <strong>7 dias</strong>, suporte 24/7 e preços a partir de <strong>R$ 797</strong>.
                 </motion.p>
 
                 {/* Action Buttons */}
@@ -189,7 +189,7 @@ export default function HeroSection() {
                       window.location.href = '/contato'
                     }}
                   >
-                    <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">QUERO MEU SITE PROFISSIONAL</span>
+                    <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">SOLICITAR ORÇAMENTO GRÁTIS</span>
                   </button>
                 </motion.div>
 
@@ -198,7 +198,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
-                  className="flex justify-center lg:justify-start space-x-8 mt-8"
+                  className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8 mt-8"
                 >
                   <div className="text-center">
                     <div className="gaming-display text-2xl font-bold text-laser-green">40+</div>
@@ -223,7 +223,7 @@ export default function HeroSection() {
                 className="relative"
               >
                 {/* HUD Container */}
-                <div className="gaming-card p-5 relative">
+                <div className="gaming-card p-3 sm:p-5 relative">
                   <div className="absolute top-4 left-4 right-4">
                     <div className="flex justify-between items-center mb-6">
                       <div className="gaming-mono text-neon-cyan text-sm">
@@ -238,7 +238,7 @@ export default function HeroSection() {
                   <div className="pt-8 space-y-6">
                     {/* Competitive Advantages Display */}
                     <div className="flex justify-center mb-6">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-2 gap-2 sm:gap-4">
                         {/* Advantage 1 - Speed & Delivery */}
                         <motion.div
                           initial={{ scale: 0, rotate: 180 }}

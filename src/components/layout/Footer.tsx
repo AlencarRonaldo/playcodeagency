@@ -149,7 +149,7 @@ export default function Footer() {
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
           onMouseEnter={audioHelpers.playHover}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-neon-cyan text-controller-black rounded-full flex items-center justify-center shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 z-40"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-neon-cyan text-controller-black rounded-full flex items-center justify-center shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 z-40"
         >
           <ArrowUp size={20} />
         </motion.button>
@@ -162,10 +162,10 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="py-12 border-b border-neon-cyan/20"
+          className="py-8 sm:py-12 border-b border-neon-cyan/20"
         >
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
               {STATS.map((stat, index) => {
                 const StatIcon = stat.icon
                 return (
@@ -194,9 +194,9 @@ export default function Footer() {
         </motion.div>
 
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-6 gap-12">
+        <div className="py-10 sm:py-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-12">
               {/* Company Info */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -316,8 +316,8 @@ export default function Footer() {
           viewport={{ once: true }}
           className="py-8 border-t border-neon-cyan/20"
         >
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
               {/* Social Links */}
               <div className="flex items-center gap-6">
                 <div className="gaming-mono text-sm font-bold text-neon-cyan">

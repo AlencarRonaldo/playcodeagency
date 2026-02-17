@@ -565,6 +565,62 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Planos e Preços", "item": "https://playcodeagency.xyz/planos" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quanto tempo leva para criar um site profissional?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Um site simples (landing page) fica pronto em 7 dias. Sites com mais páginas levam de 2 a 4 semanas. Sistemas personalizados de 8 a 16 semanas, dependendo da complexidade."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O site funciona bem no celular?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim! Todos os nossos sites são 100% responsivos, ou seja, funcionam perfeitamente em celulares, tablets e computadores. Isso é essencial para o Google e para a experiência dos seus clientes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Posso trocar de plano depois?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Com certeza! Você pode fazer upgrade a qualquer momento. Conforme sua empresa cresce, seu site cresce junto. Ajustamos os valores proporcionalmente."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Vocês fazem sites para quais tipos de empresa?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Atendemos pequenas empresas, profissionais liberais (advogados, psicólogos, coaches), restaurantes, lojas e empresas de serviços. Cada projeto é personalizado para o seu negócio."
+                }
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "Product",
             "name": "Planos de Criação de Sites Profissionais",
             "description": "Quanto custa um site profissional? Planos de desenvolvimento web para empresas com preços transparentes, suporte dedicado e resultados garantidos",
@@ -616,23 +672,23 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Trophy className="w-8 h-8 text-neon-cyan" />
-            <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
+            <h1 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
               QUANTO CUSTA UM SITE PROFISSIONAL
             </h1>
-            <Trophy className="w-8 h-8 text-neon-cyan" />
+            <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
           </div>
-          
-          <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
+
+          <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
             Planos de <strong>criação de sites profissionais</strong> e <strong>desenvolvimento web</strong> para
             cada fase do seu negócio. Do site simples ao sistema completo, com preços transparentes.
           </p>
@@ -676,7 +732,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
         </motion.div>
 
         {/* Plans Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-16">
           {PLANS.map((plan, index) => {
             const config = rarityConfig[plan.rarity]
             const PlanIcon = plan.icon
@@ -1069,7 +1125,7 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {ADD_ONS.map((addon, index) => {
               const AddonIcon = addon.icon
               const config = rarityConfig[addon.rarity || 'common']
@@ -1355,7 +1411,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
           </div>
 
           {/* Gaming Matrix Table */}
-          <div className="gaming-card p-6 bg-gradient-to-b from-controller-black/90 to-controller-black/70 border-2 border-electric-blue/50 overflow-x-auto">
+          <div className="gaming-card p-3 sm:p-6 bg-gradient-to-b from-controller-black/90 to-controller-black/70 border-2 border-electric-blue/50 overflow-x-auto -mx-4 sm:mx-0 rounded-none sm:rounded-xl">
             {/* Matrix Header */}
             <div className="grid grid-cols-6 gap-4 mb-6 p-4 bg-gradient-to-r from-electric-blue/20 to-neon-cyan/20 rounded-lg border border-electric-blue/30">
               <div className="gaming-mono text-xs font-bold text-electric-blue uppercase">
@@ -1557,7 +1613,7 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {[
               {
                 question: 'Quanto tempo leva para criar um site profissional?',
@@ -1576,8 +1632,8 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
                 answer: 'Atendemos pequenas empresas, profissionais liberais (advogados, psicólogos, coaches), restaurantes, lojas e empresas de serviços. Cada projeto é personalizado para o seu negócio.'
               }
             ].map((faq, index) => (
-              <div key={index} className="gaming-card p-6">
-                <h3 className="gaming-title text-lg font-bold text-neon-cyan mb-3">
+              <div key={index} className="gaming-card p-4 sm:p-6">
+                <h3 className="gaming-title text-base sm:text-lg font-bold text-neon-cyan mb-3">
                   {faq.question}
                 </h3>
                 <p className="text-sm text-led-white/80 leading-relaxed">
@@ -1593,9 +1649,9 @@ Gostaria de saber mais informações e como proceder com a contratação. Quando
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
+          className="text-center gaming-card p-4 sm:p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
-          <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
+          <h2 className="gaming-title text-xl sm:text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
             NÃO SABE QUAL PLANO É IDEAL PARA VOCÊ?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">

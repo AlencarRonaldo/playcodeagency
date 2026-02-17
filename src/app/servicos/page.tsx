@@ -230,6 +230,62 @@ export default function ServicosPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://playcodeagency.xyz/servicos" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quanto custa criar um site profissional?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Na PlayCode Agency, sites profissionais começam a partir de R$ 997 para landing pages e R$ 2.997+ para sites completos com múltiplas páginas. O valor depende da complexidade e funcionalidades desejadas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Em quanto tempo meu site fica pronto?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Landing pages ficam prontas em 7 dias. Sites completos de 2 a 4 semanas. E-commerce de 3 a 6 semanas. Sistemas personalizados de 8 a 16 semanas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O chatbot WhatsApp com IA funciona 24 horas?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim! O chatbot com inteligência artificial atende seus clientes 24 horas por dia, 7 dias por semana, respondendo perguntas, qualificando leads e agendando reuniões automaticamente."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Vocês fazem sites responsivos para celular?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim, todos os nossos sites são 100% responsivos e mobile-first. Funcionam perfeitamente em celulares, tablets e computadores, garantindo a melhor experiência para seus clientes."
+                }
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "Service",
             "provider": {
               "@type": "Organization",
@@ -283,23 +339,23 @@ export default function ServicosPage() {
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Zap className="w-8 h-8 text-neon-cyan" />
-            <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
+            <h1 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
               DESENVOLVIMENTO DE SITES PROFISSIONAIS E SISTEMAS WEB
             </h1>
-            <Zap className="w-8 h-8 text-neon-cyan" />
+            <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
           </div>
-          
-          <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
+
+          <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
             <strong>Sites profissionais</strong>, <strong>chatbots com IA</strong>, <strong>e-commerce</strong>,
             <strong> automação inteligente</strong> e <strong>SEO</strong> — tudo criado com inteligência artificial
             para entregar mais rápido e com qualidade superior. Preços reais, sem surpresas.
@@ -310,7 +366,7 @@ export default function ServicosPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex justify-center space-x-8 mb-12"
+            className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-8 sm:mb-12"
           >
             <div className="text-center">
               <div className="gaming-display text-3xl font-bold text-laser-green">40+</div>
@@ -328,7 +384,7 @@ export default function ServicosPage() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-16">
           {SERVICES.map((service, index) => {
             const config = rarityConfig[service.rarity]
             const isSelected = selectedService === service.id
@@ -531,7 +587,7 @@ export default function ServicosPage() {
             COMO FUNCIONA O DESENVOLVIMENTO DO SEU SITE
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {[
               { icon: Target, title: '1. ENTENDEMOS', desc: 'Ouvimos o que sua empresa precisa e definimos a melhor solução juntos' },
               { icon: Code, title: '2. CRIAMOS', desc: 'Desenvolvemos seu site ou sistema com design moderno e responsivo' },
@@ -560,12 +616,56 @@ export default function ServicosPage() {
           </div>
         </motion.div>
 
+        {/* FAQ Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h2 className="gaming-title text-3xl lg:text-4xl font-bold text-neon-cyan mb-4 neon-glow">
+              PERGUNTAS FREQUENTES SOBRE NOSSOS SERVIÇOS
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {[
+              {
+                question: 'Quanto custa criar um site profissional?',
+                answer: 'Na PlayCode Agency, sites profissionais começam a partir de R$ 997 para landing pages e R$ 2.997+ para sites completos. O valor depende da complexidade e funcionalidades desejadas.'
+              },
+              {
+                question: 'Em quanto tempo meu site fica pronto?',
+                answer: 'Landing pages ficam prontas em 7 dias. Sites completos de 2 a 4 semanas. E-commerce de 3 a 6 semanas. Sistemas personalizados de 8 a 16 semanas.'
+              },
+              {
+                question: 'O chatbot WhatsApp com IA funciona 24 horas?',
+                answer: 'Sim! O chatbot com inteligência artificial atende seus clientes 24/7, respondendo perguntas, qualificando leads e agendando reuniões automaticamente.'
+              },
+              {
+                question: 'Vocês fazem sites responsivos para celular?',
+                answer: 'Sim, todos os nossos sites são 100% responsivos e mobile-first. Funcionam perfeitamente em celulares, tablets e computadores.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="gaming-card p-4 sm:p-6">
+                <h3 className="gaming-title text-base sm:text-lg font-bold text-neon-cyan mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-sm text-led-white/80 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
+          className="text-center gaming-card p-4 sm:p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
             SUA EMPRESA MERECE UM SITE PROFISSIONAL
@@ -589,9 +689,9 @@ export default function ServicosPage() {
               }}
               className="gaming-button text-lg px-8 py-4"
             >
-              <span className="relative z-10">SOLICITAR ORÇAMENTO</span>
+              <span className="relative z-10">SOLICITAR ORÇAMENTO GRÁTIS</span>
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -599,10 +699,11 @@ export default function ServicosPage() {
               onClick={() => {
                 audioHelpers.playClick(false)
                 trackingHelpers.trackClick('services_portfolio_link')
+                window.location.href = '/portfolio'
               }}
               className="gaming-card px-8 py-4 text-lg font-semibold text-electric-blue border-electric-blue hover:text-controller-black hover:bg-electric-blue transition-all duration-300"
             >
-              VER PORTFOLIO
+              VER PORTFÓLIO
             </motion.button>
           </div>
         </motion.div>

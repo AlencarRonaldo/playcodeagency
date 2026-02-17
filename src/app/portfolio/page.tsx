@@ -292,23 +292,23 @@ export default function PortfolioPage() {
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Code className="w-8 h-8 text-neon-cyan" />
-            <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <Code className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
+            <h1 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
               SITES E SISTEMAS QUE JÁ CRIAMOS
             </h1>
-            <Code className="w-8 h-8 text-neon-cyan" />
+            <Code className="w-6 h-6 sm:w-8 sm:h-8 text-neon-cyan hidden sm:block" />
           </div>
-          
-          <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
+
+          <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
             Veja exemplos reais de <strong>sites profissionais</strong> e <strong>sistemas web</strong> que
             desenvolvemos para empresas como a sua. Resultados mensuráveis e clientes satisfeitos.
           </p>
@@ -318,7 +318,7 @@ export default function PortfolioPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex justify-center space-x-8 mb-12"
+            className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-8 sm:mb-12"
           >
             <div className="text-center">
               <div className="gaming-display text-3xl font-bold text-laser-green">{PROJECTS.length}</div>
@@ -384,7 +384,7 @@ export default function PortfolioPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16"
+            className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-16"
           >
             {filteredProjects.map((project, index) => {
               const config = rarityConfig[project.rarity]
@@ -440,7 +440,7 @@ export default function PortfolioPage() {
                   <div className="p-6">
                     {/* Project Image Placeholder */}
                     <div className={`
-                      w-full h-48 mb-4 rounded-lg overflow-hidden
+                      w-full h-32 sm:h-40 lg:h-48 mb-4 rounded-lg overflow-hidden
                       bg-gradient-to-br ${config.gradient}
                       border ${config.border}
                       flex items-center justify-center
@@ -718,9 +718,9 @@ export default function PortfolioPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
+          className="text-center gaming-card p-4 sm:p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50"
         >
-          <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
+          <h2 className="gaming-title text-xl sm:text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
             QUER UM SITE QUE TRAGA RESULTADOS ASSIM?
           </h2>
           <p className="text-lg text-led-white/80 mb-6 max-w-2xl mx-auto">

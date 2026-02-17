@@ -71,25 +71,25 @@ export default function ContatoPage() {
   const contactInfo: ContactInfo[] = [
     {
       icon: Phone,
-      title: 'COMUNICAÇÃO DIRETA',
+      title: 'TELEFONE / WHATSAPP',
       details: ['+55 (11) 95653-4963', 'WhatsApp Business 24/7'],
       color: 'text-neon-cyan'
     },
     {
       icon: Mail,
-      title: 'CANAL DIGITAL',
+      title: 'EMAIL',
       details: ['contato@playcodeagency.xyz', 'Response time: < 2h'],
       color: 'text-electric-blue'
     },
     {
       icon: MapPin,
-      title: 'HQ LOCATION',
+      title: 'LOCALIZAÇÃO',
       details: ['São Bernardo do Campo, SP', 'Remote & On-site'],
       color: 'text-magenta-power'
     },
     {
       icon: Clock,
-      title: 'OPERATING HOURS',
+      title: 'HORÁRIO DE ATENDIMENTO',
       details: ['24/7 Digital Support', 'Mon-Fri: 9h-18h BRT'],
       color: 'text-laser-green'
     }
@@ -294,6 +294,19 @@ export default function ContatoPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Contato", "item": "https://playcodeagency.xyz/contato" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "ContactPage",
             "mainEntity": {
               "@type": "Organization",
@@ -335,37 +348,37 @@ export default function ContatoPage() {
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
       
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h1 className="gaming-title text-4xl lg:text-6xl font-bold mb-6 neon-glow">
-            <span className="text-neon-cyan">INICIAR</span>
+          <h1 className="gaming-title text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 neon-glow">
+            <span className="text-neon-cyan">SOLICITE SEU</span>
             <br />
-            <span className="text-magenta-power">MISSÃO</span>
+            <span className="text-magenta-power">ORÇAMENTO GRÁTIS</span>
           </h1>
-          <p className="gaming-subtitle text-xl text-led-white/80 max-w-2xl mx-auto">
-            Conecte-se com nossa equipe de especialistas e transforme sua visão em realidade digital
+          <p className="gaming-subtitle text-base sm:text-xl text-led-white/80 max-w-2xl mx-auto">
+            Preencha o formulário e receba uma proposta personalizada em até 2 horas. Sem compromisso.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 max-w-7xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="gaming-card p-8"
+            className="gaming-card p-4 sm:p-8"
           >
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 bg-gradient-gaming rounded flex items-center justify-center">
                 <Code className="w-5 h-5 text-neon-cyan" />
               </div>
               <h2 className="gaming-title text-2xl font-bold text-neon-cyan">
-                MISSION BRIEFING
+                CONTE-NOS SOBRE SEU PROJETO
               </h2>
             </div>
 
@@ -374,7 +387,7 @@ export default function ContatoPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    PLAYER NAME *
+                    SEU NOME *
                   </label>
                   <input
                     type="text"
@@ -391,7 +404,7 @@ export default function ContatoPage() {
 
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    EMAIL CHANNEL *
+                    SEU EMAIL *
                   </label>
                   <input
                     type="email"
@@ -410,7 +423,7 @@ export default function ContatoPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    COMM LINK
+                    TELEFONE / WHATSAPP
                   </label>
                   <input
                     type="tel"
@@ -424,7 +437,7 @@ export default function ContatoPage() {
 
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    ORGANIZATION
+                    EMPRESA
                   </label>
                   <input
                     type="text"
@@ -440,7 +453,7 @@ export default function ContatoPage() {
               {/* Project Details */}
               <div className="hud-element">
                 <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                  MISSION TYPE *
+                  TIPO DE PROJETO *
                 </label>
                 <select
                   value={formData.project_type}
@@ -462,7 +475,7 @@ export default function ContatoPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    BUDGET ALLOCATION
+                    FAIXA DE INVESTIMENTO
                   </label>
                   <select
                     value={formData.budget_range}
@@ -480,7 +493,7 @@ export default function ContatoPage() {
 
                 <div className="hud-element">
                   <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                    URGENCY LEVEL
+                    PRAZO DESEJADO
                   </label>
                   <select
                     value={formData.urgency}
@@ -499,7 +512,7 @@ export default function ContatoPage() {
               {/* Message */}
               <div className="hud-element">
                 <label className="gaming-mono text-xs text-led-white/70 mb-2 block">
-                  MISSION DETAILS *
+                  DESCREVA SEU PROJETO *
                 </label>
                 <textarea
                   value={formData.message}
@@ -525,12 +538,12 @@ export default function ContatoPage() {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-neon-cyan border-t-transparent rounded-full animate-spin" />
-                    PROCESSANDO MISSÃO...
+                    ENVIANDO...
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    ENVIAR BRIEFING
+                    SOLICITAR ORÇAMENTO GRÁTIS
                   </>
                 )}
               </motion.button>
@@ -548,9 +561,9 @@ export default function ContatoPage() {
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5 text-laser-green" />
                     <div>
-                      <h3 className="gaming-mono font-bold text-laser-green">MISSÃO RECEBIDA</h3>
+                      <h3 className="gaming-mono font-bold text-laser-green">MENSAGEM ENVIADA!</h3>
                       <p className="text-sm text-led-white/70">
-                        Resposta em até 2 horas. Prepare-se para decolar! 🚀
+                        Responderemos em até 2 horas. Obrigado pelo contato!
                       </p>
                     </div>
                   </div>
@@ -567,9 +580,9 @@ export default function ContatoPage() {
                   <div className="flex items-center gap-3">
                     <Zap className="w-5 h-5 text-red-400" />
                     <div>
-                      <h3 className="gaming-mono font-bold text-red-400">FALHA NA TRANSMISSÃO</h3>
+                      <h3 className="gaming-mono font-bold text-red-400">ERRO AO ENVIAR</h3>
                       <p className="text-sm text-led-white/70">
-                        Erro no sistema. Tente novamente ou use nossos canais alternativos.
+                        Ocorreu um erro. Tente novamente ou entre em contato pelo WhatsApp.
                       </p>
                     </div>
                   </div>
@@ -592,7 +605,7 @@ export default function ContatoPage() {
                   <Users className="w-5 h-5 text-magenta-power" />
                 </div>
                 <h3 className="gaming-title text-xl font-bold text-magenta-power">
-                  QUICK ACCESS
+                  CANAIS DE CONTATO
                 </h3>
               </div>
 
@@ -628,23 +641,23 @@ export default function ContatoPage() {
             {/* Business Hours & Response Time */}
             <div className="gaming-card p-6">
               <h3 className="gaming-title text-lg font-bold text-electric-blue mb-4">
-                SERVICE LEVEL AGREEMENT
+                NOSSO COMPROMISSO
               </h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-led-white/70">Response Time:</span>
+                  <span className="text-led-white/70">Tempo de resposta:</span>
                   <span className="text-laser-green font-bold">&lt; 2 horas</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-led-white/70">Project Kickoff:</span>
+                  <span className="text-led-white/70">Início do projeto:</span>
                   <span className="text-electric-blue font-bold">24-48h</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-led-white/70">Support:</span>
+                  <span className="text-led-white/70">Suporte:</span>
                   <span className="text-magenta-power font-bold">24/7 Digital</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-led-white/70">Success Rate:</span>
+                  <span className="text-led-white/70">Taxa de sucesso:</span>
                   <span className="text-plasma-yellow font-bold">99.9%</span>
                 </div>
               </div>
@@ -653,10 +666,10 @@ export default function ContatoPage() {
             {/* Emergency Contact */}
             <div className="gaming-card p-6 border-plasma-yellow bg-plasma-yellow/5">
               <h3 className="gaming-title text-lg font-bold text-plasma-yellow mb-4">
-                🚨 EMERGENCY PROTOCOL
+                🚨 PROJETO URGENTE?
               </h3>
               <p className="text-sm text-led-white/80 mb-4">
-                Para projetos críticos ou emergências técnicas, contate nossa linha direta:
+                Para projetos urgentes, ligue ou envie mensagem diretamente:
               </p>
               <a 
                 href="tel:+5511999998888"

@@ -90,9 +90,7 @@ export const metadata: Metadata = {
     images: ["/twitter-image.jpg"],
     creator: "@playcodeagency",
   },
-  verification: {
-    google: "sua-chave-google-search-console",
-  },
+  verification: { google: "vPgKvk4GHRarF5mSTdieJ23UCaQnilCsUCynCyqdwdA" },
   alternates: {
     canonical: "https://playcodeagency.xyz",
     languages: {
@@ -116,6 +114,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" itemScope itemType="https://schema.org/Organization" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#00d4ff" />
+      </head>
       <body
         className={`${orbitron.variable} ${exo.variable} ${jetbrainsMono.variable} ${rajdhani.variable} antialiased`}
         suppressHydrationWarning

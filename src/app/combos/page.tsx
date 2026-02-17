@@ -278,23 +278,23 @@ export default function CombosPage() {
       {/* Circuit Pattern Overlay */}
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Star className="w-8 h-8 text-plasma-yellow" />
-            <h1 className="gaming-title text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-plasma-yellow hidden sm:block" />
+            <h1 className="gaming-title text-2xl sm:text-4xl lg:text-6xl font-bold text-neon-cyan neon-glow">
               PACOTES COMPLETOS DE DESENVOLVIMENTO WEB
             </h1>
-            <Star className="w-8 h-8 text-plasma-yellow" />
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-plasma-yellow hidden sm:block" />
           </div>
-          
-          <p className="gaming-subtitle text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-8">
+
+          <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
             Pacotes completos com <strong>site + IA + automação</strong> em um só lugar.
             Economize até <strong>40%</strong> escolhendo o combo ideal para o seu negócio.
           </p>
@@ -304,7 +304,7 @@ export default function CombosPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto"
           >
             {[
               { label: 'Entrega', presenca: '5-7 dias', atendimento: '10-14 dias', maquina: '2-4 semanas' },
@@ -335,7 +335,7 @@ export default function CombosPage() {
         </motion.div>
 
         {/* Combos Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-16">
           {COMBOS.map((combo, index) => {
             const config = rarityConfig[combo.rarity]
             const isSelected = selectedCombo === combo.id
@@ -481,7 +481,7 @@ export default function CombosPage() {
                   </div>
 
                   {/* Tabs */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-2 sm:gap-4">
                     {[
                       { id: 'overview', label: 'VISÃO GERAL', icon: Target },
                       { id: 'tech', label: 'TECNOLOGIAS', icon: Code },
@@ -702,7 +702,7 @@ export default function CombosPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="text-center gaming-card p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50 mt-16"
+          className="text-center gaming-card p-4 sm:p-8 bg-gradient-to-r from-gaming-purple/20 to-neon-cyan/20 border-2 border-neon-cyan/50 mt-8 sm:mt-16"
         >
           <h2 className="gaming-title text-2xl lg:text-3xl font-bold text-neon-cyan mb-4">
             PRECISA DE ALGO DIFERENTE?

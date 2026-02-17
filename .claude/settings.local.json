@@ -68,7 +68,9 @@
       "Bash(powershell -Command:*)",
       "Bash(powershell -File -:*)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(git config:*)",
+      "Bash(gh api:*)"
     ],
     "deny": []
   }
