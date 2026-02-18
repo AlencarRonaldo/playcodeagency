@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/HeroSection'
 import PowerUpsSection from '@/components/sections/PowerUpsSection'
+import WhyChooseSection from '@/components/sections/WhyChooseSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -82,6 +83,7 @@ export default function Home() {
       />
       <HeroSection />
       <PowerUpsSection />
+      <WhyChooseSection />
     </main>
   )
 }

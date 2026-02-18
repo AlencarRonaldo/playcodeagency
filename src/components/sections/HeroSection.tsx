@@ -2,43 +2,24 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { Check } from 'lucide-react'
 import { useAudio, audioHelpers } from '@/lib/hooks/useAudio'
-import { useAchievements, trackingHelpers } from '@/lib/hooks/useAchievements'
+import { trackingHelpers } from '@/lib/hooks/useAchievements'
 
-interface HUDStats {
-  hp: number
-  xp: number
-  level: number
-  achievements: number
-}
+const diferenciais = [
+  { text: 'Entrega em até 7 dias', color: 'laser-green' },
+  { text: 'Suporte 24/7', color: 'neon-cyan' },
+  { text: 'Preços a partir de R$ 797', color: 'plasma-yellow' },
+  { text: 'Soluções personalizadas para PMEs', color: 'magenta-power' },
+]
 
 export default function HeroSection() {
   const [isBooting, setIsBooting] = useState(true)
   const [bootProgress, setBootProgress] = useState(0)
   const [currentBootMessage, setCurrentBootMessage] = useState('')
-  const [hudStats, setHudStats] = useState<HUDStats>({
-    hp: 0,
-    xp: 0,
-    level: 1,
-    achievements: 0
-  })
-  const [matrixRainData] = useState<Array<{delay: number, fontSize: number, char: string}>>([])
-  const [particlesData, setParticlesData] = useState<Array<{x: number, y: number, duration: number, delay: number}>>([])
 
   const { playContextMusic } = useAudio()
-  const { } = useAchievements()
-
-  // Generate matrix rain data on client side only
-  useEffect(() => {
-    // Generate particles data
-    const particles = Array.from({ length: 10 }).map(() => ({
-      x: Math.random() * 1200,
-      y: Math.random() * 800,
-      duration: 3 + Math.random() * 2,
-      delay: Math.random() * 5
-    }))
-    setParticlesData(particles)
-  }, [])
 
   useEffect(() => {
     if (isBooting) {
@@ -57,59 +38,25 @@ export default function HeroSection() {
           setBootProgress(((i + 1) / bootMessages.length) * 100)
           await new Promise(resolve => setTimeout(resolve, 800))
         }
-        
-        // Boot complete - start HUD animation
+
         setTimeout(() => {
           setIsBooting(false)
-          animateHUDStats()
-          
-          // Play boot complete sound (music now handled by MarioAutoPlay component)
           audioHelpers.playBootComplete()
-          // Music is now controlled by the MarioAutoPlay component
+          trackingHelpers.trackPageView('/hero')
         }, 1000)
       }
-      
+
       bootSequence()
     }
   }, [isBooting, playContextMusic])
 
-  const animateHUDStats = () => {
-    // Animate HP bar
-    let currentHp = 0
-    const hpInterval = setInterval(() => {
-      currentHp += 2
-      setHudStats(prev => ({ ...prev, hp: Math.min(currentHp, 95) }))
-      if (currentHp >= 95) clearInterval(hpInterval)
-    }, 50)
-
-    // Animate XP bar with delay
-    setTimeout(() => {
-      let currentXp = 0
-      const xpInterval = setInterval(() => {
-        currentXp += 3
-        setHudStats(prev => ({ ...prev, xp: Math.min(currentXp, 78) }))
-        if (currentXp >= 78) clearInterval(xpInterval)
-      }, 40)
-    }, 500)
-
-    // Animate level and achievements
-    setTimeout(() => {
-      setHudStats(prev => ({ ...prev, level: 42, achievements: 12 }))
-      audioHelpers.playLevelUp()
-      
-      // Track page view for achievements
-      trackingHelpers.trackPageView('/hero')
-    }, 1200)
-  }
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-console">
+      {/* Subtle background */}
+      <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none" />
 
-      {/* Circuit Pattern Overlay */}
-      <div className="absolute inset-0 circuit-pattern opacity-20 pointer-events-none" />
-
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Boot Sequence */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
+        {/* Boot Sequence Animation */}
         <AnimatePresence>
           {isBooting && (
             <motion.div
@@ -121,8 +68,7 @@ export default function HeroSection() {
               <div className="gaming-mono text-terminal-green text-lg mb-8">
                 {currentBootMessage}
               </div>
-              
-              {/* Boot Progress Bar */}
+
               <div className="hud-bar w-64 sm:w-96 mx-auto mb-4">
                 <motion.div
                   className="hud-bar-fill bg-gradient-power"
@@ -130,7 +76,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.3 }}
                 />
               </div>
-              
+
               <div className="gaming-mono text-neon-cyan text-sm">
                 PROGRESS: {Math.round(bootProgress)}%
               </div>
@@ -138,376 +84,124 @@ export default function HeroSection() {
           )}
         </AnimatePresence>
 
-        {/* Main Hero Content */}
+        {/* Main Content - appears after boot */}
         <AnimatePresence>
           {!isBooting && (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-6 lg:gap-8 items-center"
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="text-center"
             >
-              {/* Left Content */}
-              <div className="text-center lg:text-left">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                  className="gaming-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 neon-glow text-neon-cyan"
-                >
-                  <span className="sr-only">PlayCode Agency - Empresa de Criação de Sites Profissionais no Brasil - </span>
-                  CRIAÇÃO DE SITES
-                  <br />
-                  <span className="text-magenta-power">PROFISSIONAIS PARA</span>
-                  <br />
-                  <span className="text-gaming-purple">EMPRESAS QUE VENDEM</span>
-                </motion.h1>
+              {/* 1. Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="font-orbitron text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight"
+              >
+                <span className="sr-only">PlayCode Agency - Empresa de Criação de Sites Profissionais no Brasil - </span>
+                <span className="text-neon-cyan">CRIAÇÃO DE SITES</span>
+                <br />
+                <span className="text-magenta-power">PROFISSIONAIS PARA</span>
+                <br />
+                <span className="text-gaming-purple">EMPRESAS QUE VENDEM</span>
+              </motion.h1>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                  className="gaming-subtitle text-base sm:text-xl lg:text-2xl mb-8 text-led-white/80 max-w-xl mx-auto lg:mx-0"
-                >
-                  Desenvolvemos <strong>sites profissionais</strong>, <strong>chatbots WhatsApp com inteligência artificial</strong>, <strong>lojas virtuais</strong> e <strong>automações</strong> que transformam visitantes em clientes. Entrega em até <strong>7 dias</strong>, suporte 24/7 e preços a partir de <strong>R$ 797</strong>.
-                </motion.p>
+              {/* 2. Subheadline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-base sm:text-lg lg:text-xl text-led-white/80 max-w-3xl mx-auto mb-4 leading-relaxed"
+              >
+                Desenvolvemos sites, lojas virtuais e sistemas empresariais sob medida com CRM, relatórios, controle de estoque, cadastros e chatbots com IA para WhatsApp.
+              </motion.p>
 
-                {/* Action Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.8 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-                >
-                  <button 
-                    className="gaming-button text-lg px-8 py-4 animate-urgent-glow hover:animate-cta-pulse focus:animate-cta-pulse"
-                    onMouseEnter={() => audioHelpers.playHover()}
-                    onClick={() => {
-                      audioHelpers.playClick(true)
-                      trackingHelpers.trackClick('hero_start_mission')
-                      // Navigate to contact or services page
-                      window.location.href = '/contato'
-                    }}
+              {/* 3. Frase de Beneficio */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="text-base sm:text-lg lg:text-xl text-neon-cyan/90 font-semibold max-w-2xl mx-auto mb-8"
+              >
+                Automatize processos, organize sua empresa e transforme visitantes em clientes todos os dias.
+              </motion.p>
+
+              {/* 4. Diferenciais visuais */}
+              <div className="flex flex-wrap justify-center gap-3 mb-10 max-w-4xl mx-auto">
+                {diferenciais.map((item, index) => (
+                  <motion.div
+                    key={item.text}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-lg border border-${item.color}/40 bg-${item.color}/10 backdrop-blur-sm shadow-[0_0_12px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300`}
                   >
-                    <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">SOLICITAR ORÇAMENTO GRÁTIS</span>
-                  </button>
-                </motion.div>
-
-                {/* Quick Stats */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.8 }}
-                  className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8 mt-8"
-                >
-                  <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-laser-green">40+</div>
-                    <div className="gaming-mono text-sm text-led-white/60">SITES ENTREGUES</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-plasma-yellow">40+</div>
-                    <div className="gaming-mono text-sm text-led-white/60">EMPRESAS ATENDIDAS</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="gaming-display text-2xl font-bold text-magenta-power">10+</div>
-                    <div className="gaming-mono text-sm text-led-white/60">ANOS NO MERCADO</div>
-                  </div>
-                </motion.div>
+                    <Check className={`w-5 h-5 text-${item.color} flex-shrink-0`} />
+                    <span className={`text-sm sm:text-base font-semibold text-${item.color}`}>{item.text}</span>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Right HUD Interface */}
+              {/* 5. CTAs */}
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 1 }}
-                className="relative"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                {/* HUD Container */}
-                <div className="gaming-card p-3 sm:p-5 relative">
-                  <div className="absolute top-4 left-4 right-4">
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="gaming-mono text-neon-cyan text-sm">
-                        POR QUE ESCOLHER A PLAYCODE
-                      </div>
-                      <div className="gaming-mono text-laser-green text-sm">
-                        RESULTADOS COMPROVADOS
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-8 space-y-6">
-                    {/* Competitive Advantages Display */}
-                    <div className="flex justify-center mb-6">
-                      <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                        {/* Advantage 1 - Speed & Delivery */}
-                        <motion.div
-                          initial={{ scale: 0, rotate: 180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-laser-green bg-laser-green/10 "
-                        >
-                          {/* Speed Icon Frame */}
-                          <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-laser-green/20 to-green-400/20 rounded-lg border-2 border-laser-green flex items-center justify-center">
-                            {/* Simple Lightning Icon */}
-                            <div className="text-3xl">⚡</div>
-                          </div>
-                          
-                          {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-laser-green font-bold">ENTREGA RÁPIDA</div>
-                          <div className="gaming-mono text-xs text-led-white/50">Seu site no ar em dias</div>
-
-                          {/* Key Metrics */}
-                          <div className="text-xs text-laser-green mt-1">Sites em 7 dias</div>
-                          <div className="text-xs text-laser-green">Sistemas em 2-4 sem.</div>
-                          
-                          {/* Trust Indicators */}
-                          <div className="flex justify-center mt-2 space-x-1">
-                            <div className="w-2 h-2 bg-laser-green rounded-full"></div>
-                            <div className="w-2 h-2 bg-laser-green rounded-full"></div>
-                            <div className="w-2 h-2 bg-laser-green rounded-full"></div>
-                          </div>
-                          
-                          {/* Speed Glow */}
-                          <motion.div
-                            animate={{ 
-                              boxShadow: [
-                                '0 0 8px rgba(0,255,127,0.3)',
-                                '0 0 16px rgba(0,255,127,0.6)',
-                                '0 0 8px rgba(0,255,127,0.3)'
-                              ]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="absolute inset-0 rounded-lg pointer-events-none"
-                          />
-                        </motion.div>
-
-                        {/* Advantage 2 - Quality & Reliability */}
-                        <motion.div
-                          initial={{ scale: 0, rotate: 180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-electric-blue bg-electric-blue/10 "
-                        >
-                          {/* Quality Shield Frame */}
-                          <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-electric-blue/20 to-neon-cyan/20 rounded-lg border-2 border-electric-blue flex items-center justify-center">
-                            {/* Simple Shield Icon */}
-                            <div className="text-3xl">🛡️</div>
-                          </div>
-                          
-                          {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-electric-blue font-bold">SITES RESPONSIVOS</div>
-                          <div className="gaming-mono text-xs text-led-white/50">Perfeito em qualquer tela</div>
-
-                          {/* Key Metrics */}
-                          <div className="text-xs text-electric-blue mt-1">Mobile, Tablet e PC</div>
-                          <div className="text-xs text-electric-blue">SEO otimizado</div>
-                          
-                          {/* Trust Indicators */}
-                          <div className="flex justify-center mt-2 space-x-1">
-                            <div className="w-2 h-2 bg-electric-blue rounded-full"></div>
-                            <div className="w-2 h-2 bg-electric-blue rounded-full"></div>
-                            <div className="w-2 h-2 bg-electric-blue rounded-full"></div>
-                          </div>
-                          
-                          {/* Quality Glow */}
-                          <motion.div
-                            animate={{ 
-                              boxShadow: [
-                                '0 0 8px rgba(0,212,255,0.3)',
-                                '0 0 16px rgba(0,212,255,0.6)',
-                                '0 0 8px rgba(0,212,255,0.3)'
-                              ]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="absolute inset-0 rounded-lg pointer-events-none"
-                          />
-                        </motion.div>
-
-                        {/* Advantage 3 - Experience & Innovation */}
-                        <motion.div
-                          initial={{ scale: 0, rotate: 180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 1.4, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-gaming-purple bg-gaming-purple/10 "
-                        >
-                          <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-gaming-purple/20 to-magenta-power/20 rounded-lg border-2 border-gaming-purple flex items-center justify-center">
-                            {/* Simple Brain/Innovation Icon */}
-                            <div className="text-3xl">🧠</div>
-                          </div>
-                          
-                          {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-gaming-purple font-bold">EXPERIÊNCIA</div>
-                          <div className="gaming-mono text-xs text-led-white/50">10+ anos no mercado</div>
-
-                          {/* Key Metrics */}
-                          <div className="text-xs text-gaming-purple mt-1">40+ projetos entregues</div>
-                          <div className="text-xs text-gaming-purple">Clientes satisfeitos</div>
-                          
-                          <div className="flex justify-center mt-2 space-x-1">
-                            <div className="w-2 h-2 bg-gaming-purple rounded-full"></div>
-                            <div className="w-2 h-2 bg-gaming-purple rounded-full"></div>
-                            <div className="w-2 h-2 bg-gaming-purple rounded-full"></div>
-                          </div>
-                          
-                          {/* Innovation Glow */}
-                          <motion.div
-                            animate={{ 
-                              boxShadow: [
-                                '0 0 12px rgba(139,92,246,0.4)',
-                                '0 0 24px rgba(139,92,246,0.7)',
-                                '0 0 12px rgba(139,92,246,0.4)'
-                              ]
-                            }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                            className="absolute inset-0 rounded-lg pointer-events-none"
-                          />
-                        </motion.div>
-
-                        {/* Advantage 4 - Results & ROI */}
-                        <motion.div
-                          initial={{ scale: 0, rotate: 180 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 1.6, duration: 0.8, ease: 'easeOut' }}
-                          className="relative text-center p-4 gaming-card border-2 border-plasma-yellow bg-plasma-yellow/10 "
-                        >
-                          <div className="w-16 h-20 relative mx-auto mb-3 bg-gradient-to-b from-plasma-yellow/20 to-yellow-300/20 rounded-lg border-2 border-plasma-yellow flex items-center justify-center">
-                            {/* Simple Trophy Icon */}
-                            <div className="text-3xl">🏆</div>
-                          </div>
-                          
-                          {/* Advantage Info */}
-                          <div className="gaming-mono text-xs text-plasma-yellow font-bold">MAIS VENDAS</div>
-                          <div className="gaming-mono text-xs text-led-white/50">Resultados mensuráveis</div>
-
-                          {/* Key Metrics */}
-                          <div className="text-xs text-plasma-yellow mt-1">+150% em leads</div>
-                          <div className="text-xs text-plasma-yellow">ROI comprovado</div>
-                          
-                          {/* Success Indicators */}
-                          <div className="flex justify-center mt-2 space-x-1">
-                            <div className="w-2 h-2 bg-plasma-yellow rounded-full"></div>
-                            <div className="w-2 h-2 bg-plasma-yellow rounded-full"></div>
-                            <div className="w-2 h-2 bg-plasma-yellow rounded-full"></div>
-                          </div>
-                          
-                          {/* Success Crown */}
-                          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-8 h-3 bg-gradient-to-r from-plasma-yellow to-yellow-300 rounded-t-lg border border-plasma-yellow flex items-center justify-center">
-                            <span className="text-xs text-controller-black font-bold">👑</span>
-                          </div>
-                          
-                          {/* Results Glow */}
-                          <motion.div
-                            animate={{ 
-                              boxShadow: [
-                                '0 0 15px rgba(255,234,0,0.5)',
-                                '0 0 30px rgba(255,234,0,0.8)',
-                                '0 0 15px rgba(255,234,0,0.5)'
-                              ]
-                            }}
-                            transition={{ duration: 1, repeat: Infinity }}
-                            className="absolute inset-0 rounded-lg pointer-events-none"
-                          />
-                        </motion.div>
-                      </div>
-                    </div>
-
-                    {/* Client Success Rate */}
-                    <div className="hud-element">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="gaming-mono text-xs">SATISFAÇÃO DOS CLIENTES</span>
-                        <span className="gaming-mono text-xs text-laser-green">{hudStats.hp}%</span>
-                      </div>
-                      <div className="hud-bar">
-                        <motion.div
-                          className="hud-bar-fill bg-gradient-to-r from-laser-green to-electric-blue"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${hudStats.hp}%` }}
-                          transition={{ duration: 2, ease: 'easeOut' }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Uptime */}
-                    <div className="hud-element">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="gaming-mono text-xs">UPTIME GARANTIDO</span>
-                        <span className="gaming-mono text-xs text-electric-blue">99.9%</span>
-                      </div>
-                      <div className="hud-bar">
-                        <motion.div
-                          className="hud-bar-fill bg-gradient-to-r from-electric-blue to-gaming-purple"
-                          initial={{ width: 0 }}
-                          animate={{ width: '99.9%' }}
-                          transition={{ duration: 2.5, delay: 0.5, ease: 'easeOut' }}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Trust Metrics */}
-                    <div className="grid grid-cols-2 gap-4 pt-4">
-                      <div className="hud-element text-center">
-                        <div className="gaming-display text-2xl font-bold text-magenta-power">
-                          40+
-                        </div>
-                        <div className="gaming-mono text-xs opacity-70">PROJETOS ENTREGUES</div>
-                      </div>
-
-                      <div className="hud-element text-center">
-                        <div className="gaming-display text-2xl font-bold text-plasma-yellow">
-                          10+
-                        </div>
-                        <div className="gaming-mono text-xs opacity-70">ANOS DE EXPERIÊNCIA</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Trust Badge Notification */}
-                <motion.div
-                  initial={{ x: -200, opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0], x: [-200, 0, 0, -200] }}
-                  transition={{ duration: 6, times: [0, 0.15, 0.7, 1], delay: 3 }}
-                  className="absolute top-2 right-2 z-20 gaming-card p-3 border-laser-green bg-laser-green/10 pointer-events-none"
+                <Link
+                  href="/contato"
+                  onClick={() => {
+                    audioHelpers.playClick(true)
+                    trackingHelpers.trackClick('hero_orcamento')
+                  }}
+                  onMouseEnter={() => audioHelpers.playHover()}
+                  className="gaming-button text-lg px-8 py-4 text-center animate-urgent-glow hover:animate-cta-pulse focus:animate-cta-pulse"
                 >
-                  <div className="gaming-mono text-xs text-laser-green">
-                    ✅ EMPRESA BRASILEIRA
-                  </div>
-                  <div className="gaming-mono text-xs font-bold">
-                    10+ Anos | 40+ Empresas Atendidas
-                  </div>
-                </motion.div>
+                  <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">SOLICITAR ORÇAMENTO GRÁTIS</span>
+                </Link>
+
+                <a
+                  href="https://wa.me/5511956534963?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20PlayCode%20Agency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    audioHelpers.playClick(false)
+                    trackingHelpers.trackClick('hero_whatsapp')
+                  }}
+                  onMouseEnter={() => audioHelpers.playHover()}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg border-2 border-laser-green text-laser-green hover:bg-laser-green hover:text-controller-black transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  FALAR NO WHATSAPP
+                </a>
+              </motion.div>
+
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.8 }}
+                className="flex flex-wrap justify-center gap-8 sm:gap-12 mt-12 pt-8 border-t border-led-white/10"
+              >
+                <div className="text-center">
+                  <div className="font-orbitron text-3xl font-bold text-laser-green">40+</div>
+                  <div className="text-sm text-led-white/60 mt-1">Sites Entregues</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-orbitron text-3xl font-bold text-plasma-yellow">40+</div>
+                  <div className="text-sm text-led-white/60 mt-1">Empresas Atendidas</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-orbitron text-3xl font-bold text-magenta-power">10+</div>
+                  <div className="text-sm text-led-white/60 mt-1">Anos no Mercado</div>
+                </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-
-      {/* Ambient Gaming Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particlesData.map((particle, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-neon-cyan rounded-full"
-            initial={{
-              x: particle.x,
-              y: particle.y,
-              opacity: 0
-            }}
-            animate={{
-              y: [null, -100],
-              opacity: [0, 1, 0]
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-              ease: 'linear'
-            }}
-            style={{
-              boxShadow: '0 0 10px currentColor'
-            }}
-          />
-        ))}
       </div>
     </section>
   )

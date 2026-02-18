@@ -8,6 +8,7 @@ import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MarioAutoPlay from "@/components/audio/MarioAutoPlay";
+import GlobalParticles from "@/components/ui/GlobalParticles";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -136,6 +137,7 @@ export default function RootLayout({
             showTooltip={true}
             message="Olá! Gostaria de saber mais sobre os serviços da PlayCode Agency 🎮"
           />
+          <GlobalParticles />
           <KonamiEffects />
         </AchievementProvider>
       </body>

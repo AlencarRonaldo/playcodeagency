@@ -32,41 +32,41 @@ interface PowerUpCardProps {
 
 const rarityConfig = {
   common: {
-    border: 'border-[#a0a0a0]/60',
+    border: 'border-[#a0a0a0]',
     glow: 'shadow-[0_0_20px_rgba(200,200,200,0.4)]',
-    gradient: 'from-[#a0a0a0]/15 to-[#606060]/10',
-    text: 'text-[#c0c0c0]',
+    bg: 'bg-[#35353a]',
+    text: 'text-[#e0e0e0]',
     accent: 'text-[#c0c0c0]',
     badgeGlow: 'drop-shadow-[0_0_6px_rgba(200,200,200,0.6)]'
   },
   rare: {
-    border: 'border-[#00BFFF]/80',
+    border: 'border-[#00BFFF]',
     glow: 'shadow-[0_0_25px_rgba(0,191,255,0.5),0_0_50px_rgba(0,191,255,0.2)]',
-    gradient: 'from-[#00BFFF]/20 to-[#0066CC]/15',
+    bg: 'bg-[#0d3550]',
     text: 'text-[#00D4FF]',
     accent: 'text-[#4DD9FF]',
     badgeGlow: 'drop-shadow-[0_0_10px_rgba(0,212,255,0.9)]'
   },
   epic: {
-    border: 'border-[#A855F7]/80',
+    border: 'border-[#A855F7]',
     glow: 'shadow-[0_0_25px_rgba(168,85,247,0.5),0_0_50px_rgba(168,85,247,0.2)]',
-    gradient: 'from-[#A855F7]/20 to-[#7C3AED]/15',
+    bg: 'bg-[#271050]',
     text: 'text-[#C084FC]',
     accent: 'text-[#D8B4FE]',
     badgeGlow: 'drop-shadow-[0_0_10px_rgba(192,132,252,0.9)]'
   },
   legendary: {
-    border: 'border-[#FFB800]/80',
+    border: 'border-[#FFB800]',
     glow: 'shadow-[0_0_30px_rgba(255,184,0,0.5),0_0_60px_rgba(255,140,0,0.2)]',
-    gradient: 'from-[#FFB800]/25 to-[#FF6B00]/15',
+    bg: 'bg-[#3d2a00]',
     text: 'text-[#FFD000]',
     accent: 'text-[#FFE566]',
     badgeGlow: 'drop-shadow-[0_0_12px_rgba(255,208,0,1)]'
   },
   mythic: {
-    border: 'border-[#FF2D78]/80',
+    border: 'border-[#FF2D78]',
     glow: 'shadow-[0_0_30px_rgba(255,45,120,0.5),0_0_60px_rgba(255,0,255,0.2)]',
-    gradient: 'from-[#FF2D78]/20 to-[#FF00FF]/15',
+    bg: 'bg-[#3d0f28]',
     text: 'text-[#FF5CA1]',
     accent: 'text-[#FF8EC4]',
     badgeGlow: 'drop-shadow-[0_0_12px_rgba(255,92,161,1)]'
@@ -136,10 +136,10 @@ export default function PowerUpCard({
       whileTap={{ scale: 0.98 }}
       className={`
         relative group cursor-pointer
-        bg-gradient-to-br ${config.gradient}
-        backdrop-blur-xl border-2 ${config.border}
+        ${config.bg}
+        border-2 ${config.border}
         rounded-xl p-5 transition-all duration-300
-        hover:${config.glow}
+        ${config.glow}
         ${!isUnlocked ? 'opacity-60 grayscale' : ''}
         ${className}
       `}
@@ -162,8 +162,8 @@ export default function PowerUpCard({
         <div className={`
           px-2 py-1 rounded-md text-[10px] font-bold gaming-mono uppercase
           ${config.text} ${config.border} border-2
-          ${config.gradient} bg-gradient-to-r
-          shadow-lg backdrop-blur-sm ${config.badgeGlow}
+          ${config.bg}
+          shadow-lg ${config.badgeGlow}
           transform transition-all duration-300 hover:scale-110 hover:rotate-1
           animate-pulse-slow neon-glow-strong
           relative overflow-hidden
@@ -183,7 +183,7 @@ export default function PowerUpCard({
       {/* Power-up Icon */}
       <div className={`
         w-14 h-14 mx-auto mb-3 rounded-lg
-        bg-gradient-to-br ${config.gradient}
+        ${config.bg}
         border ${config.border}
         flex items-center justify-center
         group-hover:animate-powerup
@@ -219,7 +219,7 @@ export default function PowerUpCard({
             <div className="flex-1 mx-2">
               <div className="hud-bar h-2">
                 <motion.div
-                  className={`h-full bg-gradient-to-r ${config.gradient.replace('/10', '/60').replace('/5', '/40')}`}
+                  className={`h-full ${config.bg} brightness-150`}
                   initial={{ width: 0 }}
                   animate={{ width: `${value}%` }}
                   transition={{ duration: 1, delay: 0.3 }}
@@ -252,7 +252,7 @@ export default function PowerUpCard({
             className={`
               px-4 py-2 rounded-md gaming-mono text-xs font-bold
               border ${config.border} ${config.text}
-              hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20').replace('/5', '/10')}
+              hover:brightness-150
               transition-all duration-200
               ${!isUnlocked ? 'opacity-50 cursor-not-allowed' : ''}
             `}
@@ -287,7 +287,7 @@ export default function PowerUpCard({
             className={`
               w-full px-3 py-2 rounded-md gaming-mono text-xs font-bold
               border ${config.border} ${config.text} bg-transparent
-              hover:${config.gradient.replace('/10', '/20').replace('/5', '/10')} hover:bg-gradient-to-r
+              hover:brightness-150
               transition-all duration-200
               ${isExpanded ? 'border-opacity-100' : 'border-opacity-50'}
             `}
@@ -357,17 +357,7 @@ export default function PowerUpCard({
         )}
       </motion.div>
 
-      {/* Hover Effect Overlay */}
-      <div className={`
-        absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100
-        bg-gradient-to-br ${config.gradient.replace('/10', '/5').replace('/5', '/2')}
-        transition-opacity duration-300 pointer-events-none
-      `} />
 
-      {/* Circuit Pattern */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-        <div className="circuit-pattern opacity-20 w-full h-full" />
-      </div>
 
       {/* Power-up Particles */}
       {mounted && (
