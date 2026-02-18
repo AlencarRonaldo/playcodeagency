@@ -188,7 +188,6 @@ export default function Header() {
               >
                 <Link
                   href="/contato"
-                  onMouseEnter={audioHelpers.playHover}
                   onClick={() => {
                     audioHelpers.playClick(true)
                     trackingHelpers.trackClick('header_cta')

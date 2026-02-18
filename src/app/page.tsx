@@ -1,23 +1,25 @@
 import HeroSection from '@/components/sections/HeroSection'
 import PowerUpsSection from '@/components/sections/PowerUpsSection'
 import WhyChooseSection from '@/components/sections/WhyChooseSection'
+import SeoLocalSection from '@/components/sections/SeoLocalSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Criação de Sites Profissionais para Empresas | Desde R$ 797 - PlayCode Agency",
-  description: "Criação de sites profissionais, chatbots WhatsApp com IA e lojas virtuais para empresas. Entrega em 7 dias, suporte 24/7, orçamento grátis. 10+ anos, 40+ clientes satisfeitos.",
+  title: "Criação de Sites Profissionais em São Bernardo do Campo | Desde R$ 797 - PlayCode Agency",
+  description: "Empresa de desenvolvimento web em São Bernardo do Campo. Criação de sites profissionais, lojas virtuais, sistemas empresariais e chatbots IA para WhatsApp. Atendemos ABC Paulista e Grande São Paulo. Entrega em 7 dias, suporte 24/7.",
   keywords: [
+    "criação de sites São Bernardo do Campo", "desenvolvimento web ABC Paulista",
+    "empresa de sites São Bernardo", "site profissional Grande São Paulo",
     "desenvolvimento de sites profissionais", "criação de sites responsivos",
-    "desenvolvimento web para empresas", "criação de sistemas personalizados",
+    "sistemas empresariais São Bernardo do Campo", "loja virtual ABC",
     "site para pequenas empresas", "desenvolvimento de aplicações web",
-    "empresa de desenvolvimento web no Brasil", "criar site profissional",
-    "site responsivo para empresa", "landing page profissional",
-    "sistema web personalizado", "chatbot para empresas",
-    "site para profissionais liberais", "quanto custa um site profissional"
+    "criar site profissional", "site responsivo para empresa",
+    "landing page profissional", "sistema web personalizado",
+    "chatbot para empresas", "automação empresarial São Bernardo"
   ],
   openGraph: {
-    title: "Criação de Sites Profissionais para Empresas | Desde R$ 797 - PlayCode Agency",
-    description: "Sites profissionais, chatbots WhatsApp com IA e lojas virtuais. Entrega em 7 dias, suporte 24/7. 10+ anos, 40+ clientes. Orçamento grátis!",
+    title: "Criação de Sites Profissionais em São Bernardo do Campo | Desde R$ 797 - PlayCode Agency",
+    description: "Empresa de desenvolvimento web em São Bernardo do Campo. Sites profissionais, lojas virtuais, sistemas e chatbots IA. Atendemos ABC Paulista e Grande São Paulo. Entrega em 7 dias!",
     url: "https://playcodeagency.xyz",
   },
   alternates: {
@@ -35,7 +37,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PlayCode Agency",
-            "description": "Empresa de desenvolvimento web no Brasil especializada em criação de sites profissionais, sites responsivos, sistemas personalizados e aplicações web para empresas",
+            "description": "Empresa de desenvolvimento web em São Bernardo do Campo especializada em criação de sites profissionais, lojas virtuais, sistemas empresariais e chatbots IA para empresas do ABC Paulista e Grande São Paulo",
             "url": "https://playcodeagency.xyz",
             "logo": "https://playcodeagency.xyz/logo.png",
             "foundingDate": "2014",
@@ -77,12 +79,20 @@ export default function Home() {
                 "description": "Soluções acessíveis de desenvolvimento web para pequenas empresas e profissionais liberais que querem crescer no digital"
               }
             ],
-            "knowsAbout": ["Desenvolvimento de Sites Profissionais", "Criação de Sites Responsivos", "Sistemas Personalizados", "Desenvolvimento Web para Empresas", "Aplicações Web"]
+            "areaServed": [
+              { "@type": "City", "name": "São Bernardo do Campo" },
+              { "@type": "City", "name": "Santo André" },
+              { "@type": "City", "name": "São Caetano do Sul" },
+              { "@type": "City", "name": "Diadema" },
+              { "@type": "City", "name": "Mauá" }
+            ],
+            "knowsAbout": ["Desenvolvimento de Sites Profissionais", "Criação de Sites em São Bernardo do Campo", "Sistemas Empresariais ABC Paulista", "Lojas Virtuais", "Chatbots IA WhatsApp", "Automação Empresarial"]
           })
         }}
       />
       <HeroSection />
       <PowerUpsSection />
+      <SeoLocalSection />
       <WhyChooseSection />
     </main>
   )

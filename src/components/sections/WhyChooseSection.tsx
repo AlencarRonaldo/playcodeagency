@@ -1,13 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Zap, Smartphone, Brain, TrendingUp } from 'lucide-react'
+import { Zap, HeadphonesIcon, Rocket, DollarSign, TrendingUp } from 'lucide-react'
 
 const advantages = [
   {
+    icon: HeadphonesIcon,
+    title: 'ATENDIMENTO PERSONALIZADO',
+    description: 'Atendimento rápido e personalizado para entender as necessidades reais da sua empresa.',
+    stat: '24/7',
+    statLabel: 'SUPORTE',
+    color: 'text-neon-cyan',
+    borderColor: 'border-neon-cyan',
+    bgColor: 'bg-neon-cyan/10',
+    glowColor: 'shadow-[0_0_15px_rgba(0,212,255,0.15)]',
+  },
+  {
     icon: Zap,
     title: 'ENTREGA RÁPIDA',
-    description: 'Landing pages em até 7 dias e sites completos em 2-4 semanas. Sem enrolação, com qualidade profissional.',
+    description: 'Landing pages em até 7 dias e sites completos em 2-4 semanas. Sem enrolação.',
     stat: '7 dias',
     statLabel: 'LANDING PAGE',
     color: 'text-plasma-yellow',
@@ -16,37 +27,37 @@ const advantages = [
     glowColor: 'shadow-[0_0_15px_rgba(255,215,0,0.15)]',
   },
   {
-    icon: Smartphone,
-    title: 'SITES RESPONSIVOS',
-    description: 'Todos os sites são mobile-first: funcionam perfeitamente em celular, tablet e desktop.',
-    stat: '100%',
-    statLabel: 'RESPONSIVO',
-    color: 'text-neon-cyan',
-    borderColor: 'border-neon-cyan',
-    bgColor: 'bg-neon-cyan/10',
-    glowColor: 'shadow-[0_0_15px_rgba(0,212,255,0.15)]',
+    icon: DollarSign,
+    title: 'PREÇOS ACESSÍVEIS',
+    description: 'Projetos a partir de R$ 797. Soluções profissionais com preço justo para PMEs.',
+    stat: 'R$ 797',
+    statLabel: 'A PARTIR DE',
+    color: 'text-laser-green',
+    borderColor: 'border-laser-green',
+    bgColor: 'bg-laser-green/10',
+    glowColor: 'shadow-[0_0_15px_rgba(0,255,65,0.15)]',
   },
   {
-    icon: Brain,
-    title: 'EXPERIÊNCIA',
-    description: '10+ anos no mercado de desenvolvimento web, 40+ projetos entregues com sucesso para empresas de todos os tamanhos.',
-    stat: '10+',
-    statLabel: 'ANOS NO MERCADO',
+    icon: TrendingUp,
+    title: 'FOCO EM RESULTADO',
+    description: 'Foco total em resultado e crescimento empresarial. Sites que geram vendas de verdade.',
+    stat: '95%',
+    statLabel: 'SATISFAÇÃO',
     color: 'text-gaming-purple',
     borderColor: 'border-gaming-purple',
     bgColor: 'bg-gaming-purple/10',
     glowColor: 'shadow-[0_0_15px_rgba(147,51,234,0.15)]',
   },
   {
-    icon: TrendingUp,
-    title: 'MAIS VENDAS',
-    description: 'Sites otimizados para conversão com SEO, formulários inteligentes e integração com WhatsApp para capturar clientes.',
-    stat: '95%',
-    statLabel: 'SATISFAÇÃO',
-    color: 'text-laser-green',
-    borderColor: 'border-laser-green',
-    bgColor: 'bg-laser-green/10',
-    glowColor: 'shadow-[0_0_15px_rgba(0,255,65,0.15)]',
+    icon: Rocket,
+    title: 'EXPERIÊNCIA',
+    description: '10+ anos no mercado, 40+ projetos entregues com sucesso para empresas do ABC e Grande SP.',
+    stat: '10+',
+    statLabel: 'ANOS NO MERCADO',
+    color: 'text-magenta-power',
+    borderColor: 'border-magenta-power',
+    bgColor: 'bg-magenta-power/10',
+    glowColor: 'shadow-[0_0_15px_rgba(255,0,128,0.15)]',
   },
 ]
 
@@ -77,7 +88,7 @@ export default function WhyChooseSection() {
         </motion.div>
 
         {/* Advantages Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {advantages.map((item, index) => {
             const Icon = item.icon
             const isFirst = index === 0

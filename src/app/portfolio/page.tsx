@@ -3,16 +3,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { 
-  ExternalLink, 
-  Github, 
+import {
+  ExternalLink,
+  Github,
   Eye,
   Globe,
-  Smartphone,
-  Bot,
-  Database,
-  Cloud,
-  Shield,
   Star,
   Award,
   Calendar,
@@ -29,7 +24,7 @@ interface Project {
   title: string
   description: string
   longDescription: string
-  category: 'web' | 'mobile' | 'ai' | 'backend' | 'devops' | 'security'
+  category: 'web'
   technologies: string[]
   features: string[]
   rarity: 'common' | 'rare' | 'epic' | 'legendary'
@@ -214,11 +209,6 @@ const PROJECTS: Project[] = [
 const CATEGORIES = [
   { id: 'all', name: 'Todos', icon: Target, color: 'text-neon-cyan' },
   { id: 'web', name: 'Web Apps', icon: Globe, color: 'text-laser-green' },
-  { id: 'mobile', name: 'Mobile', icon: Smartphone, color: 'text-electric-blue' },
-  { id: 'ai', name: 'AI/ML', icon: Bot, color: 'text-plasma-yellow' },
-  { id: 'backend', name: 'Backend', icon: Database, color: 'text-gaming-purple' },
-  { id: 'devops', name: 'DevOps', icon: Cloud, color: 'text-magenta-power' },
-  { id: 'security', name: 'Security', icon: Shield, color: 'text-voltage-purple' }
 ]
 
 const rarityConfig = {
