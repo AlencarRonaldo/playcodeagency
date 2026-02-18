@@ -100,24 +100,24 @@ const SERVICES: Service[] = [
     priceNote: 'Inclui setup de pagamentos e primeiros 50 produtos'
   },
   {
-    id: 'digital-menu',
-    name: 'Cardápio Digital QR Code',
-    description: 'Cardápio ou catálogo online no celular do cliente — atualização em tempo real, sem reimprimir',
+    id: 'system-integration',
+    name: 'Integração de Sistemas para Automatizar Processos',
+    description: 'Integramos sistemas, plataformas e ferramentas empresariais para automatizar processos e aumentar a produtividade',
     icon: MenuSquare,
     rarity: 'rare',
     features: [
-      'QR Code personalizado com sua marca',
-      'Atualização de preços em tempo real',
-      'Fotos dos pratos em alta qualidade',
-      'Categorias e filtros inteligentes',
-      'Pedidos direto pelo WhatsApp',
-      'Destaque para promoções do dia'
+      'Integração entre sistemas e plataformas',
+      'Automação de processos repetitivos',
+      'Conexão com ERPs e CRMs',
+      'APIs personalizadas',
+      'Sincronização de dados em tempo real',
+      'Relatórios automatizados'
     ],
-    technologies: ['Next.js', 'React', 'QR Code API', 'WhatsApp Integration', 'Cloud Storage'],
-    deliverables: ['Cardápio digital publicado', 'QR Codes impressos', 'Painel de gestão', 'Treinamento de uso'],
-    timeline: '5-7 dias',
-    price: 'R$ 697 + R$ 97/mês',
-    priceNote: 'Setup + mensalidade com hospedagem e atualizações ilimitadas'
+    technologies: ['Next.js', 'React', 'Node.js', 'API REST', 'Webhooks', 'Cloud Functions'],
+    deliverables: ['Integração implementada', 'Documentação técnica', 'Testes automatizados', 'Treinamento de uso'],
+    timeline: '15-30 dias',
+    price: 'Sob consulta',
+    priceNote: 'Valor varia conforme complexidade e número de sistemas integrados'
   },
   {
     id: 'ai-automation',
@@ -164,39 +164,54 @@ const SERVICES: Service[] = [
 
 const rarityConfig = {
   common: {
-    border: 'border-led-white/30',
+    border: 'border-[#3a4055]',
     glow: 'shadow-[0_0_10px_rgba(255,255,255,0.3)]',
     gradient: 'from-led-white/10 to-led-white/5',
     text: 'text-led-white',
-    accent: 'text-led-white'
+    accent: 'text-led-white',
+    iconBg: 'bg-[#2a3040]',
+    tagBg: 'bg-[#2a3040]',
+    btnBg: 'bg-[#2a3040] hover:bg-[#3a4055]'
   },
   rare: {
-    border: 'border-electric-blue/60',
+    border: 'border-[#1a6b8a]',
     glow: 'shadow-[0_0_15px_rgba(0,212,255,0.4)]',
     gradient: 'from-electric-blue/20 to-electric-blue/10',
     text: 'text-electric-blue',
-    accent: 'text-electric-blue'
+    accent: 'text-electric-blue',
+    iconBg: 'bg-[#0f2d4a]',
+    tagBg: 'bg-[#0f2d4a]',
+    btnBg: 'bg-[#0088aa] hover:bg-[#00a0c8]'
   },
   epic: {
-    border: 'border-gaming-purple/70',
+    border: 'border-[#6b3fa0]',
     glow: 'shadow-[0_0_20px_rgba(139,92,246,0.5)]',
     gradient: 'from-gaming-purple/25 to-gaming-purple/10',
     text: 'text-gaming-purple',
-    accent: 'text-gaming-purple'
+    accent: 'text-gaming-purple',
+    iconBg: 'bg-[#1e1545]',
+    tagBg: 'bg-[#1e1545]',
+    btnBg: 'bg-[#7c4ddb] hover:bg-[#9060ee]'
   },
   legendary: {
-    border: 'border-plasma-yellow/80',
+    border: 'border-[#a08c00]',
     glow: 'shadow-[0_0_25px_rgba(255,234,0,0.6)]',
     gradient: 'from-plasma-yellow/30 to-plasma-yellow/10',
     text: 'text-plasma-yellow',
-    accent: 'text-plasma-yellow'
+    accent: 'text-plasma-yellow',
+    iconBg: 'bg-[#2e2a0a]',
+    tagBg: 'bg-[#2e2a0a]',
+    btnBg: 'bg-[#b8a000] hover:bg-[#d4b800]'
   },
   mythic: {
-    border: 'border-laser-green/90',
+    border: 'border-[#1a8a3e]',
     glow: 'shadow-[0_0_35px_rgba(34,197,94,0.9)]',
     gradient: 'from-laser-green/30 to-laser-green/10',
     text: 'text-laser-green',
-    accent: 'text-laser-green'
+    accent: 'text-laser-green',
+    iconBg: 'bg-[#0a2e14]',
+    tagBg: 'bg-[#0a2e14]',
+    btnBg: 'bg-[#1a8a3e] hover:bg-[#22a84c]'
   }
 }
 
@@ -356,9 +371,9 @@ export default function ServicosPage() {
           </div>
 
           <p className="gaming-subtitle text-base sm:text-xl lg:text-2xl text-led-white/80 max-w-4xl mx-auto mb-6 sm:mb-8">
-            <strong>Sites profissionais</strong>, <strong>chatbots com IA</strong>, <strong>e-commerce</strong>,
-            <strong> automação inteligente</strong> e <strong>SEO</strong> — tudo criado com inteligência artificial
-            para entregar mais rápido e com qualidade superior. Preços reais, sem surpresas.
+            <strong>Sites profissionais</strong>, <strong>chatbots inteligentes</strong>, <strong>e-commerce</strong>,
+            <strong> automação de processos</strong> e <strong>SEO</strong> — desenvolvidos por especialistas com
+            mais de 10 anos de experiência para gerar resultados reais. Preços justos, sem surpresas.
           </p>
 
           {/* Stats */}
@@ -398,12 +413,12 @@ export default function ServicosPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 whileHover={{ scale: 1.02, y: -8 }}
                 className={`
-                  relative gaming-card cursor-pointer
-                  bg-gradient-to-br ${config.gradient}
-                  border-2 ${config.border}
+                  relative cursor-pointer rounded-lg
+                  ${config.iconBg}
+                  border ${config.border}
                   hover:${config.glow}
                   transition-all duration-300
-                  ${isSelected ? `${config.glow} scale-105` : ''}
+                  ${isSelected ? config.glow : ''}
                   ${service.highlighted ? 'ring-2 ring-plasma-yellow/50' : ''}
                 `}
                 onClick={() => handleServiceSelect(service.id)}
@@ -420,8 +435,7 @@ export default function ServicosPage() {
                 <div className="absolute top-4 right-4">
                   <div className={`
                     px-2 py-1 rounded-md text-xs font-bold gaming-mono uppercase
-                    ${config.text} ${config.border} border
-                    ${config.gradient} bg-gradient-to-r
+                    ${config.text} ${config.tagBg}
                   `}>
                     {service.rarity}
                   </div>
@@ -431,7 +445,7 @@ export default function ServicosPage() {
                   {/* Service Icon */}
                   <div className={`
                     w-16 h-16 mx-auto mb-4 rounded-xl
-                    bg-gradient-to-br ${config.gradient}
+                    ${config.iconBg}
                     border ${config.border}
                     flex items-center justify-center
                   `}>
@@ -466,8 +480,7 @@ export default function ServicosPage() {
                     whileTap={{ scale: 0.95 }}
                     className={`
                       w-full px-4 py-2 rounded-md gaming-mono text-sm font-bold
-                      border ${config.border} ${config.text}
-                      hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20').replace('/5', '/10')}
+                      ${config.btnBg} text-white
                       transition-all duration-200 flex items-center justify-center gap-2
                     `}
                   >
@@ -537,7 +550,7 @@ export default function ServicosPage() {
 
                     {/* Price Details */}
                     {service.priceNote && (
-                      <div className={`mb-6 p-3 rounded-lg border ${config.border} bg-gradient-to-r ${config.gradient}`}>
+                      <div className={`mb-6 p-3 rounded-lg border ${config.border} ${config.tagBg}`}>
                         <div className={`gaming-mono text-sm font-bold ${config.text} mb-1`}>
                           💰 {service.price}
                         </div>

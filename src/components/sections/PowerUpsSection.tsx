@@ -73,24 +73,24 @@ const powerUps = [
     ]
   },
   {
-    id: 'digital_menu',
-    name: 'Cardápio Digital QR Code',
-    description: 'Cardápio ou catálogo online acessível pelo celular do cliente com QR Code — atualização em tempo real',
+    id: 'system_integration',
+    name: 'Integração de Sistemas para Automatizar Processos',
+    description: 'Integramos sistemas, plataformas e ferramentas empresariais para automatizar processos e aumentar a produtividade',
     icon: MenuSquare,
     rarity: 'rare' as const,
     level: 12,
-    stats: { power: 85, efficiency: 92, innovation: 80 },
-    price: 'R$ 697 + R$ 97/mês',
-    fullDescription: 'Cardápio digital responsivo para restaurantes, bares, cafeterias e delivery. Seu cliente escaneia o QR Code e vê o menu completo no celular. Você atualiza preços e pratos em tempo real pelo painel, sem precisar reimprimir nada.',
+    stats: { power: 90, efficiency: 95, innovation: 88 },
+    price: 'Sob consulta',
+    fullDescription: 'Integramos sistemas, plataformas e ferramentas empresariais para automatizar processos, reduzir erros e aumentar a produtividade da sua empresa em São Bernardo do Campo e Grande São Paulo.',
     features: [
-      'QR Code personalizado com sua marca',
-      'Atualização de preços em tempo real',
-      'Fotos dos pratos em alta qualidade',
-      'Categorias e filtros inteligentes',
-      'Pedidos direto pelo WhatsApp',
-      'Destaque para promoções do dia',
-      'Funciona em qualquer celular',
-      'Painel fácil de gerenciar'
+      'Integração entre sistemas e plataformas',
+      'Automação de processos repetitivos',
+      'Conexão com ERPs e CRMs',
+      'APIs personalizadas',
+      'Redução de erros operacionais',
+      'Sincronização de dados em tempo real',
+      'Relatórios automatizados',
+      'Suporte e manutenção contínua'
     ]
   },
   {

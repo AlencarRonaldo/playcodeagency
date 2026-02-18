@@ -94,7 +94,7 @@ const COMBOS: Combo[] = [
       'Pequenos comércios locais',
       'Quem ainda não tem site e quer começar rápido'
     ],
-    addOns: ['5 Emails profissionais', 'Cardápio digital (restaurantes)', 'Formulário inteligente', 'QR Code personalizado']
+    addOns: ['5 Emails profissionais', 'Integração de sistemas', 'Formulário inteligente', 'QR Code personalizado']
   },
   {
     id: 'atendimento-inteligente',

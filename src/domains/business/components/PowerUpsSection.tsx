@@ -31,24 +31,24 @@ const powerUps = [
     ]
   },
   {
-    id: 'digital_menu',
-    name: 'Cardápio Digital QR Code',
-    description: 'Cardápio digital responsivo com QR Code para restaurantes e catálogo empresarial',
+    id: 'system_integration',
+    name: 'Integração de Sistemas para Automatizar Processos',
+    description: 'Integramos sistemas, plataformas e ferramentas empresariais para automatizar processos e aumentar a produtividade',
     icon: MenuSquare,
-    rarity: 'rare' as const, // Azul elétrico - gastronomia
+    rarity: 'rare' as const,
     level: 12,
-    stats: { power: 85, efficiency: 90, innovation: 80 },
+    stats: { power: 90, efficiency: 95, innovation: 88 },
     price: 'Sob consulta',
-    fullDescription: 'Solução completa de cardápio digital responsivo para restaurantes e catálogo digital empresarial. Inclui QR Code personalizado, gestão produtos, galeria fotos profissionais e sistema pedidos integrado WhatsApp.',
+    fullDescription: 'Integramos sistemas, plataformas e ferramentas empresariais para automatizar processos, reduzir erros e aumentar a produtividade da sua empresa em São Bernardo do Campo e Grande São Paulo.',
     features: [
-      'QR Code cardápio personalizado',
-      'Design responsivo mobile-first',
-      'Gestão produtos/pratos online',
-      'Galeria fotos profissionais HD',
-      'Categorização inteligente produtos',
-      'Sistema pedidos WhatsApp integrado',
-      'Analytics visualizações detalhado',
-      'SEO otimizado cardápio digital'
+      'Integração entre sistemas e plataformas',
+      'Automação de processos repetitivos',
+      'Conexão com ERPs e CRMs',
+      'APIs personalizadas',
+      'Sincronização de dados em tempo real',
+      'Relatórios automatizados',
+      'Redução de erros operacionais',
+      'Suporte e manutenção contínua'
     ]
   },
   {
