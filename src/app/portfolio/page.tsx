@@ -213,32 +213,44 @@ const CATEGORIES = [
 
 const rarityConfig = {
   common: {
-    border: 'border-led-white/30',
-    glow: 'shadow-[0_0_10px_rgba(255,255,255,0.3)]',
-    gradient: 'from-led-white/10 to-led-white/5',
+    border: 'border-[#3a4055]',
+    glow: 'shadow-[0_0_12px_rgba(255,255,255,0.2)]',
+    bg: 'bg-[#1a1f2e]',
+    tagBg: 'bg-[#2a3040]',
     text: 'text-led-white',
-    accent: 'text-led-white'
+    accent: 'text-led-white',
+    btnDemoBg: 'bg-[#00b8b8] hover:bg-[#00d4d4]',
+    btnDetailsBg: 'bg-[#2a3040] hover:bg-[#3a4055]'
   },
   rare: {
-    border: 'border-electric-blue/60',
-    glow: 'shadow-[0_0_15px_rgba(0,212,255,0.4)]',
-    gradient: 'from-electric-blue/20 to-electric-blue/10',
+    border: 'border-[#1a6b8a]',
+    glow: 'shadow-[0_0_15px_rgba(0,212,255,0.35)]',
+    bg: 'bg-[#0c1e32]',
+    tagBg: 'bg-[#0f2d4a]',
     text: 'text-electric-blue',
-    accent: 'text-electric-blue'
+    accent: 'text-electric-blue',
+    btnDemoBg: 'bg-[#0088aa] hover:bg-[#00a0c8]',
+    btnDetailsBg: 'bg-[#0f2d4a] hover:bg-[#1a4060]'
   },
   epic: {
-    border: 'border-gaming-purple/70',
-    glow: 'shadow-[0_0_20px_rgba(139,92,246,0.5)]',
-    gradient: 'from-gaming-purple/25 to-gaming-purple/10',
+    border: 'border-[#6b3fa0]',
+    glow: 'shadow-[0_0_18px_rgba(139,92,246,0.4)]',
+    bg: 'bg-[#150e2e]',
+    tagBg: 'bg-[#1e1545]',
     text: 'text-gaming-purple',
-    accent: 'text-gaming-purple'
+    accent: 'text-gaming-purple',
+    btnDemoBg: 'bg-[#7c4ddb] hover:bg-[#9060ee]',
+    btnDetailsBg: 'bg-[#1e1545] hover:bg-[#2a1e5c]'
   },
   legendary: {
-    border: 'border-plasma-yellow/80',
-    glow: 'shadow-[0_0_25px_rgba(255,234,0,0.6)]',
-    gradient: 'from-plasma-yellow/30 to-plasma-yellow/10',
+    border: 'border-[#a08c00]',
+    glow: 'shadow-[0_0_20px_rgba(255,234,0,0.45)]',
+    bg: 'bg-[#1f1c05]',
+    tagBg: 'bg-[#2e2a0a]',
     text: 'text-plasma-yellow',
-    accent: 'text-plasma-yellow'
+    accent: 'text-plasma-yellow',
+    btnDemoBg: 'bg-[#b8a000] hover:bg-[#d4b800]',
+    btnDetailsBg: 'bg-[#2e2a0a] hover:bg-[#3e3810]'
   }
 }
 
@@ -374,7 +386,7 @@ export default function PortfolioPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-16"
+            className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-16"
           >
             {filteredProjects.map((project, index) => {
               const config = rarityConfig[project.rarity]
@@ -385,105 +397,105 @@ export default function PortfolioPage() {
               return (
                 <motion.div
                   key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  whileHover={{ scale: 1.02, y: -8 }}
+                  transition={{ delay: index * 0.08, duration: 0.5 }}
+                  whileHover={{ scale: 1.03, y: -4 }}
                   className={`
-                    relative gaming-card cursor-pointer overflow-hidden
-                    bg-gradient-to-br ${config.gradient}
-                    border-2 ${config.border}
+                    relative cursor-pointer overflow-hidden rounded-lg
+                    ${config.bg}
+                    border ${config.border}
                     hover:${config.glow}
                     transition-all duration-300
-                    ${isSelected ? `${config.glow} scale-105` : ''}
+                    ${isSelected ? config.glow : ''}
                   `}
                   onClick={() => handleProjectSelect(project.id)}
                   onMouseEnter={audioHelpers.playHover}
                 >
-                  {/* Status & Rarity Badges */}
-                  <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
+                  {/* Rarity Badge */}
+                  <div className="absolute top-3 right-3 z-10 flex flex-col gap-1">
                     <div className={`
-                      px-2 py-1 rounded-md text-xs font-bold gaming-mono uppercase
-                      ${config.text} ${config.border} border bg-gradient-to-r ${config.gradient}
+                      px-2 py-0.5 rounded text-[10px] font-bold gaming-mono uppercase
+                      ${config.text} ${config.tagBg}
                     `}>
                       {project.rarity}
                     </div>
                     {project.status === 'in-progress' && (
-                      <div className="px-2 py-1 rounded-md text-xs font-bold gaming-mono uppercase bg-magenta-power/20 border border-magenta-power/50 text-magenta-power">
-                        EM DESENVOLVIMENTO
+                      <div className="px-2 py-0.5 rounded text-[10px] font-bold gaming-mono uppercase bg-[#3a1030] text-magenta-power">
+                        EM DEV
                       </div>
                     )}
                   </div>
 
                   {/* Awards Badge */}
                   {project.awards && project.awards.length > 0 && (
-                    <div className="absolute top-4 left-4 z-10">
-                      <div className="flex items-center gap-1 px-2 py-1 bg-plasma-yellow/20 border border-plasma-yellow/50 rounded-md">
-                        <Award size={12} className="text-plasma-yellow" />
-                        <span className="gaming-mono text-xs font-bold text-plasma-yellow">
+                    <div className="absolute top-3 left-3 z-10">
+                      <div className="flex items-center gap-1 px-1.5 py-0.5 bg-[#2e2a0a] rounded">
+                        <Award size={10} className="text-plasma-yellow" />
+                        <span className="gaming-mono text-[10px] font-bold text-plasma-yellow">
                           {project.awards.length}
                         </span>
                       </div>
                     </div>
                   )}
 
-                  <div className="p-6">
-                    {/* Project Image Placeholder */}
+                  <div className="p-4">
+                    {/* Project Icon Area */}
                     <div className={`
-                      w-full h-32 sm:h-40 lg:h-48 mb-4 rounded-lg overflow-hidden
-                      bg-gradient-to-br ${config.gradient}
+                      w-full h-24 sm:h-28 mb-3 rounded-md overflow-hidden
+                      ${config.tagBg}
                       border ${config.border}
                       flex items-center justify-center
                     `}>
                       <div className="text-center">
-                        <CategoryIcon size={48} className={config.text} />
-                        <div className="gaming-mono text-xs mt-2 text-led-white/60">
+                        <CategoryIcon size={32} className={config.text} />
+                        <div className="gaming-mono text-[10px] mt-1 text-led-white/50">
                           {project.category.toUpperCase()}
                         </div>
                       </div>
                     </div>
 
                     {/* Project Info */}
-                    <div className="mb-6">
-                      <h3 className={`gaming-title text-xl font-bold mb-2 ${config.text}`}>
+                    <div className="mb-3">
+                      <h3 className={`gaming-title text-sm font-bold mb-1 ${config.text} leading-tight`}>
                         {project.title}
                       </h3>
-                      <p className="gaming-subtitle text-sm text-led-white/70 mb-3">
+                      <p className="gaming-subtitle text-xs text-led-white/70 mb-2 line-clamp-2">
                         {project.description}
                       </p>
-                      
+
                       {/* Meta Info */}
-                      <div className="flex justify-between items-center text-xs gaming-mono text-led-white/60 mb-4">
+                      <div className="flex justify-between items-center text-[10px] gaming-mono text-led-white/50 mb-2">
                         <span>{project.client}</span>
                         <span>{project.year}</span>
                       </div>
 
                       {/* Tech Stack Preview */}
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {project.technologies.slice(0, 3).map((tech, idx) => (
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {project.technologies.slice(0, 2).map((tech, idx) => (
                           <span
                             key={idx}
-                            className={`px-2 py-1 rounded text-xs gaming-mono ${config.text} border ${config.border} bg-gradient-to-r ${config.gradient.replace('/10', '/20').replace('/5', '/10')}`}
+                            className={`px-1.5 py-0.5 rounded text-[10px] gaming-mono ${config.text} ${config.tagBg}`}
                           >
                             {tech}
                           </span>
                         ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-2 py-1 rounded text-xs gaming-mono text-led-white/60 border border-led-white/20">
-                            +{project.technologies.length - 3}
+                        {project.technologies.length > 2 && (
+                          <span className="px-1.5 py-0.5 rounded text-[10px] gaming-mono text-led-white/50 bg-[#1a1f2e]">
+                            +{project.technologies.length - 2}
                           </span>
                         )}
                       </div>
 
                       {/* Impact Stats */}
                       {Object.keys(project.impact).length > 0 && (
-                        <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="grid grid-cols-2 gap-2 mb-3">
                           {Object.entries(project.impact).slice(0, 2).map(([key, value]) => (
                             <div key={key} className="text-center">
-                              <div className={`gaming-display text-lg font-bold ${config.text}`}>
+                              <div className={`gaming-display text-sm font-bold ${config.text}`}>
                                 {value}
                               </div>
-                              <div className="gaming-mono text-xs text-led-white/60 uppercase">
+                              <div className="gaming-mono text-[10px] text-led-white/50 uppercase">
                                 {key}
                               </div>
                             </div>
@@ -493,7 +505,7 @@ export default function PortfolioPage() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-2 mb-4">
+                    <div className="flex gap-1.5 mb-2">
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
@@ -503,9 +515,9 @@ export default function PortfolioPage() {
                             e.stopPropagation()
                             audioHelpers.playClick(false)
                           }}
-                          className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded border ${config.border} ${config.text} hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20')} transition-all text-xs gaming-mono font-bold`}
+                          className={`flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded ${config.btnDemoBg} text-white transition-all text-[10px] gaming-mono font-bold`}
                         >
-                          <Eye size={14} />
+                          <Eye size={12} />
                           DEMO
                         </a>
                       )}
@@ -518,9 +530,9 @@ export default function PortfolioPage() {
                             e.stopPropagation()
                             audioHelpers.playClick(false)
                           }}
-                          className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded border ${config.border} ${config.text} hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20')} transition-all text-xs gaming-mono font-bold`}
+                          className={`flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded ${config.btnDetailsBg} text-led-white transition-all text-[10px] gaming-mono font-bold`}
                         >
-                          <Github size={14} />
+                          <Github size={12} />
                           CODE
                         </a>
                       )}
@@ -531,14 +543,13 @@ export default function PortfolioPage() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       className={`
-                        w-full px-4 py-3 rounded-md gaming-mono text-sm font-bold
-                        border ${config.border} ${config.text}
-                        hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20')}
-                        transition-all duration-200 flex items-center justify-center gap-2
+                        w-full px-3 py-2 rounded gaming-mono text-xs font-bold
+                        ${config.btnDetailsBg} text-led-white
+                        transition-all duration-200 flex items-center justify-center gap-1
                       `}
                     >
-                      {isSelected ? 'FECHAR DETALHES' : 'VER DETALHES'}
-                      <Play size={16} className={`transform transition-transform ${isSelected ? 'rotate-90' : ''}`} />
+                      {isSelected ? 'FECHAR' : 'DETALHES'}
+                      <Play size={12} className={`transform transition-transform ${isSelected ? 'rotate-90' : ''}`} />
                     </motion.button>
                   </div>
 
@@ -549,27 +560,27 @@ export default function PortfolioPage() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="border-t border-led-white/20 p-6 overflow-hidden"
+                      className={`border-t ${config.border} p-4 overflow-hidden`}
                     >
                       {/* Long Description */}
-                      <div className="mb-6">
-                        <h4 className="gaming-mono text-sm font-bold text-neon-cyan mb-3">
-                          📋 DESCRIÇÃO COMPLETA:
+                      <div className="mb-4">
+                        <h4 className="gaming-mono text-xs font-bold text-neon-cyan mb-2">
+                          DESCRICAO COMPLETA:
                         </h4>
-                        <p className="text-sm text-led-white/80 leading-relaxed">
+                        <p className="text-xs text-led-white/80 leading-relaxed">
                           {project.longDescription}
                         </p>
                       </div>
 
                       {/* Features */}
-                      <div className="mb-6">
-                        <h4 className="gaming-mono text-sm font-bold text-electric-blue mb-3">
-                          ⚡ FUNCIONALIDADES:
+                      <div className="mb-4">
+                        <h4 className="gaming-mono text-xs font-bold text-electric-blue mb-2">
+                          FUNCIONALIDADES:
                         </h4>
-                        <ul className="space-y-1">
+                        <ul className="space-y-0.5">
                           {project.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-sm text-led-white/80">
-                              <Star size={12} className="text-electric-blue" />
+                            <li key={idx} className="flex items-center gap-1.5 text-xs text-led-white/80">
+                              <Star size={10} className="text-electric-blue flex-shrink-0" />
                               {feature}
                             </li>
                           ))}
@@ -577,15 +588,15 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* All Technologies */}
-                      <div className="mb-6">
-                        <h4 className="gaming-mono text-sm font-bold text-gaming-purple mb-3">
-                          🛠️ STACK COMPLETA:
+                      <div className="mb-4">
+                        <h4 className="gaming-mono text-xs font-bold text-gaming-purple mb-2">
+                          STACK COMPLETA:
                         </h4>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1">
                           {project.technologies.map((tech, idx) => (
                             <span
                               key={idx}
-                              className="px-2 py-1 bg-gaming-purple/20 border border-gaming-purple/30 rounded text-xs gaming-mono text-gaming-purple"
+                              className="px-1.5 py-0.5 bg-[#1e1545] border border-[#6b3fa0]/40 rounded text-[10px] gaming-mono text-gaming-purple"
                             >
                               {tech}
                             </span>
@@ -594,17 +605,17 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* Project Details */}
-                      <div className="mb-6">
-                        <h4 className="gaming-mono text-sm font-bold text-magenta-power mb-3">
-                          📊 DETALHES DO PROJETO:
+                      <div className="mb-4">
+                        <h4 className="gaming-mono text-xs font-bold text-magenta-power mb-2">
+                          DETALHES:
                         </h4>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="flex items-center gap-2 text-sm">
-                            <Calendar size={16} className="text-magenta-power" />
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="flex items-center gap-1.5 text-xs">
+                            <Calendar size={12} className="text-magenta-power" />
                             <span className="text-led-white/80">{project.duration}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <Users size={16} className="text-magenta-power" />
+                          <div className="flex items-center gap-1.5 text-xs">
+                            <Users size={12} className="text-magenta-power" />
                             <span className="text-led-white/80">{project.teamSize} pessoas</span>
                           </div>
                         </div>
@@ -612,14 +623,14 @@ export default function PortfolioPage() {
 
                       {/* Awards */}
                       {project.awards && project.awards.length > 0 && (
-                        <div className="mb-6">
-                          <h4 className="gaming-mono text-sm font-bold text-plasma-yellow mb-3">
-                            🏆 RECONHECIMENTOS:
+                        <div className="mb-4">
+                          <h4 className="gaming-mono text-xs font-bold text-plasma-yellow mb-2">
+                            RECONHECIMENTOS:
                           </h4>
-                          <div className="space-y-2">
+                          <div className="space-y-1">
                             {project.awards.map((award, idx) => (
-                              <div key={idx} className="flex items-center gap-2 text-sm text-led-white/80">
-                                <Award size={12} className="text-plasma-yellow" />
+                              <div key={idx} className="flex items-center gap-1.5 text-xs text-led-white/80">
+                                <Award size={10} className="text-plasma-yellow" />
                                 {award}
                               </div>
                             ))}
@@ -629,17 +640,17 @@ export default function PortfolioPage() {
 
                       {/* All Impact Stats */}
                       {Object.keys(project.impact).length > 0 && (
-                        <div className="mb-6">
-                          <h4 className="gaming-mono text-sm font-bold text-laser-green mb-3">
-                            📈 IMPACTO:
+                        <div className="mb-4">
+                          <h4 className="gaming-mono text-xs font-bold text-laser-green mb-2">
+                            IMPACTO:
                           </h4>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid grid-cols-2 gap-2">
                             {Object.entries(project.impact).map(([key, value]) => (
-                              <div key={key} className="hud-element text-center">
-                                <div className="gaming-display text-lg font-bold text-laser-green">
+                              <div key={key} className={`text-center p-2 rounded ${config.tagBg}`}>
+                                <div className="gaming-display text-sm font-bold text-laser-green">
                                   {value}
                                 </div>
-                                <div className="gaming-mono text-xs text-led-white/60 uppercase">
+                                <div className="gaming-mono text-[10px] text-led-white/50 uppercase">
                                   {key}
                                 </div>
                               </div>
@@ -663,10 +674,10 @@ export default function PortfolioPage() {
                               audioHelpers.playClick(true)
                               trackingHelpers.trackClick(`portfolio_demo_${project.id}`)
                             }}
-                            className="flex-1 gaming-button text-sm py-2 text-center"
+                            className="flex-1 gaming-button text-xs py-2 text-center"
                           >
-                            <span className="relative z-10 flex items-center justify-center gap-2">
-                              <ExternalLink size={16} />
+                            <span className="relative z-10 flex items-center justify-center gap-1">
+                              <ExternalLink size={14} />
                               VER DEMO
                             </span>
                           </motion.a>
@@ -684,7 +695,7 @@ export default function PortfolioPage() {
                               audioHelpers.playClick(false)
                               trackingHelpers.trackClick(`portfolio_case_study_${project.id}`)
                             }}
-                            className="flex-1 gaming-card px-4 py-2 text-sm font-semibold text-electric-blue border-electric-blue hover:text-controller-black hover:bg-electric-blue transition-all duration-300 text-center"
+                            className={`flex-1 px-3 py-2 text-xs font-semibold text-electric-blue border border-electric-blue rounded hover:text-controller-black hover:bg-electric-blue transition-all duration-300 text-center`}
                           >
                             CASE STUDY
                           </motion.a>
@@ -692,11 +703,6 @@ export default function PortfolioPage() {
                       </div>
                     </motion.div>
                   )}
-
-                  {/* Circuit Pattern */}
-                  <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-                    <div className="circuit-pattern opacity-5 w-full h-full" />
-                  </div>
                 </motion.div>
               )
             })}

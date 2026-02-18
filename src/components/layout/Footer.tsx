@@ -26,7 +26,7 @@ import {
 } from 'lucide-react'
 import { audioHelpers } from '@/lib/hooks/useAudio'
 import { trackingHelpers } from '@/lib/hooks/useAchievements'
-import PixelLogo from '@/components/gaming/PixelLogo'
+import Image from 'next/image'
 
 interface FooterSection {
   title: string
@@ -183,7 +183,7 @@ export default function Footer() {
                     <div className="gaming-display text-2xl font-bold text-neon-cyan mb-1">
                       {stat.value}
                     </div>
-                    <div className="gaming-mono text-xs text-led-white/60 uppercase">
+                    <div className="gaming-mono text-sm text-led-white/60 uppercase">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -211,17 +211,16 @@ export default function Footer() {
                   onClick={() => handleLinkClick('logo')}
                   className="flex items-center gap-3 mb-6 group"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 180 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-12 h-12 bg-gradient-to-br from-neon-cyan to-gaming-purple rounded-lg flex items-center justify-center border border-neon-cyan/50 group-hover:border-neon-cyan"
-                  >
-                    <Code size={24} className="text-led-white" />
-                  </motion.div>
-                  <PixelLogo size="md" animated={true} />
+                  <Image
+                    src="/logo.png"
+                    alt="PlayCode Agency"
+                    width={600}
+                    height={180}
+                    className="h-44 w-auto"
+                  />
                 </Link>
 
-                <p className="gaming-subtitle text-sm text-led-white/80 mb-4 leading-relaxed">
+                <p className="gaming-subtitle text-base text-led-white/80 mb-4 leading-relaxed">
                   Empresa de desenvolvimento web no Brasil. Criamos sites profissionais,
                   sistemas personalizados e aplicações web que ajudam pequenas empresas
                   a atrair mais clientes e vender mais pela internet. 10+ anos de experiência.
@@ -229,7 +228,7 @@ export default function Footer() {
 
                 {/* Slogan */}
                 <div className="gaming-card p-3 border border-plasma-yellow/30 bg-plasma-yellow/5 rounded-md mb-6 max-w-sm">
-                  <div className="gaming-mono text-sm font-bold text-plasma-yellow text-center">
+                  <div className="gaming-mono text-base font-bold text-plasma-yellow text-center">
                     Sites profissionais que geram resultados reais
                   </div>
                 </div>
@@ -245,11 +244,11 @@ export default function Footer() {
                         whileHover={{ x: 5 }}
                         onClick={() => handleLinkClick(contact.label)}
                         onMouseEnter={audioHelpers.playHover}
-                        className="flex items-center gap-3 text-sm text-led-white/70 hover:text-neon-cyan transition-colors duration-300 group"
+                        className="flex items-center gap-3 text-base text-led-white/70 hover:text-neon-cyan transition-colors duration-300 group"
                       >
                         <ContactIcon size={16} className="text-neon-cyan group-hover:text-electric-blue transition-colors duration-300" />
                         <div>
-                          <div className="gaming-mono text-xs text-led-white/50 uppercase">
+                          <div className="gaming-mono text-sm text-led-white/50 uppercase">
                             {contact.label}
                           </div>
                           <div className="font-medium">
@@ -286,7 +285,7 @@ export default function Footer() {
                             rel={link.external ? 'noopener noreferrer' : undefined}
                             onClick={() => handleLinkClick(link.name, link.external)}
                             onMouseEnter={audioHelpers.playHover}
-                            className="flex items-center gap-2 text-sm text-led-white/70 hover:text-neon-cyan transition-colors duration-300 group"
+                            className="flex items-center gap-2 text-base text-led-white/70 hover:text-neon-cyan transition-colors duration-300 group"
                           >
                             {LinkIcon && (
                               <LinkIcon size={14} className="text-led-white/50 group-hover:text-neon-cyan transition-colors duration-300" />
@@ -320,7 +319,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
               {/* Social Links */}
               <div className="flex items-center gap-6">
-                <div className="gaming-mono text-sm font-bold text-neon-cyan">
+                <div className="gaming-mono text-base font-bold text-neon-cyan">
                   CONECTE-SE CONOSCO
                 </div>
                 <div className="flex gap-4">
@@ -350,7 +349,7 @@ export default function Footer() {
               </div>
 
               {/* Copyright */}
-              <div className="flex items-center gap-2 text-sm text-led-white/60">
+              <div className="flex items-center gap-2 text-base text-led-white/60">
                 <span className="gaming-mono">
                   © 2026 PlayCode Agency. Feito com
                 </span>

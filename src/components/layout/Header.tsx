@@ -22,8 +22,8 @@ import {
 } from 'lucide-react'
 import { audioHelpers } from '@/lib/hooks/useAudio'
 import { trackingHelpers } from '@/lib/hooks/useAchievements'
+import Image from 'next/image'
 import RetroGamepadIcon from '@/components/gaming/RetroGamepadIcon'
-import PixelLogo from '@/components/gaming/PixelLogo'
 
 interface NavItem {
   name: string
@@ -120,14 +120,14 @@ export default function Header() {
               onClick={() => handleNavClick(NAVIGATION[0])}
               className="flex items-center gap-3 group"
             >
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-                className="w-10 h-10 bg-gradient-to-br from-neon-cyan to-gaming-purple rounded-lg flex items-center justify-center border border-neon-cyan/50 group-hover:border-neon-cyan group-hover:shadow-[0_0_15px_rgba(0,255,255,0.5)]"
-              >
-                <RetroGamepadIcon size={20} className="text-led-white" animate={true} />
-              </motion.div>
-              <PixelLogo size="sm" animated={true} />
+              <Image
+                src="/logo.png"
+                alt="PlayCode Agency"
+                width={600}
+                height={180}
+                className="h-40 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -238,10 +238,13 @@ export default function Header() {
               <div className="p-6 border-b border-neon-cyan/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-neon-cyan to-gaming-purple rounded-lg flex items-center justify-center">
-                      <RetroGamepadIcon size={16} className="text-led-white" animate={true} />
-                    </div>
-                    <PixelLogo size="sm" animated={true} />
+                    <Image
+                      src="/logo.png"
+                      alt="PlayCode Agency"
+                      width={500}
+                      height={150}
+                      className="h-32 w-auto"
+                    />
                   </div>
                   <button
                     onClick={toggleMenu}
