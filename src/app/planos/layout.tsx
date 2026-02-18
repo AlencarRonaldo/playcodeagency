@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Planos de Desenvolvimento Web - Preços a partir de R$ 797 | PlayCode Agency",
     description: "Escolha seu plano ideal: Starter R$ 797, Business R$ 1.497, Pro R$ 2.497. Desenvolvimento profissional com 10 anos de experiência, IA integrada e suporte 24/7.",
-    url: "https://playcodeagency.xyz/planos",
+    url: "https://www.playcodeagency.xyz/planos",
   },
   alternates: {
-    canonical: "https://playcodeagency.xyz/planos",
+    canonical: "https://www.playcodeagency.xyz/planos",
   },
 };
 

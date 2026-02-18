@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sobre a PlayCode Agency - 10+ Anos Criando Soluções Digitais Inovadoras",
     description: "Desde 2014 transformando negócios com tecnologia. 50+ projetos, 40+ clientes satisfeitos, equipe especializada. Conheça nossa jornada de inovação e excelência.",
-    url: "https://playcodeagency.xyz/sobre",
+    url: "https://www.playcodeagency.xyz/sobre",
   },
   alternates: {
-    canonical: "https://playcodeagency.xyz/sobre",
+    canonical: "https://www.playcodeagency.xyz/sobre",
   },
 };
 

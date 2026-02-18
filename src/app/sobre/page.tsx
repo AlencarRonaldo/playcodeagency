@@ -165,8 +165,8 @@ export default function SobrePage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
-              { "@type": "ListItem", "position": 2, "name": "Sobre Nós", "item": "https://playcodeagency.xyz/sobre" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Sobre Nós", "item": "https://www.playcodeagency.xyz/sobre" }
             ]
           })
         }}

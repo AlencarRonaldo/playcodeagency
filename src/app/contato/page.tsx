@@ -296,8 +296,8 @@ export default function ContatoPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
-              { "@type": "ListItem", "position": 2, "name": "Contato", "item": "https://playcodeagency.xyz/contato" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Contato", "item": "https://www.playcodeagency.xyz/contato" }
             ]
           })
         }}

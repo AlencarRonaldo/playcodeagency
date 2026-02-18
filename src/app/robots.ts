@@ -10,11 +10,9 @@ export default function robots(): MetadataRoute.Robots {
         '/admin/',
         '/_next/',
         '/static/',
-        '*.json',
-        '*.xml',
       ],
     },
-    sitemap: 'https://playcodeagency.xyz/sitemap.xml',
-    host: 'https://playcodeagency.xyz'
+    sitemap: 'https://www.playcodeagency.xyz/sitemap.xml',
+    host: 'https://www.playcodeagency.xyz'
   }
 }
