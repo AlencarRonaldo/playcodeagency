@@ -185,28 +185,31 @@ const COMBOS: Combo[] = [
 
 const rarityConfig = {
   rare: {
-    border: 'border-electric-blue/60',
+    border: 'border-[#1a6b8a]',
     glow: 'shadow-[0_0_15px_rgba(0,212,255,0.4)]',
     gradient: 'from-electric-blue/20 to-electric-blue/10',
     text: 'text-electric-blue',
     accent: 'text-electric-blue',
-    bg: 'bg-electric-blue/10'
+    bg: 'bg-electric-blue/10',
+    btnBg: 'bg-[#0088aa] hover:bg-[#00a0c8]'
   },
   epic: {
-    border: 'border-gaming-purple/70',
+    border: 'border-[#6b3fa0]',
     glow: 'shadow-[0_0_20px_rgba(139,92,246,0.5)]',
     gradient: 'from-gaming-purple/25 to-gaming-purple/10',
     text: 'text-gaming-purple',
     accent: 'text-gaming-purple',
-    bg: 'bg-gaming-purple/10'
+    bg: 'bg-gaming-purple/10',
+    btnBg: 'bg-[#7c4ddb] hover:bg-[#9060ee]'
   },
   legendary: {
-    border: 'border-plasma-yellow/80',
+    border: 'border-[#a08c00]',
     glow: 'shadow-[0_0_25px_rgba(255,234,0,0.6)]',
     gradient: 'from-plasma-yellow/30 to-plasma-yellow/10',
     text: 'text-plasma-yellow',
     accent: 'text-plasma-yellow',
-    bg: 'bg-plasma-yellow/10'
+    bg: 'bg-plasma-yellow/10',
+    btnBg: 'bg-[#b8a000] hover:bg-[#d4b800]'
   }
 }
 
@@ -426,8 +429,7 @@ export default function CombosPage() {
                     whileTap={{ scale: 0.95 }}
                     className={`
                       w-full px-4 py-2 rounded-md gaming-mono text-sm font-bold
-                      border ${config.border} ${config.text}
-                      hover:bg-gradient-to-r ${config.gradient.replace('/10', '/20').replace('/5', '/10')}
+                      ${config.btnBg} text-white
                       transition-all duration-200 flex items-center justify-center gap-2
                     `}
                   >
