@@ -567,8 +567,8 @@ Gostaria de agendar uma reunião para discutir um orçamento personalizado. Quan
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.playcodeagency.xyz" },
-              { "@type": "ListItem", "position": 2, "name": "Planos e Preços", "item": "https://www.playcodeagency.xyz/planos" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Planos e Preços", "item": "https://playcodeagency.xyz/planos" }
             ]
           })
         }}

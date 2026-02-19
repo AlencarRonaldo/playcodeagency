@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Serviços de Desenvolvimento Web e IA - PlayCode Agency",
     description: "Desenvolvimento web profissional, apps móveis e integração de IA. 50+ projetos entregues, 40+ clientes satisfeitos, suporte 24/7. 10 anos de experiência transformando negócios.",
-    url: "https://www.playcodeagency.xyz/servicos",
+    url: "https://playcodeagency.xyz/servicos",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz/servicos",
+    canonical: "https://playcodeagency.xyz/servicos",
   },
 };
 

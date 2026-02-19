@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         '/static/',
       ],
     },
-    sitemap: 'https://www.playcodeagency.xyz/sitemap.xml',
-    host: 'https://www.playcodeagency.xyz'
+    sitemap: 'https://playcodeagency.xyz/sitemap.xml',
+    host: 'https://playcodeagency.xyz'
   }
 }

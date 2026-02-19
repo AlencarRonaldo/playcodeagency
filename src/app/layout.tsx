@@ -35,7 +35,7 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.playcodeagency.xyz'),
+  metadataBase: new URL('https://playcodeagency.xyz'),
   title: {
     default: "Desenvolvimento de Sites Profissionais | Empresa de Desenvolvimento Web no Brasil - PlayCode Agency",
     template: "%s | PlayCode Agency - Desenvolvimento Web Profissional"
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     "SEO para empresas", "otimização de sites para Google",
     "orçamento criação de site", "quanto custa um site profissional"
   ],
-  authors: [{ name: "PlayCode Agency", url: "https://www.playcodeagency.xyz" }],
+  authors: [{ name: "PlayCode Agency", url: "https://playcodeagency.xyz" }],
   creator: "PlayCode Agency",
   publisher: "PlayCode Agency",
   robots: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.playcodeagency.xyz",
+    url: "https://playcodeagency.xyz",
     title: "Criação de Sites Profissionais e Desenvolvimento Web para Empresas | PlayCode Agency",
     description: "Sua empresa precisa de um site profissional? Somos especialistas em desenvolvimento de sites responsivos, sistemas personalizados e aplicações web. 10+ anos de experiência. Peça seu orçamento grátis.",
     siteName: "PlayCode Agency",
@@ -94,9 +94,9 @@ export const metadata: Metadata = {
   },
   verification: { google: "vPgKvk4GHRarF5mSTdieJ23UCaQnilCsUCynCyqdwdA" },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz",
+    canonical: "https://playcodeagency.xyz",
     languages: {
-      'pt-BR': "https://www.playcodeagency.xyz",
+      'pt-BR': "https://playcodeagency.xyz",
     },
   },
   category: "technology",

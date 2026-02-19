@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       customerName: 'Ronaldo Alencar',
       serviceType: 'website',
       planType: 'starter',
-      onboardingUrl: 'https://www.playcodeagency.xyz/onboarding/test123'
+      onboardingUrl: 'https://playcodeagency.xyz/onboarding/test123'
     })
 
     console.log('✅ Email de teste enviado!')

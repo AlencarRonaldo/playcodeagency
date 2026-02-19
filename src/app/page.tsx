@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Criação de Sites Profissionais em São Bernardo do Campo | Desde R$ 797 - PlayCode Agency",
     description: "Empresa de desenvolvimento web em São Bernardo do Campo. Sites profissionais, lojas virtuais, sistemas e chatbots IA. Atendemos ABC Paulista e Grande São Paulo. Entrega em 7 dias!",
-    url: "https://www.playcodeagency.xyz",
+    url: "https://playcodeagency.xyz",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz",
+    canonical: "https://playcodeagency.xyz",
   },
 };
 
@@ -38,8 +38,8 @@ export default function Home() {
             "@type": "Organization",
             "name": "PlayCode Agency",
             "description": "Empresa de desenvolvimento web em São Bernardo do Campo especializada em criação de sites profissionais, lojas virtuais, sistemas empresariais e chatbots IA para empresas do ABC Paulista e Grande São Paulo",
-            "url": "https://www.playcodeagency.xyz",
-            "logo": "https://www.playcodeagency.xyz/logo.png",
+            "url": "https://playcodeagency.xyz",
+            "logo": "https://playcodeagency.xyz/logo.png",
             "foundingDate": "2014",
             "founder": {
               "@type": "Person",

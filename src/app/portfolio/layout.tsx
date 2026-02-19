@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Portfólio de Projetos - PlayCode Agency",
     description: "40+ projetos entregues: sites profissionais, lojas virtuais, sistemas e chatbots com IA. Veja nossos cases de sucesso.",
-    url: "https://www.playcodeagency.xyz/portfolio",
+    url: "https://playcodeagency.xyz/portfolio",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz/portfolio",
+    canonical: "https://playcodeagency.xyz/portfolio",
   },
 }
 

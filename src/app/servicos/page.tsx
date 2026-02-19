@@ -247,8 +247,8 @@ export default function ServicosPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.playcodeagency.xyz" },
-              { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://www.playcodeagency.xyz/servicos" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://playcodeagency.xyz" },
+              { "@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://playcodeagency.xyz/servicos" }
             ]
           })
         }}
@@ -305,7 +305,7 @@ export default function ServicosPage() {
             "provider": {
               "@type": "Organization",
               "name": "PlayCode Agency",
-              "url": "https://www.playcodeagency.xyz"
+              "url": "https://playcodeagency.xyz"
             },
             "serviceType": "Desenvolvimento de Sites Profissionais e Aplicações Web",
             "description": "Criação de sites responsivos, desenvolvimento web para empresas, sistemas personalizados e aplicações web sob medida",

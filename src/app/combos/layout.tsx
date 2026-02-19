@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Combos e Pacotes de Desenvolvimento Web - PlayCode Agency",
     description: "Combos especiais: site + chatbot, e-commerce + SEO. Economize até 30% combinando serviços digitais.",
-    url: "https://www.playcodeagency.xyz/combos",
+    url: "https://playcodeagency.xyz/combos",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz/combos",
+    canonical: "https://playcodeagency.xyz/combos",
   },
 }
 

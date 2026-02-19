@@ -486,7 +486,7 @@ export default function SaoBernardoPage() {
               "@type": "ProfessionalService",
               "name": "PlayCode Agency - Criação de Sites em São Bernardo do Campo",
               "description": "Empresa de desenvolvimento web em São Bernardo do Campo especializada em criação de sites profissionais, lojas virtuais, sistemas empresariais, CRM personalizado e chatbots com IA para WhatsApp.",
-              "url": "https://www.playcodeagency.xyz/sao-bernardo-do-campo",
+              "url": "https://playcodeagency.xyz/sao-bernardo-do-campo",
               "telephone": "+55-11-95653-4963",
               "email": "contato@playcodeagency.xyz",
               "address": {
@@ -583,13 +583,13 @@ export default function SaoBernardoPage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "PlayCode Agency",
-                  "item": "https://www.playcodeagency.xyz"
+                  "item": "https://playcodeagency.xyz"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "São Bernardo do Campo",
-                  "item": "https://www.playcodeagency.xyz/sao-bernardo-do-campo"
+                  "item": "https://playcodeagency.xyz/sao-bernardo-do-campo"
                 }
               ]
             })

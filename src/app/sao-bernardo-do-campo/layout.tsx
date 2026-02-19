@@ -22,10 +22,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Criação de Sites em São Bernardo do Campo | PlayCode Agency",
     description: "Sites profissionais, lojas virtuais, CRM e sistemas sob medida para empresas em São Bernardo do Campo e ABC Paulista. Entrega em 7 dias!",
-    url: "https://www.playcodeagency.xyz/sao-bernardo-do-campo",
+    url: "https://playcodeagency.xyz/sao-bernardo-do-campo",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz/sao-bernardo-do-campo",
+    canonical: "https://playcodeagency.xyz/sao-bernardo-do-campo",
   },
 }
 

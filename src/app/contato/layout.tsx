@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contato PlayCode Agency - Orçamento Gratuito e Resposta em 2h",
     description: "Solicite orçamento gratuito para seu projeto. Resposta garantida em 2h, atendimento 24/7, WhatsApp (11) 95653-4963. Vamos transformar sua ideia em realidade digital.",
-    url: "https://www.playcodeagency.xyz/contato",
+    url: "https://playcodeagency.xyz/contato",
   },
   alternates: {
-    canonical: "https://www.playcodeagency.xyz/contato",
+    canonical: "https://playcodeagency.xyz/contato",
   },
 };
 
